@@ -1,6 +1,6 @@
 {
-	"name": "astro-blog-starter-template",
-	"description": "Build a personal website, blog, or portfolio with Astro.",
+	"name": "oocxx",
+	"description": "The source repository for oocxx.com.",
 	"cloudflare": {
 		"label": "Astro Framework Starter",
 		"products": [

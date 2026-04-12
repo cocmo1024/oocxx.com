@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import SidebarCard from '../components/SidebarCard.astro';
+import ClassicShell from '../layouts/ClassicShell.astro';
+import { SITE_TITLE } from '../consts';
+
+const posts = await getCollection('blog');
+
+const sections = [
+	{
+		id: 'identity',
+		title: 'Identity and proof',
+		description: 'Artifacts people used to prove presence, traffic, and memory.',
+	},
+	{
+		id: 'navigation',
+		title: 'Navigation',
+		description: 'Structures that helped small sites point to one another.',
+	},
+	{
+		id: 'spectacle',
+		title: 'Spectacle',
+		description: 'The loud, blinking, impossible-to-ignore surface layer of the classic web.',
+	},
+	{
+		id: 'publishing',
+		title: 'Publishing',
+		description: 'How personal homepages arranged themselves and announced personality.',
+	},
+];
+---
+
+<ClassicShell
+	title={`${SITE_TITLE} | Topics`}
+	description="Topic map for the OOCXX archive: identity, navigation, spectacle, and publishing habits of the early internet."
+	pageTitle="Topic map for the excavation"
+	pageIntro="These are the four shelves that organize the archive. Each shelf is designed to support future clusters rather than one-off posts."
+	introLabel="Topics"
+>
+	<Fragment slot="right-rail">
+		<SidebarCard title="Why Topics Matter" eyebrow="SEO Shape">
+			<p>
+				Topic pages make the archive legible to humans and crawlers at the same time. They also give
+				each future post a natural parent shelf.
+			</p>
+		</SidebarCard>
+	</Fragment>
+
+	{sections.map((section) => {
+		const entries = posts
+			.filter((post) => post.data.section === section.title)
+			.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+		return (
+			<section class="section-block" id={section.id}>
+				<div class="section-head">
+					<div>
+						<p class="eyebrow">Shelf</p>
+						<h3>{section.title}</h3>
+					</div>
+					<p class="section-kicker">{entries.length} entries</p>
+				</div>
+				<p>{section.description}</p>
+
+				<div class="link-grid">
+					{entries.map((entry) => (
+						<a class="micro-card" href={`/blog/${entry.id}/`}>
+							<p class="section-kicker">{entry.data.section}</p>
+							<h4>{entry.data.title}</h4>
+							<p>{entry.data.description}</p>
+						</a>
+					))}
+				</div>
+			</section>
+		);
+	})}
+</ClassicShell>

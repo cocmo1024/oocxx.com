@@ -1,0 +1,156 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SidebarCard from '../components/SidebarCard.astro';
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../consts';
+
+interface Props {
+	title?: string;
+	description?: string;
+	image?: string;
+	pageTitle?: string;
+	pageIntro?: string;
+	introLabel?: string;
+	showPageIntro?: boolean;
+	schema?: Record<string, unknown> | Record<string, unknown>[];
+	ogType?: 'website' | 'article';
+	publishedTime?: string;
+	modifiedTime?: string;
+}
+
+const {
+	title = SITE_TITLE,
+	description = SITE_DESCRIPTION,
+	image,
+	pageTitle = SITE_TITLE,
+	pageIntro = SITE_DESCRIPTION,
+	introLabel = 'Front Page',
+	showPageIntro = true,
+	schema,
+	ogType = 'website',
+	publishedTime,
+	modifiedTime,
+} = Astro.props;
+
+const pageURL = new URL(Astro.url.pathname, Astro.site ?? SITE_URL).toString();
+const defaultSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'WebPage',
+	name: title,
+	url: pageURL,
+	description,
+	isPartOf: {
+		'@type': 'WebSite',
+		name: SITE_TITLE,
+		url: SITE_URL,
+	},
+};
+
+const schemaPayload = schema
+	? [
+			{
+				'@context': 'https://schema.org',
+				'@type': 'WebSite',
+				name: SITE_TITLE,
+				url: SITE_URL,
+				description: SITE_DESCRIPTION,
+			},
+			...(Array.isArray(schema) ? schema : [schema]),
+		]
+	: [
+			{
+				'@context': 'https://schema.org',
+				'@type': 'WebSite',
+				name: SITE_TITLE,
+				url: SITE_URL,
+				description: SITE_DESCRIPTION,
+			},
+			defaultSchema,
+		];
+---
+
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<BaseHead
+			title={title}
+			description={description}
+			image={image}
+			ogType={ogType}
+			publishedTime={publishedTime}
+			modifiedTime={modifiedTime}
+			schema={schemaPayload}
+		/>
+	</head>
+	<body>
+		<div class="site-frame">
+			<Header />
+
+			<div class="site-grid">
+				<aside class="left-rail">
+					<div class="rail-stack">
+						<SidebarCard title="Field Index" eyebrow="Artifact Clusters">
+							<ul>
+								<li><a href="/topics#identity">Identity and proof</a></li>
+								<li><a href="/topics#navigation">Rings, portals, and discovery</a></li>
+								<li><a href="/topics#spectacle">Blinking, GIFs, and spectacle</a></li>
+								<li><a href="/topics#publishing">Personal homepage habits</a></li>
+							</ul>
+						</SidebarCard>
+
+						<SidebarCard title="Fast Links" eyebrow="Seeds">
+							<ul>
+								<li><a href="/blog/webring-explainer/">What a WebRing was</a></li>
+								<li><a href="/blog/guestbook-history/">Why guestbooks mattered</a></li>
+								<li><a href="/blog/visitor-counter-history/">Why counters mattered</a></li>
+							</ul>
+						</SidebarCard>
+
+						<slot name="left-rail" />
+					</div>
+				</aside>
+
+				<main class="content-column">
+					<div class="content-stack">
+						{
+							showPageIntro && (
+								<section class="page-intro">
+									<p class="eyebrow">{introLabel}</p>
+									<h2>{pageTitle}</h2>
+									<p>{pageIntro}</p>
+								</section>
+							)
+						}
+
+						<slot />
+					</div>
+				</main>
+
+				<aside class="right-rail">
+					<div class="rail-stack">
+						<SidebarCard title="Experiment Rules" eyebrow="AI + SEO">
+							<ul>
+								<li>One clear relic term or habit per page</li>
+								<li>Useful definitions before stylistic nostalgia</li>
+								<li>Internal links between related artifacts</li>
+								<li>Human-readable metadata and stable slugs</li>
+							</ul>
+						</SidebarCard>
+
+						<SidebarCard title="Why This Site Exists" eyebrow="Lab Note">
+							<p>
+								This archive tests whether AI-assisted editorial systems can publish small,
+								topically coherent, evergreen pages that still feel authored and useful.
+							</p>
+						</SidebarCard>
+
+						<slot name="right-rail" />
+					</div>
+				</aside>
+			</div>
+
+			<Footer />
+		</div>
+	</body>
+</html>

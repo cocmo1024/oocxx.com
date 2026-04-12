@@ -1,19 +1,88 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import SidebarCard from '../components/SidebarCard.astro';
+import ClassicShell from '../layouts/ClassicShell.astro';
+import { SITE_TITLE } from '../consts';
+
+const metrics = [
+	{ title: 'Topic coherence', text: 'Do new pages reinforce the same niche instead of diluting it?' },
+	{ title: 'Internal links', text: 'Can each page naturally point to at least two related artifacts?' },
+	{ title: 'Search intent fit', text: 'Would a curious reader actually get the answer they searched for?' },
+	{ title: 'Editorial consistency', text: 'Does the archive feel like one publication rather than six disconnected AI outputs?' },
+];
 ---
 
-<Layout
-	title="About"
-	description="A short introduction."
-	pubDate={new Date()}
-	heroImage="/blog-placeholder-about.jpg"
+<ClassicShell
+	title={`${SITE_TITLE} | Lab`}
+	description="Method notes for the OOCXX AI+SEO experiment: niche selection, internal linking rules, content production rules, and first-wave measurement goals."
+	pageTitle="Lab notes for the AI+SEO experiment"
+	pageIntro="This page explains the publishing system behind the archive. The site uses AI as a drafting engine, but it is constrained by a narrow niche, explicit page shapes, and a people-first usefulness test."
+	introLabel="Lab"
 >
-	<p>
-		Hi! This is a fresh space for future posts. I’ll share updates, notes, and experiments here as
-		they’re ready.
-	</p>
-	<p>
-		If you’d like to get in touch, check back soon for contact details and social links tailored to
-		this site.
-	</p>
-</Layout>
+	<Fragment slot="left-rail">
+		<SidebarCard title="Why This Niche" eyebrow="Choice">
+			<p>
+				The early web is narrow enough to build topical authority, broad enough to branch into many
+				queries, and visually distinctive enough to support a memorable brand.
+			</p>
+		</SidebarCard>
+	</Fragment>
+
+	<section class="section-block">
+		<div class="section-head">
+			<div>
+				<p class="eyebrow">Publishing Method</p>
+				<h3>How AI is used here</h3>
+			</div>
+		</div>
+		<div class="data-list">
+			<div class="data-item">
+				<h4>AI drafts first versions</h4>
+				<p>It proposes structures, seed paragraphs, internal links, and content clusters.</p>
+			</div>
+			<div class="data-item">
+				<h4>The site constrains the output</h4>
+				<p>Every page has a specific relic, a narrow title, a description, a section, and related links.</p>
+			</div>
+			<div class="data-item">
+				<h4>Why this matters</h4>
+				<p>Without constraints, AI publishing sprawls. With constraints, it starts to resemble editorial systems.</p>
+			</div>
+			<div class="data-item">
+				<h4>What stays human</h4>
+				<p>The niche choice, overall voice, site structure, and judgment about what is genuinely useful.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="section-block">
+		<div class="section-head">
+			<div>
+				<p class="eyebrow">First Measurement Round</p>
+				<h3>What this experiment tries to learn first</h3>
+			</div>
+		</div>
+		<div class="note-grid">
+			{metrics.map((metric) => (
+				<div class="note-card">
+					<p class="section-kicker">Metric</p>
+					<h4>{metric.title}</h4>
+					<p>{metric.text}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<section class="section-block">
+		<div class="section-head">
+			<div>
+				<p class="eyebrow">Next Step</p>
+				<h3>How the archive should grow</h3>
+			</div>
+		</div>
+		<ul>
+			<li>Expand each section with adjacent relic terms instead of jumping to unrelated topics.</li>
+			<li>Turn strong posts into hub pages that collect related artifacts under one intent cluster.</li>
+			<li>Watch which pages deserve updates, examples, screenshots, or multilingual variants.</li>
+		</ul>
+	</section>
+</ClassicShell>
