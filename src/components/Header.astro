@@ -1,15 +1,29 @@
 ---
+import { getCollection } from 'astro:content';
 import HeaderLink from './HeaderLink.astro';
 import { SITE_DESCRIPTION, SITE_TAGLINE, SITE_TITLE } from '../consts';
+import { getTagCounts, getFeaturedPost, sortPosts } from '../lib/content';
+import { TOPIC_ORDER, getTopic } from '../data/taxonomy';
+
+const posts = sortPosts(await getCollection('blog'));
+const featuredPost = getFeaturedPost(posts);
+const popularTags = getTagCounts(posts).slice(0, 6);
 ---
 
 <header class="site-header">
-	<div class="header-brand">
-		<p class="eyebrow">OOCXX / INTERNET ARCHAEOLOGY LAB</p>
-		<h1>
-			<a class="site-title-link" href="/">{SITE_TITLE}</a>
-		</h1>
-		<p class="site-summary">{SITE_DESCRIPTION}</p>
+	<div class="masthead">
+		<div class="masthead-window" aria-hidden="true">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<div class="header-brand">
+			<p class="eyebrow">Archive / Essays / Field Notes</p>
+			<h1>
+				<a class="site-title-link" href="/">{SITE_TITLE}</a>
+			</h1>
+			<p class="site-summary">{SITE_DESCRIPTION}</p>
+		</div>
 	</div>
 
 	<div class="header-meta">
@@ -17,8 +31,120 @@ import { SITE_DESCRIPTION, SITE_TAGLINE, SITE_TITLE } from '../consts';
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/blog">Archive</HeaderLink>
 			<HeaderLink href="/topics">Topics</HeaderLink>
-			<HeaderLink href="/about">Lab</HeaderLink>
+			<HeaderLink href="/tags">Tags</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
 		</nav>
+		<button
+			class="menu-toggle"
+			type="button"
+			aria-controls="site-drawer"
+			aria-expanded="false"
+			data-drawer-toggle
+		>
+			Menu
+		</button>
 		<p class="header-note">{SITE_TAGLINE}</p>
 	</div>
 </header>
+
+<div class="drawer-scrim" aria-hidden="true" data-drawer-close></div>
+
+<aside class="mobile-drawer" id="site-drawer" aria-hidden="true" data-drawer>
+	<div class="mobile-drawer-header">
+		<p class="eyebrow">Browse the Archive</p>
+		<button type="button" class="drawer-close" aria-label="Close menu" data-drawer-close>
+			Close
+		</button>
+	</div>
+
+	<nav class="drawer-nav" aria-label="Mobile">
+		<HeaderLink href="/">Home</HeaderLink>
+		<HeaderLink href="/blog">Archive</HeaderLink>
+		<HeaderLink href="/topics">Topics</HeaderLink>
+		<HeaderLink href="/tags">Tags</HeaderLink>
+		<HeaderLink href="/about">About</HeaderLink>
+	</nav>
+
+	<section class="drawer-card">
+		<p class="section-kicker">Topics</p>
+		<ul>
+			{TOPIC_ORDER.map((topicKey) => {
+				const topic = getTopic(topicKey);
+				return (
+					<li>
+						<a href={`/topics/${topic.slug}/`}>{topic.name}</a>
+					</li>
+				);
+			})}
+		</ul>
+	</section>
+
+	{popularTags.length > 0 && (
+		<section class="drawer-card">
+			<p class="section-kicker">Popular tags</p>
+			<ul>
+				{popularTags.map((item) => (
+					<li>
+						<a href={`/tags/${item.slug}/`}>{item.tag}</a>
+					</li>
+				))}
+			</ul>
+		</section>
+	)}
+
+	{featuredPost && (
+		<section class="drawer-card">
+			<p class="section-kicker">Recommended</p>
+			<h3>
+				<a href={`/blog/${featuredPost.id}/`}>{featuredPost.data.title}</a>
+			</h3>
+			<p>{featuredPost.data.description}</p>
+		</section>
+	)}
+</aside>
+
+<script>
+const body = document.body;
+const drawer = document.querySelector('[data-drawer]');
+const toggleButton = document.querySelector('[data-drawer-toggle]');
+const closeButtons = Array.from(document.querySelectorAll('[data-drawer-close]'));
+const drawerLinks = Array.from(document.querySelectorAll('.mobile-drawer a'));
+
+	if (drawer && toggleButton) {
+		const setOpen = (open) => {
+			body.classList.toggle('drawer-open', open);
+			drawer.setAttribute('aria-hidden', String(!open));
+			toggleButton.setAttribute('aria-expanded', String(open));
+			closeButtons.forEach((button) => {
+				if ('hidden' in button) {
+					button.hidden = false;
+				}
+			});
+		};
+
+		toggleButton.addEventListener('click', () => {
+			const isOpen = body.classList.contains('drawer-open');
+			setOpen(!isOpen);
+		});
+
+		closeButtons.forEach((button) => {
+			button.addEventListener('click', () => setOpen(false));
+		});
+
+		drawerLinks.forEach((link) => {
+			link.addEventListener('click', () => setOpen(false));
+		});
+
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape') {
+				setOpen(false);
+			}
+		});
+
+		window.addEventListener('resize', () => {
+			if (window.innerWidth >= 1080) {
+				setOpen(false);
+			}
+		});
+	}
+</script>

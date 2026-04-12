@@ -4,27 +4,31 @@ import FormattedDate from '../components/FormattedDate.astro';
 import SidebarCard from '../components/SidebarCard.astro';
 import ClassicShell from './ClassicShell.astro';
 import { SITE_AUTHOR, SITE_TITLE, SITE_URL } from '../consts';
+import { getPostNeighbors, getPostsByTopic, getRelatedPosts, sortPosts } from '../lib/content';
+import { getTopic, type TopicKey } from '../data/taxonomy';
+import { slugifyTag } from '../data/taxonomy';
+
+type Heading = {
+	depth: number;
+	slug: string;
+	text: string;
+};
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	postId: string;
+	headings?: Heading[];
 };
 
-const { title, description, pubDate, updatedDate, heroImage, section, tags, postId } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, topic, tags, postId, headings = [] } =
+	Astro.props;
 
 const pageURL = new URL(Astro.url.pathname, Astro.site ?? SITE_URL).toString();
-const allPosts = await getCollection('blog');
-const relatedPosts = allPosts
-	.filter((entry) => entry.id !== postId)
-	.map((entry) => {
-		const sharedTags = entry.data.tags.filter((tag) => tags.includes(tag)).length;
-		const sameSection = entry.data.section === section ? 2 : 0;
-		return { entry, score: sharedTags * 3 + sameSection };
-	})
-	.filter(({ score }) => score > 0)
-	.sort((a, b) => b.score - a.score || b.entry.data.pubDate.valueOf() - a.entry.data.pubDate.valueOf())
-	.slice(0, 3)
-	.map(({ entry }) => entry);
-
+const allPosts = sortPosts(await getCollection('blog'));
+const currentPost = allPosts.find((post) => post.id === postId)!;
+const relatedPosts = getRelatedPosts(allPosts, currentPost, 3);
+const topicPosts = getPostsByTopic(allPosts, topic).filter((entry) => entry.id !== postId).slice(0, 3);
+const neighbors = getPostNeighbors(allPosts, postId);
+const topicData = getTopic(topic as TopicKey);
 const articleSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'BlogPosting',
@@ -45,8 +49,10 @@ const articleSchema = {
 	},
 	mainEntityOfPage: pageURL,
 	keywords: tags.join(', '),
-	articleSection: section,
+	articleSection: topicData.name,
 };
+
+const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
 ---
 
 <ClassicShell
@@ -59,24 +65,36 @@ const articleSchema = {
 	modifiedTime={(updatedDate ?? pubDate).toISOString()}
 	schema={articleSchema}
 >
-	<Fragment slot="left-rail">
-		<SidebarCard title="Entry Data" eyebrow="Artifact File">
-			<p><strong>Section:</strong> {section}</p>
+	<Fragment slot="sidebar-top">
+		<SidebarCard title="Article Info" eyebrow="Reference">
+			<p><strong>Topic:</strong> <a href={`/topics/${topicData.slug}/`}>{topicData.name}</a></p>
 			<p><strong>Published:</strong> <FormattedDate date={pubDate} /></p>
 			{updatedDate && <p><strong>Updated:</strong> <FormattedDate date={updatedDate} /></p>}
 			{tags.length > 0 && (
 				<ul>
 					{tags.map((tag) => (
-						<li>{tag}</li>
+						<li><a href={`/tags/${slugifyTag(tag)}/`}>{tag}</a></li>
 					))}
 				</ul>
 			)}
 		</SidebarCard>
+
+		{tocItems.length > 0 && (
+			<SidebarCard title="On This Page" eyebrow="Contents">
+				<ul>
+					{tocItems.map((heading) => (
+						<li class:list={{ 'toc-subitem': heading.depth === 3 }}>
+							<a href={`#${heading.slug}`}>{heading.text}</a>
+						</li>
+					))}
+				</ul>
+			</SidebarCard>
+		)}
 	</Fragment>
 
-	<Fragment slot="right-rail">
-		<SidebarCard title="Related Relics" eyebrow="Internal Links">
-			{relatedPosts.length > 0 ? (
+	<Fragment slot="sidebar-bottom">
+		{relatedPosts.length > 0 && (
+			<SidebarCard title="Related Reading" eyebrow="Continue">
 				<ul>
 					{relatedPosts.map((entry) => (
 						<li>
@@ -84,15 +102,21 @@ const articleSchema = {
 						</li>
 					))}
 				</ul>
-			) : (
-				<p>The archive is still small, so this page is currently a terminal artifact.</p>
-			)}
-		</SidebarCard>
+			</SidebarCard>
+		)}
 	</Fragment>
 
 	<article class="article-shell">
+		<nav class="breadcrumb" aria-label="Breadcrumb">
+			<a href="/">Home</a>
+			<span aria-hidden="true">/</span>
+			<a href="/blog">Archive</a>
+			<span aria-hidden="true">/</span>
+			<a href={`/topics/${topicData.slug}/`}>{topicData.name}</a>
+		</nav>
+
 		<header class="article-header">
-			<p class="eyebrow">{section}</p>
+			<p class="eyebrow">{topicData.name}</p>
 			<h1>{title}</h1>
 			<p class="article-description">{description}</p>
 			<div class="meta-row">
@@ -107,7 +131,9 @@ const articleSchema = {
 			{tags.length > 0 && (
 				<ul class="tag-row" aria-label="Article topics">
 					{tags.map((tag) => (
-						<li>{tag}</li>
+						<li>
+							<a href={`/tags/${slugifyTag(tag)}/`}>{tag}</a>
+						</li>
 					))}
 				</ul>
 			)}
@@ -119,22 +145,65 @@ const articleSchema = {
 			</div>
 		)}
 
+		{tocItems.length > 0 && (
+			<section class="section-block mobile-only">
+				<div class="section-head">
+					<div>
+						<p class="eyebrow">On This Page</p>
+						<h3>Section guide</h3>
+					</div>
+				</div>
+				<ul class="inline-toc">
+					{tocItems.map((heading) => (
+						<li class:list={{ 'toc-subitem': heading.depth === 3 }}>
+							<a href={`#${heading.slug}`}>{heading.text}</a>
+						</li>
+					))}
+				</ul>
+			</section>
+		)}
+
 		<div class="article-prose prose">
 			<slot />
 		</div>
+
+		<section class="section-block">
+			<div class="section-head">
+				<div>
+					<p class="eyebrow">More In This Topic</p>
+					<h3>{topicData.name}</h3>
+				</div>
+			</div>
+			<div class="link-grid">
+				{topicPosts.length > 0 ? (
+					topicPosts.map((entry) => (
+						<a class="micro-card" href={`/blog/${entry.id}/`}>
+							<p class="section-kicker">{getTopic(entry.data.topic).name}</p>
+							<h4>{entry.data.title}</h4>
+							<p>{entry.data.description}</p>
+						</a>
+					))
+				) : (
+					<div class="note-card">
+						<p class="section-kicker">Archive Note</p>
+						<p>This is currently the only article filed under this topic.</p>
+					</div>
+				)}
+			</div>
+		</section>
 
 		{relatedPosts.length > 0 && (
 			<section class="section-block">
 				<div class="section-head">
 					<div>
-						<p class="eyebrow">Next Relics</p>
-						<h3>Continue the excavation</h3>
+						<p class="eyebrow">Related Articles</p>
+						<h3>Continue reading</h3>
 					</div>
 				</div>
 				<div class="link-grid">
 					{relatedPosts.map((entry) => (
 						<a class="micro-card" href={`/blog/${entry.id}/`}>
-							<p class="section-kicker">{entry.data.section}</p>
+							<p class="section-kicker">{getTopic(entry.data.topic).name}</p>
 							<h4>{entry.data.title}</h4>
 							<p>{entry.data.description}</p>
 						</a>
@@ -142,5 +211,40 @@ const articleSchema = {
 				</div>
 			</section>
 		)}
+
+		<section class="section-block">
+			<div class="section-head">
+				<div>
+					<p class="eyebrow">Archive Navigation</p>
+					<h3>Previous and next</h3>
+				</div>
+			</div>
+			<div class="link-grid">
+				{neighbors.newer ? (
+					<a class="micro-card" href={`/blog/${neighbors.newer.id}/`}>
+						<p class="section-kicker">Newer</p>
+						<h4>{neighbors.newer.data.title}</h4>
+						<p>{neighbors.newer.data.description}</p>
+					</a>
+				) : (
+					<div class="note-card">
+						<p class="section-kicker">Newer</p>
+						<p>This is the latest article in the archive.</p>
+					</div>
+				)}
+				{neighbors.older ? (
+					<a class="micro-card" href={`/blog/${neighbors.older.id}/`}>
+						<p class="section-kicker">Older</p>
+						<h4>{neighbors.older.data.title}</h4>
+						<p>{neighbors.older.data.description}</p>
+					</a>
+				) : (
+					<div class="note-card">
+						<p class="section-kicker">Older</p>
+						<p>This is currently the oldest published article.</p>
+					</div>
+				)}
+			</div>
+		</section>
 	</article>
 </ClassicShell>

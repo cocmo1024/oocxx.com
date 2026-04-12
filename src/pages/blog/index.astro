@@ -4,50 +4,75 @@ import PostPreviewCard from '../../components/PostPreviewCard.astro';
 import SidebarCard from '../../components/SidebarCard.astro';
 import ClassicShell from '../../layouts/ClassicShell.astro';
 import { SITE_TITLE } from '../../consts';
+import { TOPIC_ORDER, getTopic } from '../../data/taxonomy';
+import { getFeaturedPost, getTagCounts, sortPosts } from '../../lib/content';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-
-const sectionCounts = Array.from(
-	posts.reduce((map, post) => {
-		map.set(post.data.section, (map.get(post.data.section) ?? 0) + 1);
-		return map;
-	}, new Map<string, number>()),
-);
+const posts = sortPosts(await getCollection('blog'));
+const featuredPost = getFeaturedPost(posts);
+const tagCounts = getTagCounts(posts).slice(0, 10);
 ---
 
 <ClassicShell
 	title={`${SITE_TITLE} | Archive`}
-	description="Full archive of OOCXX field notes on web rings, guestbooks, counters, GeoCities layouts, and other early internet artifacts."
-	pageTitle="Archive and field-note stream"
-	pageIntro="This is the full excavation log. Every entry targets one classic internet object, phrase, or habit and links back into a broader topic cluster."
+	description="The complete OOCXX archive of articles about small websites, WebRings, guestbooks, counters, homepage layouts, and old web design."
+	pageTitle="The complete archive"
+	pageIntro="Every article in the archive is filed under a specific topic and linked to related tags so the site remains useful both as a reading experience and as a reference shelf."
 	introLabel="Archive"
 >
-	<Fragment slot="left-rail">
-		<SidebarCard title="Archive Shape" eyebrow="Sections">
+	<Fragment slot="sidebar-top">
+		<SidebarCard title="Archive Map" eyebrow="Sections">
 			<ul>
-				{sectionCounts.map(([section, count]) => (
-					<li>{section}: {count}</li>
-				))}
+				{TOPIC_ORDER.map((topicKey) => {
+					const topic = getTopic(topicKey);
+					const count = posts.filter((post) => post.data.topic === topicKey).length;
+					return (
+						<li>
+							<a href={`/topics/${topic.slug}/`}>{topic.name}</a> ({count})
+						</li>
+					);
+				})}
 			</ul>
 		</SidebarCard>
 	</Fragment>
 
+	<Fragment slot="sidebar-bottom">
+		{tagCounts.length > 0 && (
+			<SidebarCard title="Tag Directory" eyebrow="Browse">
+				<ul>
+					{tagCounts.map((tag) => (
+						<li>
+							<a href={`/tags/${tag.slug}/`}>{tag.tag}</a>
+						</li>
+					))}
+				</ul>
+			</SidebarCard>
+		)}
+	</Fragment>
+
+	{featuredPost && (
+		<section class="section-block">
+			<div class="section-head">
+				<div>
+					<p class="eyebrow">Editor’s Pick</p>
+					<h3>The lead article from the archive</h3>
+				</div>
+			</div>
+			<PostPreviewCard post={featuredPost} featured={true} />
+		</section>
+	)}
+
 	<section class="section-block">
 		<div class="section-head">
 			<div>
-				<p class="eyebrow">Reading Order</p>
-				<h3>Latest field notes first</h3>
+				<p class="eyebrow">All Posts</p>
+				<h3>Published in reverse chronological order</h3>
 			</div>
 		</div>
 
 		<div class="post-stream">
-			{posts.length === 0 ? (
-				<p>No field notes have been filed yet.</p>
-			) : (
-				posts.map((post, index) => <PostPreviewCard post={post} featured={index === 0} />)
-			)}
+			{posts.map((post) => (
+				<PostPreviewCard post={post} />
+			))}
 		</div>
 	</section>
 </ClassicShell>

@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import PostPreviewCard from '../../components/PostPreviewCard.astro';
+import SidebarCard from '../../components/SidebarCard.astro';
+import ClassicShell from '../../layouts/ClassicShell.astro';
+import { SITE_TITLE } from '../../consts';
+import { TOPIC_ORDER, getTopic } from '../../data/taxonomy';
+import { getPostsByTopic, getTagCounts, sortPosts } from '../../lib/content';
+
+export async function getStaticPaths() {
+	return TOPIC_ORDER.map((key) => ({
+		params: { topic: getTopic(key).slug },
+		props: { topicKey: key },
+	}));
+}
+
+const { topicKey } = Astro.props;
+const topic = getTopic(topicKey);
+const allPosts = sortPosts(await getCollection('blog'));
+const posts = getPostsByTopic(allPosts, topicKey);
+const tagCounts = getTagCounts(posts).slice(0, 10);
+
+const schema = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: `${topic.name} | ${SITE_TITLE}`,
+	description: topic.description,
+};
+---
+
+<ClassicShell
+	title={`${topic.name} | ${SITE_TITLE}`}
+	description={topic.description}
+	pageTitle={topic.name}
+	pageIntro={topic.description}
+	introLabel="Topic"
+	schema={schema}
+>
+	<Fragment slot="sidebar-top">
+		<SidebarCard title="Topic Notes" eyebrow="Overview">
+			<p>{topic.shortDescription}</p>
+		</SidebarCard>
+	</Fragment>
+
+	<Fragment slot="sidebar-bottom">
+		{tagCounts.length > 0 && (
+			<SidebarCard title="Common Tags" eyebrow="Keywords">
+				<ul>
+					{tagCounts.map((tag) => (
+						<li>
+							<a href={`/tags/${tag.slug}/`}>{tag.tag}</a>
+						</li>
+					))}
+				</ul>
+			</SidebarCard>
+		)}
+	</Fragment>
+
+	<section class="section-block">
+		<div class="section-head">
+			<div>
+				<p class="eyebrow">Topic Archive</p>
+				<h3>{posts.length} article{posts.length === 1 ? '' : 's'} filed here</h3>
+			</div>
+		</div>
+		<div class="post-stream">
+			{posts.map((post, index) => (
+				<PostPreviewCard post={post} featured={index === 0} />
+			))}
+		</div>
+	</section>
+</ClassicShell>

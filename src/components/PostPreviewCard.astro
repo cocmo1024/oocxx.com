@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
+import { getTopic } from '../data/taxonomy';
 
 interface Props {
 	post: CollectionEntry<'blog'>;
@@ -9,6 +10,7 @@ interface Props {
 
 const { post, featured = false } = Astro.props;
 const tags = post.data.tags.slice(0, 3);
+const topic = getTopic(post.data.topic);
 ---
 
 <article class:list={['post-card', { featured }]}>
@@ -23,7 +25,7 @@ const tags = post.data.tags.slice(0, 3);
 
 		<div class="post-card-body">
 			<div class="meta-row">
-				<span class="meta-pill">{post.data.section}</span>
+				<span class="meta-pill">{topic.name}</span>
 				<FormattedDate date={post.data.pubDate} />
 			</div>
 			<h2 class="post-card-title">{post.data.title}</h2>

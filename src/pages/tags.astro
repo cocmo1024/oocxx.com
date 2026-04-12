@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import SidebarCard from '../components/SidebarCard.astro';
+import ClassicShell from '../layouts/ClassicShell.astro';
+import { SITE_TITLE } from '../consts';
+import { getTagCounts, sortPosts } from '../lib/content';
+
+const posts = sortPosts(await getCollection('blog'));
+const tags = getTagCounts(posts);
+---
+
+<ClassicShell
+	title={`${SITE_TITLE} | Tags`}
+	description="Browse the OOCXX archive by tag, including WebRing, guestbook, counter, GeoCities, marquee, and other early web keywords."
+	pageTitle="Browse the archive by tag"
+	pageIntro="Tags connect articles that share a tool, trope, or specific vocabulary item across the broader topic structure."
+	introLabel="Tags"
+>
+	<Fragment slot="sidebar-top">
+		<SidebarCard title="How Tags Work" eyebrow="Navigation">
+			<p>
+				Topics organize the archive broadly. Tags cross-link smaller ideas such as WebRing, Guestbook,
+				Counter, Blink, Marquee, or GeoCities.
+			</p>
+		</SidebarCard>
+	</Fragment>
+
+	<section class="section-block">
+		<div class="section-head">
+			<div>
+				<p class="eyebrow">Tag Cloud</p>
+				<h3>Every keyword currently used in the archive</h3>
+			</div>
+		</div>
+		<ul class="tag-cloud" aria-label="All tags">
+			{tags.map((tag) => (
+				<li>
+					<a href={`/tags/${tag.slug}/`}>{tag.tag}</a>
+					<span class="tag-count">{tag.count}</span>
+				</li>
+			))}
+		</ul>
+	</section>
+</ClassicShell>

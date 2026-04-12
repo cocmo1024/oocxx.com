@@ -1,64 +1,55 @@
 ---
-title: GeoCities 风格主页：九十年代个人网站最典型的布局方法
-description: GeoCities 式主页不是单一模板，而是一整套个人网页表演法：欢迎词、分栏、GIF、纹理背景、链接按钮，以及强烈的“这是我家”感。
+title: GeoCities-Style Homepage Layouts and the Art of the Personal Website
+description: GeoCities-style homepages were not just messy old layouts. They were a distinct way of turning a website into a room with a host, a mood, and a visible personality.
 pubDate: 2026-04-08
 heroImage: /blog-placeholder-about.jpg
-section: Publishing
+topic: publishing
 tags:
   - GeoCities
-  - 个人主页布局
-  - 复古网页
-  - 首页设计
+  - Homepage Layout
+  - Personal Homepages
+  - Retro Design
 featured: false
 ---
 
-很多人一提到古典互联网视觉，就会立刻想到 GeoCities 风格主页。严格说，这不是一个单一模板，而是一类非常明确的网页气质。
+When people talk about the visual memory of the early web, they often mean the GeoCities-style homepage: bright panels, tiled backgrounds, GIF badges, counters, personal notes, and a strong sense that a real person lived behind the page.
 
-它常常包含这些元素：
+That mattered because these pages were not just containers for content. They were personal environments.
 
-- 欢迎语或站长自我介绍
-- 左右栏或多区块布局
-- 纹理背景和边框图片
-- GIF 按钮、计数器、留言簿入口
-- “关于我”“友情链接”“正在更新” 这样的直白栏目
+## What made a homepage feel “GeoCities-style”
 
-这些东西加起来，构成了一种非常强的网页人格感。
+There was no single mandatory template, but many pages shared a familiar structure:
 
-## GeoCities 风格为什么重要
+- a welcome message or self-introduction
+- a homepage-style navigation area
+- decorative borders, backgrounds, or buttons
+- interactive elements such as guestbooks or counters
+- a visible sense of authorship
 
-因为它把网页从“文件”推向了“空间”。
+The site did not pretend to be neutral. It wanted you to know whose page you had entered.
 
-很多早期主页不是在展示某一篇内容，而是在展示一个人的数字房间。访客进来的第一感觉，不是“我看见了一篇文章”，而是“我进入了某个人布置过的地方”。
+## Why this layout style mattered
 
-这也是为什么 GeoCities 会自然连接到 [Guestbook 留言簿](/blog/guestbook-history/) 和 [访客计数器 Counter](/blog/visitor-counter-history/)。如果网页像一个房间，那主人当然会希望你留下脚印。
+The GeoCities homepage turned the web from a publishing surface into a domestic one. It felt less like opening an article and more like stepping into somebody’s room.
 
-## 一个典型的 GeoCities 式主页会怎么组织内容
+That is why it fits so naturally beside [guestbooks](/blog/guestbook-history/) and [visitor counters](/blog/visitor-counter-history/). Once a page starts to feel like a place with an owner, it also starts to invite social traces.
 
-虽然页面往往很自由，但仍有一些常见结构：
+## Why this style looks strange now
 
-1. 顶部欢迎区，用来声明网站气氛和站长身份。
-2. 导航区，通往照片、日志、爱好、收藏、朋友链接。
-3. 互动区，常见就是留言簿、邮箱和计数器。
-4. 装饰区，负责制造页面个性和“停留感”。
+Modern websites are strongly shaped by product logic, responsive systems, and content efficiency. GeoCities-era homepages belonged to a different logic: personality first, optimization second.
 
-这种结构今天看来并不“专业”，但它非常鲜活，因为站长会把自己的偏好毫不遮掩地写进页面里。
+That does not make them useless. It makes them evidence of another idea about what a website could be.
 
-## 为什么它后来显得“过时”
+## What still feels relevant today
 
-因为网页逐渐商业化、产品化、标准化。信息效率、可用性和响应式布局，慢慢压过了私人房间式的表达。
+Even if you would not copy every tiled background or flashing badge, the GeoCities homepage still offers one serious lesson:
 
-但这不意味着它一无是处。相反，GeoCities 风格主页让我们重新看到一个被现代网页压扁的问题：
+**A website can feel unmistakably inhabited.**
 
-> 网站到底只是一个容器，还是一个有主人感的场所？
+That is a powerful idea in a period when many sites feel interchangeable.
 
-## 为什么今天值得重新研究这种布局
+## Related reading
 
-一方面，它是网页历史的重要视觉样本；另一方面，它对今天的独立站建设仍有启发。
-
-你不必复制闪烁背景和拥挤按钮，但你可以重新学习它最珍贵的部分：**网页可以有明显的主人人格，而不只是模板秩序。**
-
-## 相关遗迹
-
-- [Guestbook 留言簿简史](/blog/guestbook-history/)
-- [WebRing 是什么？](/blog/webring-explainer/)
-- [<blink> 与 <marquee> 的年代](/blog/blink-marquee-tags/)
+- [The history of guestbooks](/blog/guestbook-history/)
+- [The era of blink and marquee text](/blog/blink-marquee-tags/)
+- [What a WebRing was](/blog/webring-explainer/)

@@ -1,61 +1,57 @@
 ---
-title: Under Construction GIF 为什么成了古典互联网最著名的黄黑横幅
-description: Under Construction 横幅曾经几乎是个人网页的通用表情。它同时意味着“这里还没完工”和“这个页面还活着”。
+title: Why “Under Construction” GIFs Became a Symbol of the Early Web
+description: The classic Under Construction banner did more than announce unfinished work. It told visitors that a small website was alive, changing, and still under the care of a real person.
 pubDate: 2026-04-06
 heroImage: /blog-placeholder-4.jpg
-section: Spectacle
+topic: spectacle
 tags:
   - Under Construction
   - GIF
-  - 复古网页设计
-  - 古典互联网
+  - Web Graphics
+  - Retro Design
 featured: false
 ---
 
-如果你只记得一种古典互联网图像，很多时候就是那条黄黑相间、不断闪动的 **Under Construction** 横幅。
+If you had to pick one image that instantly says “old web,” it might be the flashing **Under Construction** banner in yellow and black.
 
-它本来是在说“本页施工中”，但在实际网页文化里，它的含义远不止这个。它更像一种公开声明：**这个网站仍在生长，站长本人还在这里。**
+It was a warning, a joke, and a sign of life all at once.
 
-## 为什么大家都爱挂施工横幅
+## Why these banners were so common
 
-今天的网站通常希望看起来完整、稳定、成熟。早期个人主页不是这样。那时候“还在建设中”不一定是缺点，反而是一种正常状态。
+The early personal web was rarely polished in the modern sense. Pages changed often. New sections were added by hand. Broken links stayed around. A site was usually an ongoing personal project rather than a finished product.
 
-因为网页就是不断手工追加的。你今天上传一页照片，明天加一个 MIDI，后天换一个背景纹理。页面长期不完工，本身就是个人主页文化的一部分。
+That made the Under Construction banner perfectly honest. It told visitors: this page is still being made.
 
-于是 Under Construction 横幅既是提醒，也是风格声明。它让未完成变成一种可见的网页气氛。
+## What the banner communicated beyond its literal message
 
-## 它为什么会成为视觉图腾
+The banner carried several meanings at once:
 
-这条横幅有几个很强的识别点：
+- the site is active
+- the owner still cares about it
+- the page is incomplete, but not abandoned
+- imperfection is part of the charm
 
-- 高对比黄黑配色
-- 重复警示条纹
-- 常见的动画闪动
-- 文案极度直接
+In that sense it was less an apology than a status update.
 
-这些元素让它非常适合早期网页。因为当年的页面往往希望“被一眼看见”，而不是被温柔地理解。
+## Why it became a visual icon
 
-如果你把它和 [blink 与 marquee 的年代](/blog/blink-marquee-tags/) 放在一起看，就会发现它们属于同一种表演冲动：**网页必须发声，必须动，必须宣布自己存在。**
+The format was built for instant recognition:
 
-## 为什么今天还会不断回潮
+- strong yellow-and-black contrast
+- bold industrial wording
+- repeating stripes
+- often some form of animation
 
-Under Construction 横幅之所以没有消失，是因为它满足了两种当代需求：
+Those qualities made it perfect for a web that was not shy about asking for attention. It belongs to the same visual family as [blink and marquee text](/blog/blink-marquee-tags/): loud, direct, and hard to ignore.
 
-1. 复古网页设计需要一个立刻可识别的符号。
-2. 独立站点重新开始接受“不完美上线”这件事。
+## Why people still care about it now
 
-在模板化网站越来越多的今天，这个横幅反而显得有点诚实。它承认网站还没完成，也承认网页是一个会持续变动的东西。
+Part of the appeal is nostalgia, but another part is philosophical. The banner represents a stage of the web in which incompleteness could be public. A site did not have to pretend to be finished in order to exist.
 
-## 它和 SEO 有冲突吗
+That feels relevant again in an age of personal publishing, indie sites, and ongoing digital notebooks.
 
-如果你真的把一个重要页面长期停留在“未完成”状态，当然不理想。但作为历史对象或风格符号，它本身并不妨碍有价值的内容。
+## Related reading
 
-真正的问题从来不是横幅，而是页面是否真的回答了读者的问题。
-
-所以在这个档案馆里，Under Construction 被当作一个文化对象来解释，而不是一个借口。你可以欣赏它的视觉语言，也要看见它背后的网页工作方式。
-
-## 相关遗迹
-
-- [<blink> 与 <marquee> 的时代](/blog/blink-marquee-tags/)
-- [GeoCities 风格主页](/blog/geocities-homepage-layout/)
-- [访客计数器 Counter 的历史](/blog/visitor-counter-history/)
+- [The era of blink and marquee text](/blog/blink-marquee-tags/)
+- [GeoCities-style homepage layouts](/blog/geocities-homepage-layout/)
+- [Why visitor counters mattered](/blog/visitor-counter-history/)

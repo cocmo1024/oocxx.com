@@ -1,58 +1,59 @@
 ---
-title: <blink> 与 <marquee>：网页为什么曾经必须闪烁和滚动
-description: 在早期网页里，静止常常被视为不够热闹。blink 和 marquee 让文字闪烁、滚动，也把网页推向一种近乎喧闹的表现欲。
+title: The Era of blink and marquee Text
+description: blink and marquee made text flash and scroll across early web pages. They were crude by modern standards, but they reveal how strongly the classic web wanted to be seen and heard.
 pubDate: 2026-04-07
 heroImage: /blog-placeholder-5.jpg
-section: Spectacle
+topic: spectacle
 tags:
-  - blink
-  - marquee
-  - 早期HTML
-  - 网页动效
+  - Blink
+  - Marquee
+  - HTML
+  - Web Motion
 featured: false
 ---
 
-今天的网页动效讲究克制、节奏和转场逻辑。但在早期互联网，很多页面的想法更简单：**只要能动，就让它动。**
+Modern web motion is usually judged by restraint. Early web motion often worked by a much simpler principle:
 
-`<blink>` 会让文字闪烁，`<marquee>` 会让文字水平滚动。两者在现代语义和可访问性标准里都很“失礼”，但在它们流行的年代，却代表了一种非常典型的网页表演欲。
+> If something could move, it probably should.
 
-## 为什么网页当年要这么吵
+That is the world in which `<blink>` and `<marquee>` made sense.
 
-因为早期个人网站的竞争，不是“谁更沉稳”，而是“谁更醒目”。
+## What these tags did
 
-你的页面必须在有限的屏幕空间里展示个性、幽默、审美甚至存在感。闪烁文字和跑马灯就是最廉价也最直接的办法。
+`<blink>` made text flash on and off.
+`<marquee>` made text scroll horizontally across the page.
 
-它们和 [Under Construction 横幅](/blog/under-construction-gif/) 属于同一条视觉谱系：高注意力、低克制、强存在感。
+Neither tag fits modern standards for accessibility or readability, but both became famous because they made a static page feel animated with almost no effort.
 
-## blink 和 marquee 真正重要的地方
+## Why the early web embraced this kind of motion
 
-如果只把它们当成“丑陋旧标签”，会漏掉一层更关键的历史信息：它们暴露了早期网页设计对注意力的理解。
+The web of personal sites and fan pages was highly competitive for attention, even when it was small. People wanted their pages to feel vivid, expressive, and impossible to miss.
 
-那个时代的站长通常不相信静态排版会自然吸引你，所以他们会主动制造动作。动作本身就是网页的一部分内容。
+That made flashing or moving text attractive. Motion itself became part of the content.
 
-换句话说，blink 和 marquee 代表的不是某两个标签，而是一种老网页的基本态度：
+The same appetite explains why these tags feel naturally connected to [Under Construction graphics](/blog/under-construction-gif/). Both belong to a visual culture that preferred visible energy over quiet hierarchy.
 
-> 页面不是安静地等你阅读，而是主动拉扯你的视线。
+## What blink and marquee tell us about early design
 
-## 为什么它们后来被淘汰
+They show that early site owners often treated attention as something that had to be actively seized.
 
-原因也很明确：
+Modern interfaces tend to assume that typography, layout, and information structure can guide the eye. Older pages often trusted raw motion more than they trusted calm composition.
 
-- 可读性差
-- 容易造成视觉疲劳
-- 不利于更复杂的排版系统
-- 和现代浏览器、标准化前端实践不合
+That makes these tags useful historical evidence. They reveal an older theory of interface design: **the page should call out to the visitor, not wait politely to be read.**
 
-但从网页考古角度看，它们很有价值，因为它们让我们看到网页设计从“注意力尖叫”走向“信息秩序”的过程。
+## Why these tags disappeared
 
-## 今天为什么还值得重新理解
+They were gradually abandoned because they created obvious problems:
 
-今天很多设计趋势其实仍在重复这个问题：动效到底是功能，还是表演？
+- they reduced readability
+- they caused visual fatigue
+- they were hard to integrate into more sophisticated layouts
+- they fit poorly with modern standards-based front-end practice
 
-所以你重新研究 blink 和 marquee，不是为了把全站重新做得闪个不停，而是为了搞清楚网页为什么会一度如此渴望发光和移动。
+Even so, they remain valuable as artifacts of an earlier design temperament.
 
-## 相关遗迹
+## Related reading
 
-- [Under Construction GIF 为什么那么经典](/blog/under-construction-gif/)
-- [GeoCities 风格主页](/blog/geocities-homepage-layout/)
-- [WebRing 是什么？](/blog/webring-explainer/)
+- [Why Under Construction GIFs became iconic](/blog/under-construction-gif/)
+- [GeoCities-style homepage layouts](/blog/geocities-homepage-layout/)
+- [What a WebRing was](/blog/webring-explainer/)

@@ -1,9 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
 import SidebarCard from '../components/SidebarCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../consts';
+import { getTagCounts, sortPosts } from '../lib/content';
+import { TOPIC_ORDER, getTopic } from '../data/taxonomy';
 
 interface Props {
 	title?: string;
@@ -25,7 +28,7 @@ const {
 	image,
 	pageTitle = SITE_TITLE,
 	pageIntro = SITE_DESCRIPTION,
-	introLabel = 'Front Page',
+	introLabel = 'Overview',
 	showPageIntro = true,
 	schema,
 	ogType = 'website',
@@ -68,10 +71,14 @@ const schemaPayload = schema
 			},
 			defaultSchema,
 		];
+
+const posts = sortPosts(await getCollection('blog'));
+const latestPosts = posts.slice(0, 4);
+const popularTags = getTagCounts(posts).slice(0, 10);
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 	<head>
 		<BaseHead
 			title={title}
@@ -87,30 +94,7 @@ const schemaPayload = schema
 		<div class="site-frame">
 			<Header />
 
-			<div class="site-grid">
-				<aside class="left-rail">
-					<div class="rail-stack">
-						<SidebarCard title="Field Index" eyebrow="Artifact Clusters">
-							<ul>
-								<li><a href="/topics#identity">Identity and proof</a></li>
-								<li><a href="/topics#navigation">Rings, portals, and discovery</a></li>
-								<li><a href="/topics#spectacle">Blinking, GIFs, and spectacle</a></li>
-								<li><a href="/topics#publishing">Personal homepage habits</a></li>
-							</ul>
-						</SidebarCard>
-
-						<SidebarCard title="Fast Links" eyebrow="Seeds">
-							<ul>
-								<li><a href="/blog/webring-explainer/">What a WebRing was</a></li>
-								<li><a href="/blog/guestbook-history/">Why guestbooks mattered</a></li>
-								<li><a href="/blog/visitor-counter-history/">Why counters mattered</a></li>
-							</ul>
-						</SidebarCard>
-
-						<slot name="left-rail" />
-					</div>
-				</aside>
-
+			<div class="layout-shell">
 				<main class="content-column">
 					<div class="content-stack">
 						{
@@ -127,25 +111,46 @@ const schemaPayload = schema
 					</div>
 				</main>
 
-				<aside class="right-rail">
-					<div class="rail-stack">
-						<SidebarCard title="Experiment Rules" eyebrow="AI + SEO">
+				<aside class="sidebar-column">
+					<div class="sidebar-stack">
+						<slot name="sidebar-top" />
+
+						<SidebarCard title="Browse by Topic" eyebrow="Shelf Index">
 							<ul>
-								<li>One clear relic term or habit per page</li>
-								<li>Useful definitions before stylistic nostalgia</li>
-								<li>Internal links between related artifacts</li>
-								<li>Human-readable metadata and stable slugs</li>
+								{TOPIC_ORDER.map((topicKey) => {
+									const topic = getTopic(topicKey);
+									return (
+										<li>
+											<a href={`/topics/${topic.slug}/`}>{topic.name}</a>
+										</li>
+									);
+								})}
 							</ul>
 						</SidebarCard>
 
-						<SidebarCard title="Why This Site Exists" eyebrow="Lab Note">
-							<p>
-								This archive tests whether AI-assisted editorial systems can publish small,
-								topically coherent, evergreen pages that still feel authored and useful.
-							</p>
+						{popularTags.length > 0 && (
+							<SidebarCard title="Popular Tags" eyebrow="Keywords">
+								<ul>
+									{popularTags.slice(0, 6).map((tag) => (
+										<li>
+											<a href={`/tags/${tag.slug}/`}>{tag.tag}</a>
+										</li>
+									))}
+								</ul>
+							</SidebarCard>
+						)}
+
+						<SidebarCard title="Latest Posts" eyebrow="Archive Feed">
+							<ul>
+								{latestPosts.map((post) => (
+									<li>
+										<a href={`/blog/${post.id}/`}>{post.data.title}</a>
+									</li>
+								))}
+							</ul>
 						</SidebarCard>
 
-						<slot name="right-rail" />
+						<slot name="sidebar-bottom" />
 					</div>
 				</aside>
 			</div>

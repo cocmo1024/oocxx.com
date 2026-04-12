@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import PostPreviewCard from '../../components/PostPreviewCard.astro';
+import SidebarCard from '../../components/SidebarCard.astro';
+import ClassicShell from '../../layouts/ClassicShell.astro';
+import { SITE_TITLE } from '../../consts';
+import { getPostsByTag, getTagCounts, getTagNameFromSlug, sortPosts } from '../../lib/content';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	const allTags = getTagCounts(posts);
+
+	return allTags.map((tag) => ({
+		params: { tag: tag.slug },
+		props: { tagSlug: tag.slug },
+	}));
+}
+
+const { tagSlug } = Astro.props;
+const allPosts = sortPosts(await getCollection('blog'));
+const tagName = getTagNameFromSlug(allPosts, tagSlug);
+
+if (!tagName) {
+	throw new Error(`Unknown tag slug: ${tagSlug}`);
+}
+
+const posts = getPostsByTag(allPosts, tagName);
+const siblingTags = getTagCounts(posts).filter((tag) => tag.slug !== tagSlug).slice(0, 8);
+---
+
+<ClassicShell
+	title={`${tagName} | ${SITE_TITLE}`}
+	description={`Archive entries tagged ${tagName}.`}
+	pageTitle={tagName}
+	pageIntro={`Posts connected by the keyword “${tagName}”.`}
+	introLabel="Tag"
+>
+	<Fragment slot="sidebar-top">
+		<SidebarCard title="Tag Scope" eyebrow="Keyword">
+			<p>This tag appears in {posts.length} article{posts.length === 1 ? '' : 's'} across the archive.</p>
+		</SidebarCard>
+	</Fragment>
+
+	<Fragment slot="sidebar-bottom">
+		{siblingTags.length > 0 && (
+			<SidebarCard title="Related Tags" eyebrow="Also Used">
+				<ul>
+					{siblingTags.map((tag) => (
+						<li>
+							<a href={`/tags/${tag.slug}/`}>{tag.tag}</a>
+						</li>
+					))}
+				</ul>
+			</SidebarCard>
+		)}
+	</Fragment>
+
+	<section class="section-block">
+		<div class="section-head">
+			<div>
+				<p class="eyebrow">Tagged Posts</p>
+				<h3>Everything filed under {tagName}</h3>
+			</div>
+		</div>
+		<div class="post-stream">
+			{posts.map((post, index) => (
+				<PostPreviewCard post={post} featured={index === 0} />
+			))}
+		</div>
+	</section>
+</ClassicShell>

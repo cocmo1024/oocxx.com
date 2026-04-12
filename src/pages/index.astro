@@ -4,104 +4,67 @@ import PostPreviewCard from '../components/PostPreviewCard.astro';
 import SidebarCard from '../components/SidebarCard.astro';
 import ClassicShell from '../layouts/ClassicShell.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../consts';
+import { TOPIC_ORDER, getTopic } from '../data/taxonomy';
+import { getFeaturedPost, getTagCounts, sortPosts } from '../lib/content';
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-const featuredPost = posts.find((post) => post.data.featured) ?? posts[0];
-const recentPosts = posts.filter((post) => post.id !== featuredPost?.id).slice(0, 3);
-
-const topicCards = [
-	{
-		title: 'Identity and proof',
-		description: 'Counters, guestbooks, and the urge to prove that a page had witnesses.',
-		href: '/topics#identity',
-	},
-	{
-		title: 'Navigation rituals',
-		description: 'Web rings, directories, and the neighborly mechanics of discovery before feeds.',
-		href: '/topics#navigation',
-	},
-	{
-		title: 'Spectacle and noise',
-		description: 'Blinking text, animated GIFs, and the interface habits that refused to sit still.',
-		href: '/topics#spectacle',
-	},
-	{
-		title: 'Publishing habits',
-		description: 'GeoCities layouts, splash pages, and how personal sites performed personality.',
-		href: '/topics#publishing',
-	},
-];
+const posts = sortPosts(await getCollection('blog'));
+const featuredPost = getFeaturedPost(posts);
+const latestPosts = posts.filter((post) => post.id !== featuredPost?.id).slice(0, 4);
+const topicCards = TOPIC_ORDER.map((key) => ({
+	...getTopic(key),
+	entries: posts.filter((post) => post.data.topic === key).slice(0, 2),
+}));
+const popularTags = getTagCounts(posts).slice(0, 12);
 
 const homeSchema = {
 	'@context': 'https://schema.org',
 	'@type': 'CollectionPage',
-	name: SITE_TITLE,
+	name: `${SITE_TITLE} Home`,
 	url: SITE_URL,
 	description: SITE_DESCRIPTION,
 };
 ---
 
 <ClassicShell
-	title={`${SITE_TITLE} | The Lost Web, Indexed`}
-	description="A retro-web archive that turns early internet habits into searchable field guides and AI-assisted editorial experiments."
-	pageTitle="The lost web, indexed like an artifact shelf"
-	pageIntro="oocxx.com is now an internet archaeology lab: a deliberately old-web looking publication that targets evergreen search topics around homepages, web rings, counters, guestbooks, and other classic internet behaviors."
-	introLabel="Front Door"
+	title={`${SITE_TITLE} | Early Web Field Notes`}
+	description="A curated archive of essays about WebRings, guestbooks, counters, homepage design, retro web graphics, and early internet habits."
+	pageTitle="An archive of how the early web looked, linked, and felt"
+	pageIntro="OOCXX is a long-form blog about the first age of the web: personal homepages, hand-built navigation, loud graphics, guestbooks, counters, and the design habits that made small sites feel personal."
+	introLabel="Welcome"
 	schema={homeSchema}
 >
-	<Fragment slot="left-rail">
-		<SidebarCard title="Start Here" eyebrow="Reader Path">
+	<Fragment slot="sidebar-top">
+		<SidebarCard title="Start Here" eyebrow="Reader Guide">
 			<ul>
-				<li><a href="/blog/webring-explainer/">Read the WebRing explainer</a></li>
-				<li><a href="/topics#spectacle">Browse spectacle artifacts</a></li>
-				<li><a href="/about">See how the AI+SEO lab works</a></li>
+				<li><a href="/blog/webring-explainer/">What a WebRing was</a></li>
+				<li><a href="/blog/guestbook-history/">Why guestbooks mattered</a></li>
+				<li><a href="/topics">Browse the archive by topic</a></li>
 			</ul>
 		</SidebarCard>
 	</Fragment>
 
-	<Fragment slot="right-rail">
-		<SidebarCard title="Current Hypothesis" eyebrow="Experiment">
+	<Fragment slot="sidebar-bottom">
+		<SidebarCard title="Archive Format" eyebrow="What You’ll Find">
 			<p>
-				A tightly themed archive with clear slugs, strong internal links, and helpful definitions
-				should outperform random AI content farms in both clarity and crawlability.
+				Each article takes one object, habit, or visual trope from the classic web and explains what
+				it was, why it mattered, and how it shaped online culture.
 			</p>
 		</SidebarCard>
 	</Fragment>
 
 	<section class="hero-banner">
 		<div>
-			<p class="eyebrow">Preserved Browser Window / 1996 to 2006</p>
-			<h2>We treat broken internet habits like cultural artifacts.</h2>
+			<p class="eyebrow">Small Sites / 1994 to 2004</p>
+			<h2>The classic web was messy, personal, hand-linked, and strangely elegant.</h2>
 			<p>
-				Every page in this archive takes one classic web object or ritual, explains what it was,
-				why it mattered, and how it shaped the texture of the early personal internet.
+				This archive documents the tools and habits that made early websites feel like rooms with
+				owners: WebRings, counters, guestbooks, splash pages, construction GIFs, and homepage layouts.
 			</p>
 		</div>
-		<div>
-			<div class="marquee-bar" aria-label="Keyword strip">
-				<span>WebRing / Guestbook / Counter / Under Construction / Blink / Marquee / GeoCities / Splash Page / MIDI / Portal</span>
+		<div class="hero-banner-side">
+			<div class="marquee-bar" aria-label="Archive strip">
+				<span>WebRings / Guestbooks / Counters / GeoCities / Construction GIFs / Marquees / Splash Pages / MIDI / Portal Pages</span>
 			</div>
-		</div>
-	</section>
-
-	<section class="section-block">
-		<div class="section-head">
-			<div>
-				<p class="eyebrow">Topic Clusters</p>
-				<h3>Four shelves for the first excavation round</h3>
-			</div>
-		</div>
-
-		<div class="topic-grid">
-			{topicCards.map((card) => (
-				<a class="topic-card" href={card.href}>
-					<p class="section-kicker">Cluster</p>
-					<h4>{card.title}</h4>
-					<p>{card.description}</p>
-				</a>
-			))}
 		</div>
 	</section>
 
@@ -109,8 +72,8 @@ const homeSchema = {
 		<section class="section-block">
 			<div class="section-head">
 				<div>
-					<p class="eyebrow">Featured Excavation</p>
-					<h3>Start with the strongest relic page</h3>
+					<p class="eyebrow">Featured Story</p>
+					<h3>Start with the archive entry that defines the site</h3>
 				</div>
 			</div>
 			<PostPreviewCard post={featuredPost} featured={true} />
@@ -120,40 +83,57 @@ const homeSchema = {
 	<section class="section-block">
 		<div class="section-head">
 			<div>
-				<p class="eyebrow">Method Board</p>
-				<h3>What makes this an AI+SEO experiment</h3>
+				<p class="eyebrow">Browse by Topic</p>
+				<h3>Four shelves for the first era of the archive</h3>
 			</div>
 		</div>
 
-		<div class="note-grid">
-			<div class="note-card">
-				<p class="section-kicker">Content Model</p>
-				<h4>One artifact per page</h4>
-				<p>Each article is built around a single term or behavior so intent and internal links stay clean.</p>
-			</div>
-			<div class="note-card">
-				<p class="section-kicker">Editorial Rule</p>
-				<h4>Definition before nostalgia</h4>
-				<p>The page must help a newcomer understand the object before it starts performing retro aesthetics.</p>
-			</div>
-			<div class="note-card">
-				<p class="section-kicker">SEO Goal</p>
-				<h4>Coherent topical authority</h4>
-				<p>Instead of chasing every keyword, the site deepens one niche until the archive feels obviously connected.</p>
-			</div>
+		<div class="topic-grid">
+			{topicCards.map((topic) => (
+				<a class="topic-card" href={`/topics/${topic.slug}/`}>
+					<p class="section-kicker">Topic</p>
+					<h4>{topic.name}</h4>
+					<p>{topic.shortDescription}</p>
+					{topic.entries.length > 0 && (
+						<ul>
+							{topic.entries.map((entry) => (
+								<li>{entry.data.title}</li>
+							))}
+						</ul>
+					)}
+				</a>
+			))}
 		</div>
 	</section>
 
 	<section class="section-block">
 		<div class="section-head">
 			<div>
-				<p class="eyebrow">Recent Additions</p>
-				<h3>Seed pages for the first publishing batch</h3>
+				<p class="eyebrow">Latest Posts</p>
+				<h3>Recently added field notes</h3>
 			</div>
 		</div>
 
 		<div class="post-stream">
-			{recentPosts.map((post) => <PostPreviewCard post={post} />)}
+			{latestPosts.map((post) => <PostPreviewCard post={post} />)}
 		</div>
 	</section>
+
+	{popularTags.length > 0 && (
+		<section class="section-block">
+			<div class="section-head">
+				<div>
+					<p class="eyebrow">Tag Index</p>
+					<h3>Popular keywords across the archive</h3>
+				</div>
+			</div>
+			<ul class="tag-cloud" aria-label="Popular tags">
+				{popularTags.map((tag) => (
+					<li>
+						<a href={`/tags/${tag.slug}/`}>{tag.tag}</a>
+					</li>
+				))}
+			</ul>
+		</section>
+	)}
 </ClassicShell>
