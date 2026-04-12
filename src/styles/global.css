@@ -656,7 +656,8 @@ body.drawer-open .mobile-drawer {
 }
 
 .article-description {
-	max-width: 48rem;
+	width: 100%;
+	max-width: none;
 	color: var(--muted);
 	font-size: 1.02rem;
 }
@@ -669,7 +670,8 @@ body.drawer-open .mobile-drawer {
 }
 
 .article-prose {
-	max-width: 46rem;
+	width: 100%;
+	max-width: none;
 	font-size: 1.03rem;
 }
 
