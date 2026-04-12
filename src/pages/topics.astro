@@ -2,11 +2,23 @@
 import { getCollection } from 'astro:content';
 import SidebarCard from '../components/SidebarCard.astro';
 import ClassicShell from '../layouts/ClassicShell.astro';
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE, SITE_URL } from '../consts';
 import { TOPIC_ORDER, getTopic } from '../data/taxonomy';
 import { getPostsByTopic, sortPosts } from '../lib/content';
+import { getItemListSchema } from '../lib/seo';
 
 const posts = sortPosts(await getCollection('blog'));
+const topicItemListId = `${SITE_URL}/topics/#topic-index`;
+const topicItemList = getItemListSchema(
+	topicItemListId,
+	TOPIC_ORDER.map((topicKey) => {
+		const topic = getTopic(topicKey);
+		return {
+			name: topic.name,
+			url: `/topics/${topic.slug}/`,
+		};
+	}),
+);
 ---
 
 <ClassicShell
@@ -15,6 +27,13 @@ const posts = sortPosts(await getCollection('blog'));
 	pageTitle="Browse the site by topic"
 	pageIntro="The site is organized around four recurring systems: planning the website, building strong pages, publishing coherently, and growing traffic without platform dependence."
 	introLabel="Topics"
+	schemaType="CollectionPage"
+	breadcrumbItems={[
+		{ name: 'Home', item: '/' },
+		{ name: 'Topics' },
+	]}
+	mainEntityId={topicItemListId}
+	schema={topicItemList}
 >
 	<Fragment slot="sidebar-top">
 		<SidebarCard title="Topic Pages" eyebrow="Browse">

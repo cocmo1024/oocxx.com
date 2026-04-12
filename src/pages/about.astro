@@ -2,6 +2,7 @@
 import SidebarCard from '../components/SidebarCard.astro';
 import ClassicShell from '../layouts/ClassicShell.astro';
 import { SITE_TITLE } from '../consts';
+import { ORGANIZATION_SCHEMA_ID } from '../lib/seo';
 
 const principles = [
 	{
@@ -25,6 +26,12 @@ const principles = [
 	pageTitle="About OOCXX"
 	pageIntro="OOCXX is an independent editorial site about personal websites, blogging systems, homepage copy, information architecture, and sustainable organic growth."
 	introLabel="About"
+	schemaType="AboutPage"
+	breadcrumbItems={[
+		{ name: 'Home', item: '/' },
+		{ name: 'About' },
+	]}
+	about={{ '@id': ORGANIZATION_SCHEMA_ID }}
 >
 	<Fragment slot="sidebar-top">
 		<SidebarCard title="Coverage" eyebrow="What This Site Covers">

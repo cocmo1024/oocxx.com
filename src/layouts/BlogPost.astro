@@ -5,6 +5,7 @@ import SidebarCard from '../components/SidebarCard.astro';
 import ClassicShell from './ClassicShell.astro';
 import { SITE_AUTHOR, SITE_TITLE, SITE_URL } from '../consts';
 import { getPostNeighbors, getPostsByTopic, getRelatedPosts, sortPosts } from '../lib/content';
+import { ORGANIZATION_SCHEMA_ID, WEBSITE_SCHEMA_ID, absoluteUrl } from '../lib/seo';
 import { getTopic, type TopicKey } from '../data/taxonomy';
 import { slugifyTag } from '../data/taxonomy';
 
@@ -17,10 +18,12 @@ type Heading = {
 type Props = CollectionEntry<'blog'>['data'] & {
 	postId: string;
 	headings?: Heading[];
+	wordCount?: number;
 };
 
 const { title, description, pubDate, updatedDate, heroImage, topic, tags, postId, headings = [] } =
 	Astro.props;
+const { wordCount } = Astro.props;
 
 const pageURL = new URL(Astro.url.pathname, Astro.site ?? SITE_URL).toString();
 const allPosts = sortPosts(await getCollection('blog'));
@@ -30,26 +33,36 @@ const topicPosts = getPostsByTopic(allPosts, topic).filter((entry) => entry.id !
 const neighbors = getPostNeighbors(allPosts, postId);
 const topicData = getTopic(topic as TopicKey);
 const articleSchema = {
-	'@context': 'https://schema.org',
 	'@type': 'BlogPosting',
+	'@id': `${pageURL}#article`,
+	url: pageURL,
 	headline: title,
 	description,
+	inLanguage: 'en-US',
 	datePublished: pubDate.toISOString(),
 	dateModified: (updatedDate ?? pubDate).toISOString(),
-	image: heroImage ? [new URL(heroImage, Astro.site ?? SITE_URL).toString()] : undefined,
+	image: heroImage ? [absoluteUrl(heroImage)] : undefined,
 	author: {
 		'@type': 'Organization',
+		'@id': ORGANIZATION_SCHEMA_ID,
 		name: SITE_AUTHOR,
-		url: SITE_URL,
+		url: absoluteUrl('/about/'),
 	},
 	publisher: {
 		'@type': 'Organization',
+		'@id': ORGANIZATION_SCHEMA_ID,
 		name: SITE_TITLE,
 		url: SITE_URL,
 	},
-	mainEntityOfPage: pageURL,
+	mainEntityOfPage: { '@id': `${pageURL}#webpage` },
+	isPartOf: { '@id': WEBSITE_SCHEMA_ID },
 	keywords: tags.join(', '),
 	articleSection: topicData.name,
+	about: tags.map((tag) => ({
+		'@type': 'Thing',
+		name: tag,
+	})),
+	wordCount: wordCount && wordCount > 0 ? wordCount : undefined,
 };
 
 const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
@@ -63,6 +76,15 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 	ogType="article"
 	publishedTime={pubDate.toISOString()}
 	modifiedTime={(updatedDate ?? pubDate).toISOString()}
+	articleSection={topicData.name}
+	articleTags={tags}
+	breadcrumbItems={[
+		{ name: 'Home', item: '/' },
+		{ name: 'Guides', item: '/blog/' },
+		{ name: topicData.name, item: `/topics/${topicData.slug}/` },
+		{ name: title },
+	]}
+	mainEntityId={`${pageURL}#article`}
 	schema={articleSchema}
 >
 	<Fragment slot="sidebar-top">

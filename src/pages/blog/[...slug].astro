@@ -14,8 +14,14 @@ type Props = CollectionEntry<'blog'>;
 
 const post = Astro.props;
 const { Content, headings } = await render(post);
+const wordCount =
+	post.body
+		.replace(/```[\s\S]*?```/g, ' ')
+		.replace(/`[^`]*`/g, ' ')
+		.replace(/\[[^\]]+\]\([^)]+\)/g, ' ')
+		.match(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g)?.length ?? 0;
 ---
 
-<BlogPost {...post.data} postId={post.id} headings={headings}>
+<BlogPost {...post.data} postId={post.id} headings={headings} wordCount={wordCount}>
 	<Content />
 </BlogPost>

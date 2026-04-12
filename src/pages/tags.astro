@@ -2,11 +2,20 @@
 import { getCollection } from 'astro:content';
 import SidebarCard from '../components/SidebarCard.astro';
 import ClassicShell from '../layouts/ClassicShell.astro';
-import { SITE_TITLE } from '../consts';
+import { SITE_TITLE, SITE_URL } from '../consts';
 import { getTagCounts, sortPosts } from '../lib/content';
+import { getItemListSchema } from '../lib/seo';
 
 const posts = sortPosts(await getCollection('blog'));
 const tags = getTagCounts(posts);
+const tagItemListId = `${SITE_URL}/tags/#tag-index`;
+const tagItemList = getItemListSchema(
+	tagItemListId,
+	tags.map((tag) => ({
+		name: tag.tag,
+		url: `/tags/${tag.slug}/`,
+	})),
+);
 ---
 
 <ClassicShell
@@ -15,6 +24,13 @@ const tags = getTagCounts(posts);
 	pageTitle="Browse the site by tag"
 	pageIntro="Tags connect guides that share a narrower concept across the broader topic structure, making the site easier to scan by problem instead of by section alone."
 	introLabel="Tags"
+	schemaType="CollectionPage"
+	breadcrumbItems={[
+		{ name: 'Home', item: '/' },
+		{ name: 'Tags' },
+	]}
+	mainEntityId={tagItemListId}
+	schema={tagItemList}
 >
 	<Fragment slot="sidebar-top">
 		<SidebarCard title="How Tags Work" eyebrow="Navigation">

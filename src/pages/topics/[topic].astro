@@ -3,9 +3,10 @@ import { getCollection } from 'astro:content';
 import PostPreviewCard from '../../components/PostPreviewCard.astro';
 import SidebarCard from '../../components/SidebarCard.astro';
 import ClassicShell from '../../layouts/ClassicShell.astro';
-import { SITE_TITLE } from '../../consts';
+import { SITE_TITLE, SITE_URL } from '../../consts';
 import { TOPIC_ORDER, getTopic } from '../../data/taxonomy';
 import { getPostsByTopic, getTagCounts, sortPosts } from '../../lib/content';
+import { getItemListSchema } from '../../lib/seo';
 
 export async function getStaticPaths() {
 	return TOPIC_ORDER.map((key) => ({
@@ -19,13 +20,15 @@ const topic = getTopic(topicKey);
 const allPosts = sortPosts(await getCollection('blog'));
 const posts = getPostsByTopic(allPosts, topicKey);
 const tagCounts = getTagCounts(posts).slice(0, 10);
-
-const schema = {
-	'@context': 'https://schema.org',
-	'@type': 'CollectionPage',
-	name: `${topic.name} | ${SITE_TITLE}`,
-	description: topic.description,
-};
+const topicPageURL = `${SITE_URL}/topics/${topic.slug}/`;
+const topicItemListId = `${topicPageURL}#topic-guides`;
+const schema = getItemListSchema(
+	topicItemListId,
+	posts.map((post) => ({
+		name: post.data.title,
+		url: `/blog/${post.id}/`,
+	})),
+);
 ---
 
 <ClassicShell
@@ -34,6 +37,14 @@ const schema = {
 	pageTitle={topic.name}
 	pageIntro={topic.description}
 	introLabel="Topic"
+	schemaType="CollectionPage"
+	breadcrumbItems={[
+		{ name: 'Home', item: '/' },
+		{ name: 'Topics', item: '/topics/' },
+		{ name: topic.name },
+	]}
+	mainEntityId={topicItemListId}
+	about={topic.name}
 	schema={schema}
 >
 	<Fragment slot="sidebar-top">

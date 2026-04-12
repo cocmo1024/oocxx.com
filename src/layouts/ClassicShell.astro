@@ -6,6 +6,16 @@ import Header from '../components/Header.astro';
 import SidebarCard from '../components/SidebarCard.astro';
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../consts';
 import { getTagCounts, sortPosts } from '../lib/content';
+import {
+	absoluteUrl,
+	buildSchemaGraph,
+	getBreadcrumbSchema,
+	getOrganizationSchema,
+	getPageSchema,
+	getWebsiteSchema,
+	type BreadcrumbItem,
+	type SchemaObject,
+} from '../lib/seo';
 import { TOPIC_ORDER, getTopic } from '../data/taxonomy';
 
 interface Props {
@@ -16,10 +26,17 @@ interface Props {
 	pageIntro?: string;
 	introLabel?: string;
 	showPageIntro?: boolean;
-	schema?: Record<string, unknown> | Record<string, unknown>[];
+	schema?: SchemaObject | SchemaObject[];
+	schemaType?: string;
+	breadcrumbItems?: BreadcrumbItem[];
+	mainEntityId?: string;
+	about?: unknown;
 	ogType?: 'website' | 'article';
 	publishedTime?: string;
 	modifiedTime?: string;
+	author?: string;
+	articleSection?: string;
+	articleTags?: string[];
 }
 
 const {
@@ -31,46 +48,38 @@ const {
 	introLabel = 'Overview',
 	showPageIntro = true,
 	schema,
+	schemaType = 'WebPage',
+	breadcrumbItems = [],
+	mainEntityId,
+	about,
 	ogType = 'website',
 	publishedTime,
 	modifiedTime,
+	author,
+	articleSection,
+	articleTags = [],
 } = Astro.props;
 
 const pageURL = new URL(Astro.url.pathname, Astro.site ?? SITE_URL).toString();
-const defaultSchema = {
-	'@context': 'https://schema.org',
-	'@type': 'WebPage',
-	name: title,
+const breadcrumbSchema =
+	breadcrumbItems.length >= 2 ? getBreadcrumbSchema(pageURL, breadcrumbItems) : undefined;
+const pageSchema = getPageSchema({
+	type: schemaType,
 	url: pageURL,
+	name: title,
 	description,
-	isPartOf: {
-		'@type': 'WebSite',
-		name: SITE_TITLE,
-		url: SITE_URL,
-	},
-};
-
-const schemaPayload = schema
-	? [
-			{
-				'@context': 'https://schema.org',
-				'@type': 'WebSite',
-				name: SITE_TITLE,
-				url: SITE_URL,
-				description: SITE_DESCRIPTION,
-			},
-			...(Array.isArray(schema) ? schema : [schema]),
-		]
-	: [
-			{
-				'@context': 'https://schema.org',
-				'@type': 'WebSite',
-				name: SITE_TITLE,
-				url: SITE_URL,
-				description: SITE_DESCRIPTION,
-			},
-			defaultSchema,
-		];
+	breadcrumbId: breadcrumbSchema?.['@id'] as string | undefined,
+	mainEntityId,
+	about,
+	image: image ? absoluteUrl(image) : undefined,
+});
+const schemaPayload = buildSchemaGraph(
+	getOrganizationSchema(),
+	getWebsiteSchema(),
+	pageSchema,
+	breadcrumbSchema,
+	schema,
+);
 
 const posts = sortPosts(await getCollection('blog'));
 const latestPosts = posts.slice(0, 4);
@@ -87,6 +96,9 @@ const popularTags = getTagCounts(posts).slice(0, 10);
 			ogType={ogType}
 			publishedTime={publishedTime}
 			modifiedTime={modifiedTime}
+			author={author}
+			articleSection={articleSection}
+			articleTags={articleTags}
 			schema={schemaPayload}
 		/>
 	</head>

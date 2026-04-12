@@ -3,13 +3,22 @@ import { getCollection } from 'astro:content';
 import PostPreviewCard from '../../components/PostPreviewCard.astro';
 import SidebarCard from '../../components/SidebarCard.astro';
 import ClassicShell from '../../layouts/ClassicShell.astro';
-import { SITE_TITLE } from '../../consts';
+import { SITE_TITLE, SITE_URL } from '../../consts';
 import { TOPIC_ORDER, getTopic } from '../../data/taxonomy';
 import { getFeaturedPost, getTagCounts, sortPosts } from '../../lib/content';
+import { getItemListSchema } from '../../lib/seo';
 
 const posts = sortPosts(await getCollection('blog'));
 const featuredPost = getFeaturedPost(posts);
 const tagCounts = getTagCounts(posts).slice(0, 10);
+const guideItemListId = `${SITE_URL}/blog/#guide-list`;
+const guideItemList = getItemListSchema(
+	guideItemListId,
+	posts.map((post) => ({
+		name: post.data.title,
+		url: `/blog/${post.id}/`,
+	})),
+);
 ---
 
 <ClassicShell
@@ -18,6 +27,13 @@ const tagCounts = getTagCounts(posts).slice(0, 10);
 	pageTitle="All guides"
 	pageIntro="Every guide is filed under a core topic and linked to related tags so the site works both as a reading path and as a practical reference library."
 	introLabel="Guides"
+	schemaType="CollectionPage"
+	breadcrumbItems={[
+		{ name: 'Home', item: '/' },
+		{ name: 'Guides' },
+	]}
+	mainEntityId={guideItemListId}
+	schema={guideItemList}
 >
 	<Fragment slot="sidebar-top">
 		<SidebarCard title="Guide Map" eyebrow="Topics">

@@ -3,9 +3,10 @@ import { getCollection } from 'astro:content';
 import PostPreviewCard from '../components/PostPreviewCard.astro';
 import SidebarCard from '../components/SidebarCard.astro';
 import ClassicShell from '../layouts/ClassicShell.astro';
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../consts';
+import { SITE_TITLE, SITE_URL } from '../consts';
 import { TOPIC_ORDER, getTopic } from '../data/taxonomy';
 import { getFeaturedPost, getTagCounts, sortPosts } from '../lib/content';
+import { getItemListSchema } from '../lib/seo';
 
 const posts = sortPosts(await getCollection('blog'));
 const featuredPost = getFeaturedPost(posts);
@@ -15,14 +16,18 @@ const topicCards = TOPIC_ORDER.map((key) => ({
 	entries: posts.filter((post) => post.data.topic === key).slice(0, 2),
 }));
 const popularTags = getTagCounts(posts).slice(0, 12);
-
-const homeSchema = {
-	'@context': 'https://schema.org',
-	'@type': 'CollectionPage',
-	name: `${SITE_TITLE} Home`,
-	url: SITE_URL,
-	description: SITE_DESCRIPTION,
-};
+const featuredEntries = [featuredPost, ...latestPosts].filter(
+	(post, index, list): post is NonNullable<typeof post> =>
+		Boolean(post) && list.findIndex((entry) => entry?.id === post?.id) === index,
+);
+const featuredItemListId = `${SITE_URL}/#featured-guides`;
+const homeSchema = getItemListSchema(
+	featuredItemListId,
+	featuredEntries.map((post) => ({
+		name: post.data.title,
+		url: `/blog/${post.id}/`,
+	})),
+);
 ---
 
 <ClassicShell
@@ -31,6 +36,8 @@ const homeSchema = {
 	pageTitle="Build a personal website people can actually find and read"
 	pageIntro="OOCXX is an editorial site about personal websites, blogging systems, homepage copy, information architecture, and sustainable search traffic for small independent sites."
 	introLabel="Start Here"
+	schemaType="CollectionPage"
+	mainEntityId={featuredItemListId}
 	schema={homeSchema}
 >
 	<Fragment slot="sidebar-top">

@@ -3,8 +3,9 @@ import { getCollection } from 'astro:content';
 import PostPreviewCard from '../../components/PostPreviewCard.astro';
 import SidebarCard from '../../components/SidebarCard.astro';
 import ClassicShell from '../../layouts/ClassicShell.astro';
-import { SITE_TITLE } from '../../consts';
+import { SITE_TITLE, SITE_URL } from '../../consts';
 import { getPostsByTag, getTagCounts, getTagNameFromSlug, sortPosts } from '../../lib/content';
+import { getItemListSchema } from '../../lib/seo';
 
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
@@ -26,6 +27,15 @@ if (!tagName) {
 
 const posts = getPostsByTag(allPosts, tagName);
 const siblingTags = getTagCounts(posts).filter((tag) => tag.slug !== tagSlug).slice(0, 8);
+const tagPageURL = `${SITE_URL}/tags/${tagSlug}/`;
+const taggedItemListId = `${tagPageURL}#tagged-guides`;
+const taggedItemList = getItemListSchema(
+	taggedItemListId,
+	posts.map((post) => ({
+		name: post.data.title,
+		url: `/blog/${post.id}/`,
+	})),
+);
 ---
 
 <ClassicShell
@@ -34,6 +44,15 @@ const siblingTags = getTagCounts(posts).filter((tag) => tag.slug !== tagSlug).sl
 	pageTitle={tagName}
 	pageIntro={`Guides connected by the keyword "${tagName}".`}
 	introLabel="Tag"
+	schemaType="CollectionPage"
+	breadcrumbItems={[
+		{ name: 'Home', item: '/' },
+		{ name: 'Tags', item: '/tags/' },
+		{ name: tagName },
+	]}
+	mainEntityId={taggedItemListId}
+	about={tagName}
+	schema={taggedItemList}
 >
 	<Fragment slot="sidebar-top">
 		<SidebarCard title="Tag Scope" eyebrow="Keyword">
