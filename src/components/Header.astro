@@ -18,7 +18,7 @@ const popularTags = getTagCounts(posts).slice(0, 6);
 			<span></span>
 		</div>
 		<div class="header-brand">
-			<p class="eyebrow">Archive / Essays / Field Notes</p>
+			<p class="eyebrow">Personal Websites / Blogging / SEO</p>
 			<h1>
 				<a class="site-title-link" href="/">{SITE_TITLE}</a>
 			</h1>
@@ -29,7 +29,7 @@ const popularTags = getTagCounts(posts).slice(0, 6);
 	<div class="header-meta">
 		<nav class="primary-nav" aria-label="Primary">
 			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Archive</HeaderLink>
+			<HeaderLink href="/blog">Guides</HeaderLink>
 			<HeaderLink href="/topics">Topics</HeaderLink>
 			<HeaderLink href="/tags">Tags</HeaderLink>
 			<HeaderLink href="/about">About</HeaderLink>
@@ -51,7 +51,7 @@ const popularTags = getTagCounts(posts).slice(0, 6);
 
 <aside class="mobile-drawer" id="site-drawer" aria-hidden="true" data-drawer>
 	<div class="mobile-drawer-header">
-		<p class="eyebrow">Browse the Archive</p>
+		<p class="eyebrow">Browse the Site</p>
 		<button type="button" class="drawer-close" aria-label="Close menu" data-drawer-close>
 			Close
 		</button>
@@ -59,7 +59,7 @@ const popularTags = getTagCounts(posts).slice(0, 6);
 
 	<nav class="drawer-nav" aria-label="Mobile">
 		<HeaderLink href="/">Home</HeaderLink>
-		<HeaderLink href="/blog">Archive</HeaderLink>
+		<HeaderLink href="/blog">Guides</HeaderLink>
 		<HeaderLink href="/topics">Topics</HeaderLink>
 		<HeaderLink href="/tags">Tags</HeaderLink>
 		<HeaderLink href="/about">About</HeaderLink>
@@ -94,7 +94,7 @@ const popularTags = getTagCounts(posts).slice(0, 6);
 
 	{featuredPost && (
 		<section class="drawer-card">
-			<p class="section-kicker">Recommended</p>
+			<p class="section-kicker">Start Here</p>
 			<h3>
 				<a href={`/blog/${featuredPost.id}/`}>{featuredPost.data.title}</a>
 			</h3>

@@ -30,14 +30,14 @@ const siblingTags = getTagCounts(posts).filter((tag) => tag.slug !== tagSlug).sl
 
 <ClassicShell
 	title={`${tagName} | ${SITE_TITLE}`}
-	description={`Archive entries tagged ${tagName}.`}
+	description={`Guides tagged ${tagName}.`}
 	pageTitle={tagName}
-	pageIntro={`Posts connected by the keyword “${tagName}”.`}
+	pageIntro={`Guides connected by the keyword "${tagName}".`}
 	introLabel="Tag"
 >
 	<Fragment slot="sidebar-top">
 		<SidebarCard title="Tag Scope" eyebrow="Keyword">
-			<p>This tag appears in {posts.length} article{posts.length === 1 ? '' : 's'} across the archive.</p>
+			<p>This tag appears in {posts.length} guide{posts.length === 1 ? '' : 's'} across the site.</p>
 		</SidebarCard>
 	</Fragment>
 
@@ -58,7 +58,7 @@ const siblingTags = getTagCounts(posts).filter((tag) => tag.slug !== tagSlug).sl
 	<section class="section-block">
 		<div class="section-head">
 			<div>
-				<p class="eyebrow">Tagged Posts</p>
+				<p class="eyebrow">Tagged Guides</p>
 				<h3>Everything filed under {tagName}</h3>
 			</div>
 		</div>

@@ -13,14 +13,14 @@ const tagCounts = getTagCounts(posts).slice(0, 10);
 ---
 
 <ClassicShell
-	title={`${SITE_TITLE} | Archive`}
-	description="The complete OOCXX archive of articles about small websites, WebRings, guestbooks, counters, homepage layouts, and old web design."
-	pageTitle="The complete archive"
-	pageIntro="Every article in the archive is filed under a specific topic and linked to related tags so the site remains useful both as a reading experience and as a reference shelf."
-	introLabel="Archive"
+	title={`${SITE_TITLE} | Guides`}
+	description="All OOCXX guides on personal websites, blogging systems, site structure, and search-friendly growth."
+	pageTitle="All guides"
+	pageIntro="Every guide is filed under a core topic and linked to related tags so the site works both as a reading path and as a practical reference library."
+	introLabel="Guides"
 >
 	<Fragment slot="sidebar-top">
-		<SidebarCard title="Archive Map" eyebrow="Sections">
+		<SidebarCard title="Guide Map" eyebrow="Topics">
 			<ul>
 				{TOPIC_ORDER.map((topicKey) => {
 					const topic = getTopic(topicKey);
@@ -53,8 +53,8 @@ const tagCounts = getTagCounts(posts).slice(0, 10);
 		<section class="section-block">
 			<div class="section-head">
 				<div>
-					<p class="eyebrow">Editor’s Pick</p>
-					<h3>The lead article from the archive</h3>
+					<p class="eyebrow">Editor's Pick</p>
+					<h3>The lead guide from the site</h3>
 				</div>
 			</div>
 			<PostPreviewCard post={featuredPost} featured={true} />
@@ -64,7 +64,7 @@ const tagCounts = getTagCounts(posts).slice(0, 10);
 	<section class="section-block">
 		<div class="section-head">
 			<div>
-				<p class="eyebrow">All Posts</p>
+				<p class="eyebrow">All Guides</p>
 				<h3>Published in reverse chronological order</h3>
 			</div>
 		</div>

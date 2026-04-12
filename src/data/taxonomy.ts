@@ -1,31 +1,31 @@
 export const TOPICS = {
-	identity: {
-		slug: 'identity-and-proof',
-		name: 'Identity & Proof',
+	foundations: {
+		slug: 'foundations-and-planning',
+		name: 'Foundations & Planning',
 		description:
-			'Counters, guestbooks, site badges, and all the small ways early websites proved they had visitors.',
-		shortDescription: 'How small sites recorded presence, trust, and return visits.',
+			'Positioning, platform choices, page priorities, and the structural decisions that make a personal website easier to build and easier to grow.',
+		shortDescription: 'Start with the right goal, shape, and publishing plan.',
 	},
-	navigation: {
-		slug: 'navigation-and-discovery',
-		name: 'Navigation & Discovery',
+	pages: {
+		slug: 'pages-and-navigation',
+		name: 'Pages & Navigation',
 		description:
-			'WebRings, portal pages, directory logic, and the hand-built routes people used to discover small sites.',
-		shortDescription: 'The mechanics of wandering the web before feeds and centralized timelines.',
-	},
-	spectacle: {
-		slug: 'spectacle-and-interface-noise',
-		name: 'Spectacle & Interface Noise',
-		description:
-			'Blinking text, GIF badges, construction banners, and the loud visual grammar of the first web.',
-		shortDescription: 'The decorative and attention-seeking layer of the early web.',
+			'Homepage structure, about pages, portfolio framing, navigation labels, and the page-level decisions that help visitors know where they are and what to do next.',
+		shortDescription: 'Build pages that explain the site quickly and move readers forward.',
 	},
 	publishing: {
-		slug: 'homepages-and-publishing-habits',
-		name: 'Homepages & Publishing Habits',
+		slug: 'blogging-and-publishing',
+		name: 'Blogging & Publishing',
 		description:
-			'GeoCities neighborhoods, splash pages, homepage layouts, and the editorial habits of personal sites.',
-		shortDescription: 'How early homepages introduced themselves and arranged information.',
+			'Editorial systems for small websites: categories, tags, archives, publishing cadence, and the habits that turn scattered posts into a coherent site.',
+		shortDescription: 'Turn isolated posts into a body of work that compounds over time.',
+	},
+	growth: {
+		slug: 'seo-and-audience-growth',
+		name: 'SEO & Audience Growth',
+		description:
+			'Search basics, internal linking, evergreen content, and sustainable traffic systems for independent blogs and personal websites.',
+		shortDescription: 'Get traffic with durable site structure instead of constant platform chasing.',
 	},
 } as const;
 

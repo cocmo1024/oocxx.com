@@ -66,7 +66,7 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 	schema={articleSchema}
 >
 	<Fragment slot="sidebar-top">
-		<SidebarCard title="Article Info" eyebrow="Reference">
+		<SidebarCard title="Guide Summary" eyebrow="Reference">
 			<p><strong>Topic:</strong> <a href={`/topics/${topicData.slug}/`}>{topicData.name}</a></p>
 			<p><strong>Published:</strong> <FormattedDate date={pubDate} /></p>
 			{updatedDate && <p><strong>Updated:</strong> <FormattedDate date={updatedDate} /></p>}
@@ -110,7 +110,7 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 		<nav class="breadcrumb" aria-label="Breadcrumb">
 			<a href="/">Home</a>
 			<span aria-hidden="true">/</span>
-			<a href="/blog">Archive</a>
+			<a href="/blog">Guides</a>
 			<span aria-hidden="true">/</span>
 			<a href={`/topics/${topicData.slug}/`}>{topicData.name}</a>
 		</nav>
@@ -185,8 +185,8 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 					))
 				) : (
 					<div class="note-card">
-						<p class="section-kicker">Archive Note</p>
-						<p>This is currently the only article filed under this topic.</p>
+						<p class="section-kicker">Topic Note</p>
+						<p>This is currently the only guide filed under this topic.</p>
 					</div>
 				)}
 			</div>
@@ -196,7 +196,7 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 			<section class="section-block">
 				<div class="section-head">
 					<div>
-						<p class="eyebrow">Related Articles</p>
+						<p class="eyebrow">Related Guides</p>
 						<h3>Continue reading</h3>
 					</div>
 				</div>
@@ -215,7 +215,7 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 		<section class="section-block">
 			<div class="section-head">
 				<div>
-					<p class="eyebrow">Archive Navigation</p>
+					<p class="eyebrow">Guide Navigation</p>
 					<h3>Previous and next</h3>
 				</div>
 			</div>
@@ -229,7 +229,7 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 				) : (
 					<div class="note-card">
 						<p class="section-kicker">Newer</p>
-						<p>This is the latest article in the archive.</p>
+						<p>This is the latest guide on the site.</p>
 					</div>
 				)}
 				{neighbors.older ? (
@@ -241,7 +241,7 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 				) : (
 					<div class="note-card">
 						<p class="section-kicker">Older</p>
-						<p>This is currently the oldest published article.</p>
+						<p>This is currently the oldest published guide.</p>
 					</div>
 				)}
 			</div>

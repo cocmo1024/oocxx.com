@@ -26,44 +26,45 @@ const homeSchema = {
 ---
 
 <ClassicShell
-	title={`${SITE_TITLE} | Early Web Field Notes`}
-	description="A curated archive of essays about WebRings, guestbooks, counters, homepage design, retro web graphics, and early internet habits."
-	pageTitle="An archive of how the early web looked, linked, and felt"
-	pageIntro="OOCXX is a long-form blog about the first age of the web: personal homepages, hand-built navigation, loud graphics, guestbooks, counters, and the design habits that made small sites feel personal."
-	introLabel="Welcome"
+	title={`${SITE_TITLE} | Personal Website Playbook`}
+	description="Practical guides for planning, writing, structuring, and growing a personal website or independent blog."
+	pageTitle="Build a personal website people can actually find and read"
+	pageIntro="OOCXX is an editorial site about personal websites, blogging systems, homepage copy, information architecture, and sustainable search traffic for small independent sites."
+	introLabel="Start Here"
 	schema={homeSchema}
 >
 	<Fragment slot="sidebar-top">
-		<SidebarCard title="Start Here" eyebrow="Reader Guide">
+		<SidebarCard title="Read First" eyebrow="Core Guides">
 			<ul>
-				<li><a href="/blog/webring-explainer/">What a WebRing was</a></li>
-				<li><a href="/blog/guestbook-history/">Why guestbooks mattered</a></li>
-				<li><a href="/topics">Browse the archive by topic</a></li>
+				<li><a href="/blog/how-to-start-a-personal-website/">How to start a personal website</a></li>
+				<li><a href="/blog/personal-website-homepage-checklist/">What to put on your homepage</a></li>
+				<li><a href="/blog/personal-website-seo-checklist/">Personal website SEO checklist</a></li>
 			</ul>
 		</SidebarCard>
 	</Fragment>
 
 	<Fragment slot="sidebar-bottom">
-		<SidebarCard title="Archive Format" eyebrow="What You’ll Find">
+		<SidebarCard title="Editorial Focus" eyebrow="What You'll Find">
 			<p>
-				Each article takes one object, habit, or visual trope from the classic web and explains what
-				it was, why it mattered, and how it shaped online culture.
+				The site focuses on evergreen questions around personal websites, publishing systems, site
+				structure, and search-friendly growth rather than broad marketing chatter.
 			</p>
 		</SidebarCard>
 	</Fragment>
 
 	<section class="hero-banner">
 		<div>
-			<p class="eyebrow">Small Sites / 1994 to 2004</p>
-			<h2>The classic web was messy, personal, hand-linked, and strangely elegant.</h2>
+			<p class="eyebrow">Personal Websites / Blogging / Small Sites</p>
+			<h2>Build a small website with clear pages, useful writing, and durable traffic.</h2>
 			<p>
-				This archive documents the tools and habits that made early websites feel like rooms with
-				owners: WebRings, counters, guestbooks, splash pages, construction GIFs, and homepage layouts.
+				Most advice for websites is either too broad, too corporate, or too obsessed with short-term
+				platform tricks. This site is about building a personal website that is readable, searchable,
+				and structured to compound.
 			</p>
 		</div>
 		<div class="hero-banner-side">
-			<div class="marquee-bar" aria-label="Archive strip">
-				<span>WebRings / Guestbooks / Counters / GeoCities / Construction GIFs / Marquees / Splash Pages / MIDI / Portal Pages</span>
+			<div class="marquee-bar" aria-label="Topic strip">
+				<span>Homepages / About Pages / Navigation / Categories / Tags / Internal Linking / Evergreen Content / SEO / Personal Brand</span>
 			</div>
 		</div>
 	</section>
@@ -72,8 +73,8 @@ const homeSchema = {
 		<section class="section-block">
 			<div class="section-head">
 				<div>
-					<p class="eyebrow">Featured Story</p>
-					<h3>Start with the archive entry that defines the site</h3>
+					<p class="eyebrow">Featured Guide</p>
+					<h3>Start with the guide that defines the site</h3>
 				</div>
 			</div>
 			<PostPreviewCard post={featuredPost} featured={true} />
@@ -84,7 +85,7 @@ const homeSchema = {
 		<div class="section-head">
 			<div>
 				<p class="eyebrow">Browse by Topic</p>
-				<h3>Four shelves for the first era of the archive</h3>
+				<h3>Four systems behind a strong personal website</h3>
 			</div>
 		</div>
 
@@ -109,8 +110,8 @@ const homeSchema = {
 	<section class="section-block">
 		<div class="section-head">
 			<div>
-				<p class="eyebrow">Latest Posts</p>
-				<h3>Recently added field notes</h3>
+				<p class="eyebrow">Latest Guides</p>
+				<h3>Recently published and updated</h3>
 			</div>
 		</div>
 
@@ -124,7 +125,7 @@ const homeSchema = {
 			<div class="section-head">
 				<div>
 					<p class="eyebrow">Tag Index</p>
-					<h3>Popular keywords across the archive</h3>
+					<h3>Popular topics across the site</h3>
 				</div>
 			</div>
 			<ul class="tag-cloud" aria-label="Popular tags">

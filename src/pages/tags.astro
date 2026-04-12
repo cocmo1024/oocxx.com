@@ -11,16 +11,16 @@ const tags = getTagCounts(posts);
 
 <ClassicShell
 	title={`${SITE_TITLE} | Tags`}
-	description="Browse the OOCXX archive by tag, including WebRing, guestbook, counter, GeoCities, marquee, and other early web keywords."
-	pageTitle="Browse the archive by tag"
-	pageIntro="Tags connect articles that share a tool, trope, or specific vocabulary item across the broader topic structure."
+	description="Browse OOCXX by tag, including homepage, about page, SEO, categories, tags, internal linking, and other personal website topics."
+	pageTitle="Browse the site by tag"
+	pageIntro="Tags connect guides that share a narrower concept across the broader topic structure, making the site easier to scan by problem instead of by section alone."
 	introLabel="Tags"
 >
 	<Fragment slot="sidebar-top">
 		<SidebarCard title="How Tags Work" eyebrow="Navigation">
 			<p>
-				Topics organize the archive broadly. Tags cross-link smaller ideas such as WebRing, Guestbook,
-				Counter, Blink, Marquee, or GeoCities.
+				Topics organize the site broadly. Tags cross-link narrower ideas such as homepage copy,
+				internal linking, categories, about pages, navigation, or search traffic.
 			</p>
 		</SidebarCard>
 	</Fragment>
@@ -29,7 +29,7 @@ const tags = getTagCounts(posts);
 		<div class="section-head">
 			<div>
 				<p class="eyebrow">Tag Cloud</p>
-				<h3>Every keyword currently used in the archive</h3>
+				<h3>Every keyword currently used on the site</h3>
 			</div>
 		</div>
 		<ul class="tag-cloud" aria-label="All tags">
