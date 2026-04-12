@@ -2,7 +2,6 @@
 title: Evergreen Content Strategy for Small Websites
 description: How to choose topics, publish useful evergreen pages, and build a content base that can keep attracting search traffic over time.
 pubDate: 2026-04-06
-heroImage: /blog-placeholder-2.jpg
 topic: publishing
 tags:
   - Content Strategy

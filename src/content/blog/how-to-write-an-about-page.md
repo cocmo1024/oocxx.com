@@ -2,7 +2,6 @@
 title: How to Write an About Page for a Personal Website
 description: A simple framework for writing an about page that feels credible, human, and useful instead of vague or self-important.
 pubDate: 2026-04-09
-heroImage: /blog-placeholder-4.jpg
 topic: pages
 tags:
   - About Page

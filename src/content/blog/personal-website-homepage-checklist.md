@@ -2,7 +2,6 @@
 title: Personal Website Homepage Checklist
 description: What to put on a personal website homepage so visitors understand the site fast and know where to go next.
 pubDate: 2026-04-10
-heroImage: /blog-placeholder-3.jpg
 topic: pages
 tags:
   - Homepage

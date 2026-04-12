@@ -550,16 +550,6 @@ body.drawer-open .mobile-drawer {
 		);
 }
 
-.post-card-media::after {
-	content: "ARCHIVE IMAGE";
-	position: absolute;
-	right: 0.45rem;
-	bottom: 0.35rem;
-	font-family: "IBM Plex Mono", monospace;
-	font-size: 0.68rem;
-	color: rgba(31, 38, 37, 0.58);
-}
-
 .post-card-media img,
 .article-hero img {
 	width: 100%;
@@ -762,7 +752,7 @@ body.drawer-open .mobile-drawer {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
-	.post-card-link {
+	.post-card.has-media .post-card-link {
 		grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
 	}
 }
@@ -804,7 +794,7 @@ body.drawer-open .mobile-drawer {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
 	}
 
-	.post-card.featured .post-card-link {
+	.post-card.featured.has-media .post-card-link {
 		grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
 	}
 }

@@ -2,7 +2,6 @@
 title: Personal Website SEO Checklist
 description: A straightforward SEO checklist for personal websites that want better crawlability, clearer pages, and stronger organic traffic.
 pubDate: 2026-04-04
-heroImage: /blog-placeholder-4.jpg
 topic: growth
 tags:
   - SEO

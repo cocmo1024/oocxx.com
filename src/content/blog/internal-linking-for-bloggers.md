@@ -2,7 +2,6 @@
 title: "Internal Linking for Bloggers: A Simple System That Scales"
 description: How to use internal links to improve crawlability, reading depth, and topic authority on a growing blog.
 pubDate: 2026-04-05
-heroImage: /blog-placeholder-3.jpg
 topic: growth
 tags:
   - Internal Linking

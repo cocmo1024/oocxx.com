@@ -2,7 +2,6 @@
 title: How to Start a Personal Website in 2026
 description: A practical plan for launching a personal website with the right pages, structure, and publishing habits from day one.
 pubDate: 2026-04-12
-heroImage: /blog-placeholder-1.jpg
 topic: foundations
 tags:
   - Personal Website

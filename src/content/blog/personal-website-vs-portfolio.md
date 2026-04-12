@@ -2,7 +2,6 @@
 title: "Personal Website vs Portfolio: Which One Should You Build?"
 description: The difference between a personal website and a portfolio site, and how to choose the right structure for your goals.
 pubDate: 2026-04-11
-heroImage: /blog-placeholder-2.jpg
 topic: foundations
 tags:
   - Personal Website

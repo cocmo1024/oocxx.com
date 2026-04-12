@@ -2,7 +2,6 @@
 title: Website Navigation Best Practices for Small Sites
 description: Simple navigation rules for personal websites and blogs so readers can understand the site quickly and keep moving.
 pubDate: 2026-04-08
-heroImage: /blog-placeholder-5.jpg
 topic: pages
 tags:
   - Navigation

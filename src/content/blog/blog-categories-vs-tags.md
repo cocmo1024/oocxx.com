@@ -2,7 +2,6 @@
 title: "Blog Categories vs Tags: How to Structure a Blog Without Making a Mess"
 description: The difference between categories and tags, how many you need, and how to keep a blog archive useful as it grows.
 pubDate: 2026-04-07
-heroImage: /blog-placeholder-1.jpg
 topic: publishing
 tags:
   - Categories
