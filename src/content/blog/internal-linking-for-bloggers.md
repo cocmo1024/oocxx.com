@@ -110,8 +110,11 @@ Use this process for every new guide:
 
 This takes little time, but the effect compounds.
 
+An editorial calendar makes this much easier because it shows which old pages should be updated every time a new cluster goes live. See [how to build an editorial calendar for a small blog](/blog/editorial-calendar-for-small-blog/).
+
 ## Related reading
 
 - [Evergreen content strategy for small websites](/blog/evergreen-content-strategy-for-small-websites/)
 - [Blog categories vs tags](/blog/blog-categories-vs-tags/)
 - [Personal website SEO checklist](/blog/personal-website-seo-checklist/)
+- [How to update old blog posts for SEO](/blog/how-to-update-old-blog-posts-for-seo/)

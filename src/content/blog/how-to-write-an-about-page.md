@@ -96,6 +96,8 @@ It should point toward:
 
 This is especially important on sites that want search traffic. The about page often becomes a trust page for first-time visitors who land on an article and then look for context.
 
+If the site does not yet have a dedicated contact route, build one. A clear [contact page](/blog/what-to-put-on-a-contact-page/) makes the site feel much more complete.
+
 ## Common about page mistakes
 
 Avoid these:
@@ -136,5 +138,6 @@ Answer those well, and the page works.
 ## Related reading
 
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
+- [What to put on a contact page](/blog/what-to-put-on-a-contact-page/)
 - [Personal website vs portfolio](/blog/personal-website-vs-portfolio/)
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)

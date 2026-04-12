@@ -122,7 +122,7 @@ Search traffic often improves when you:
 - add better internal links
 - update examples
 
-Treat your best pages like assets, not artifacts.
+Treat your best pages like assets, not artifacts. A direct workflow for that is [how to update old blog posts for SEO](/blog/how-to-update-old-blog-posts-for-seo/).
 
 ## The goal of personal website SEO
 
@@ -142,3 +142,4 @@ That is usually enough to outperform many larger but less coherent websites.
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)
 - [Internal linking for bloggers](/blog/internal-linking-for-bloggers/)
+- [How to update old blog posts for SEO](/blog/how-to-update-old-blog-posts-for-seo/)

@@ -36,12 +36,13 @@ Start with:
 
 - a homepage that explains what the site is about
 - an about page that gives context and credibility
+- a contact page that gives people a clear way to reach you
 - one or two useful articles or project pages
 - a simple navigation bar
 
 That is enough to make the site legible.
 
-If your homepage is vague, use the [personal website homepage checklist](/blog/personal-website-homepage-checklist/). If your about page is weak, use [this guide to writing an about page](/blog/how-to-write-an-about-page/).
+If you need help deciding the actual page set, use [what pages should a personal website have](/blog/what-pages-should-a-personal-website-have/). If your homepage is vague, use the [personal website homepage checklist](/blog/personal-website-homepage-checklist/). If your about page is weak, use [this guide to writing an about page](/blog/how-to-write-an-about-page/).
 
 ## Pick a structure that can scale
 
@@ -86,6 +87,7 @@ Weak examples:
 Stronger examples:
 
 - how to write an about page
+- what to put on a contact page
 - personal website homepage checklist
 - internal linking for bloggers
 - personal website SEO checklist
@@ -138,5 +140,6 @@ The goal is not to make a perfect website. The goal is to publish a site that is
 ## Related reading
 
 - [Personal website vs portfolio](/blog/personal-website-vs-portfolio/)
+- [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [Personal website SEO checklist](/blog/personal-website-seo-checklist/)

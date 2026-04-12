@@ -89,6 +89,8 @@ You should revisit strong pages periodically to:
 
 That is how old content turns into a stronger asset instead of a stale archive.
 
+For a direct workflow, use [how to update old blog posts for SEO](/blog/how-to-update-old-blog-posts-for-seo/).
+
 ## How to choose what to write next
 
 A good publishing rhythm for a small site is:
@@ -99,6 +101,8 @@ A good publishing rhythm for a small site is:
 4. move to the next cluster
 
 This creates a site that deepens strategically rather than sprawling randomly.
+
+If you need a planning layer behind that rhythm, use [how to build an editorial calendar for a small blog](/blog/editorial-calendar-for-small-blog/).
 
 ## Evergreen content needs good structure to work
 
@@ -129,4 +133,5 @@ That is usually the right model for an independent site.
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [Blog categories vs tags](/blog/blog-categories-vs-tags/)
+- [How to build an editorial calendar for a small blog](/blog/editorial-calendar-for-small-blog/)
 - [Internal linking for bloggers](/blog/internal-linking-for-bloggers/)

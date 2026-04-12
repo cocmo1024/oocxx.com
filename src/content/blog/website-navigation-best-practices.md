@@ -37,6 +37,8 @@ A practical default:
 
 If you need more detail, use topic pages, archives, and internal links within the content.
 
+If you are still deciding whether those pages should exist at all, start with [what pages should a personal website have](/blog/what-pages-should-a-personal-website-have/).
+
 ## Use labels people understand immediately
 
 Navigation labels should be obvious.
@@ -120,5 +122,6 @@ This connects directly to [blog categories vs tags](/blog/blog-categories-vs-tag
 ## Related reading
 
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
+- [What to put on a contact page](/blog/what-to-put-on-a-contact-page/)
 - [Blog categories vs tags](/blog/blog-categories-vs-tags/)
 - [Internal linking for bloggers](/blog/internal-linking-for-bloggers/)

@@ -102,6 +102,8 @@ Instead:
 - explain what you care about
 - link to the full about page
 
+The homepage also does not need to carry all your contact details. A clean route to a dedicated [contact page](/blog/what-to-put-on-a-contact-page/) is usually better.
+
 Then write the full version properly. This guide on [how to write an about page](/blog/how-to-write-an-about-page/) will help.
 
 ## Common homepage mistakes
@@ -144,4 +146,5 @@ If the answer is no, the homepage needs work.
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [How to write an about page](/blog/how-to-write-an-about-page/)
+- [What to put on a contact page](/blog/what-to-put-on-a-contact-page/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)
