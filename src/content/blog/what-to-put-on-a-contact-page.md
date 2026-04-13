@@ -24,6 +24,8 @@ They make visitors wonder:
 
 A good contact page removes that uncertainty quickly.
 
+If you want patterns you can adapt directly, use these [contact page examples for personal websites](/blog/contact-page-examples-for-personal-websites/).
+
 ## What the contact page needs to do
 
 The page should answer four things:
@@ -152,4 +154,5 @@ A contact page is a small page, but it has an outsized effect on trust.
 
 - [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)
 - [How to write an about page](/blog/how-to-write-an-about-page/)
+- [Contact page examples for personal websites](/blog/contact-page-examples-for-personal-websites/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)

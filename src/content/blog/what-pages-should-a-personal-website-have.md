@@ -132,6 +132,8 @@ That is enough for most small sites.
 
 If the site grows, deeper exploration can happen through topic pages, tag pages, related guides, and internal links instead of piling more items into the top nav. See [website navigation best practices](/blog/website-navigation-best-practices/) for the broader system.
 
+If you want concrete structural inspiration, these [personal website examples](/blog/personal-website-examples/) show the most useful patterns.
+
 ## Build the pages as a connected system
 
 The strongest sites do not treat pages as isolated destinations.
@@ -168,6 +170,7 @@ If each page has a clear purpose, the site will feel better to readers and easie
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [How to write an about page](/blog/how-to-write-an-about-page/)
 - [What to put on a contact page](/blog/what-to-put-on-a-contact-page/)

@@ -15,6 +15,8 @@ The about page is one of the most visited pages on a personal website, and one o
 
 Many about pages are either too thin or too self-absorbed. They read like placeholder biography text, and they do not help the visitor understand why the site exists or why the person behind it is worth following.
 
+If you learn best from patterns instead of rules, start with these [about page examples for personal websites](/blog/about-page-examples-for-personal-websites/).
+
 ## What an about page is supposed to do
 
 An about page is not only biography.
@@ -138,6 +140,7 @@ Answer those well, and the page works.
 ## Related reading
 
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
+- [About page examples for personal websites](/blog/about-page-examples-for-personal-websites/)
 - [What to put on a contact page](/blog/what-to-put-on-a-contact-page/)
 - [Personal website vs portfolio](/blog/personal-website-vs-portfolio/)
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)

@@ -22,6 +22,8 @@ The page should not leave people asking:
 
 The best homepage is not the most dramatic one. It is the one that creates orientation quickly.
 
+If you want to see the broader site shapes that strong homepages support, start with these [personal website examples](/blog/personal-website-examples/).
+
 ## What a homepage needs to do
 
 At minimum, a personal website homepage should:
@@ -145,6 +147,7 @@ If the answer is no, the homepage needs work.
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
 - [How to write an about page](/blog/how-to-write-an-about-page/)
 - [What to put on a contact page](/blog/what-to-put-on-a-contact-page/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)

@@ -132,5 +132,6 @@ Most people who want long-term search traffic should choose the second path.
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [How to write an about page](/blog/how-to-write-an-about-page/)
