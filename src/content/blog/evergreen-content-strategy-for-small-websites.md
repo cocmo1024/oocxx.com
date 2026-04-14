@@ -44,6 +44,8 @@ Good examples:
 - how to write an about page
 - personal website SEO checklist
 - blog categories vs tags
+- homepage headline examples for personal websites
+- website footer examples for personal websites
 
 These are durable because the underlying problem repeats.
 
@@ -132,6 +134,7 @@ That is usually the right model for an independent site.
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [Personal website ideas: 12 directions that actually lead to useful sites](/blog/personal-website-ideas/)
 - [Blog categories vs tags](/blog/blog-categories-vs-tags/)
 - [How to build an editorial calendar for a small blog](/blog/editorial-calendar-for-small-blog/)
 - [Internal linking for bloggers](/blog/internal-linking-for-bloggers/)

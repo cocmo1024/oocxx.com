@@ -92,6 +92,8 @@ Useful secondary pathways include:
 
 These are especially helpful on content-driven sites. They give readers multiple ways to continue without cluttering the primary navigation.
 
+The footer can carry some of this secondary routing too. These [website footer examples for personal websites](/blog/website-footer-examples-for-personal-websites/) show where that layer helps.
+
 ## Common navigation mistakes
 
 The most common mistakes are:
@@ -122,6 +124,7 @@ This connects directly to [blog categories vs tags](/blog/blog-categories-vs-tag
 ## Related reading
 
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
+- [Website footer examples for personal websites](/blog/website-footer-examples-for-personal-websites/)
 - [What to put on a contact page](/blog/what-to-put-on-a-contact-page/)
 - [Blog categories vs tags](/blog/blog-categories-vs-tags/)
 - [Internal linking for bloggers](/blog/internal-linking-for-bloggers/)

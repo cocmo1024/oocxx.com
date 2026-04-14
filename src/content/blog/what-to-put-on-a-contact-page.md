@@ -126,6 +126,8 @@ It should usually link to:
 - the about page
 - the main writing or work section
 
+If the site uses the footer to reinforce those routes, keep it clean and deliberate. These [website footer examples for personal websites](/blog/website-footer-examples-for-personal-websites/) show the right level of detail.
+
 That is one reason the overall page system matters. If you have not planned the page structure yet, read [what pages should a personal website have](/blog/what-pages-should-a-personal-website-have/).
 
 ## A lightweight contact page template
@@ -155,4 +157,5 @@ A contact page is a small page, but it has an outsized effect on trust.
 - [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)
 - [How to write an about page](/blog/how-to-write-an-about-page/)
 - [Contact page examples for personal websites](/blog/contact-page-examples-for-personal-websites/)
+- [Website footer examples for personal websites](/blog/website-footer-examples-for-personal-websites/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)

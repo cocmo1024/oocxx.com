@@ -26,6 +26,8 @@ It usually needs to do three things well:
 - show what you make, know, or write about
 - give search engines and readers a clear path through the site
 
+If you are still looking for the right angle, use these [personal website ideas](/blog/personal-website-ideas/) to choose a site shape that can keep producing useful pages.
+
 If you are still unsure about the shape of the site, start by reading [personal website vs portfolio](/blog/personal-website-vs-portfolio/). That decision affects your homepage, your navigation, and the kind of content you publish next.
 
 ## Publish the minimum set of pages first
@@ -140,6 +142,7 @@ The goal is not to make a perfect website. The goal is to publish a site that is
 ## Related reading
 
 - [Personal website vs portfolio](/blog/personal-website-vs-portfolio/)
+- [Personal website ideas: 12 directions that actually lead to useful sites](/blog/personal-website-ideas/)
 - [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [Personal website SEO checklist](/blog/personal-website-seo-checklist/)

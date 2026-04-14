@@ -24,6 +24,8 @@ The best homepage is not the most dramatic one. It is the one that creates orien
 
 If you want to see the broader site shapes that strong homepages support, start with these [personal website examples](/blog/personal-website-examples/).
 
+If you need help with the actual wording at the top of the page, use these [homepage headline examples for personal websites](/blog/homepage-headline-examples-for-personal-websites/) and [website tagline examples for personal websites](/blog/website-tagline-examples-for-personal-websites/).
+
 ## What a homepage needs to do
 
 At minimum, a personal website homepage should:
@@ -80,6 +82,8 @@ Most personal websites need only a few top-level links:
 That is usually enough.
 
 If the navigation is vague, visitors hesitate. If it is overloaded, they stall. Use [website navigation best practices](/blog/website-navigation-best-practices/) if your menu is starting to sprawl.
+
+Secondary routes often belong in the bottom of the page rather than the top. These [website footer examples for personal websites](/blog/website-footer-examples-for-personal-websites/) show how to do that without making the site feel busy.
 
 ## Put useful writing on the homepage
 
@@ -148,6 +152,9 @@ If the answer is no, the homepage needs work.
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
+- [Homepage headline examples for personal websites](/blog/homepage-headline-examples-for-personal-websites/)
+- [Website tagline examples for personal websites](/blog/website-tagline-examples-for-personal-websites/)
+- [Website footer examples for personal websites](/blog/website-footer-examples-for-personal-websites/)
 - [How to write an about page](/blog/how-to-write-an-about-page/)
 - [What to put on a contact page](/blog/what-to-put-on-a-contact-page/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)

@@ -32,6 +32,8 @@ Each important page should answer a recognizable problem, such as:
 - how to write an about page
 - personal website homepage checklist
 - blog categories vs tags
+- homepage headline examples for personal websites
+- website footer examples for personal websites
 
 Specific intent makes the page easier to title, easier to summarize, and easier to rank for the right audience.
 
@@ -141,5 +143,6 @@ That is usually enough to outperform many larger but less coherent websites.
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)
+- [Homepage headline examples for personal websites](/blog/homepage-headline-examples-for-personal-websites/)
 - [Internal linking for bloggers](/blog/internal-linking-for-bloggers/)
 - [How to update old blog posts for SEO](/blog/how-to-update-old-blog-posts-for-seo/)

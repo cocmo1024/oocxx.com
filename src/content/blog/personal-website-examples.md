@@ -19,6 +19,8 @@ The useful question is not only "what looks good?" It is "what kind of site shap
 
 That is what these examples are for.
 
+If you need publishing angles rather than full site structures, use these [personal website ideas](/blog/personal-website-ideas/) alongside the examples.
+
 ## What makes a useful personal website example
 
 A strong example does not need to be visually flashy.
@@ -249,6 +251,7 @@ That will lead you to a better website than visual inspiration alone.
 
 ## Related reading
 
+- [Personal website ideas: 12 directions that actually lead to useful sites](/blog/personal-website-ideas/)
 - [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)
 - [Personal website vs portfolio](/blog/personal-website-vs-portfolio/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
