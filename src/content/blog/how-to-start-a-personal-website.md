@@ -30,6 +30,8 @@ If you are still looking for the right angle, use these [personal website ideas]
 
 If you are still unsure about the shape of the site, start by reading [personal website vs portfolio](/blog/personal-website-vs-portfolio/). That decision affects your homepage, your navigation, and the kind of content you publish next.
 
+Before you touch tools, it also helps to settle the naming layer. A clear [domain name for a personal website](/blog/how-to-choose-a-domain-name-for-a-personal-website/) makes the project easier to carry forward.
+
 ## Publish the minimum set of pages first
 
 The strongest first version of a personal website is usually small.
@@ -141,6 +143,8 @@ The goal is not to make a perfect website. The goal is to publish a site that is
 
 ## Related reading
 
+- [How to choose a domain name for a personal website](/blog/how-to-choose-a-domain-name-for-a-personal-website/)
+- [Should you use your own name as a domain?](/blog/should-you-use-your-own-name-as-a-domain/)
 - [Personal website vs portfolio](/blog/personal-website-vs-portfolio/)
 - [Personal website ideas: 12 directions that actually lead to useful sites](/blog/personal-website-ideas/)
 - [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)

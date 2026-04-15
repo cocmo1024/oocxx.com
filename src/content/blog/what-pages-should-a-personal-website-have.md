@@ -35,6 +35,8 @@ That is enough to explain the site and give people somewhere useful to go next.
 
 If you are still at the planning stage, start with [how to start a personal website](/blog/how-to-start-a-personal-website/). This guide is about the page set itself.
 
+That planning layer also includes naming. If the domain decision is still foggy, use [how to choose a domain name for a personal website](/blog/how-to-choose-a-domain-name-for-a-personal-website/).
+
 ## The homepage is the orientation page
 
 The homepage should answer three things quickly:
@@ -170,6 +172,7 @@ If each page has a clear purpose, the site will feel better to readers and easie
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [How to choose a domain name for a personal website](/blog/how-to-choose-a-domain-name-for-a-personal-website/)
 - [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [How to write an about page](/blog/how-to-write-an-about-page/)

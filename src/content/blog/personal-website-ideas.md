@@ -31,6 +31,8 @@ If the idea only affects colors or layout, it is probably too shallow.
 
 If you need structural examples first, start with [personal website examples](/blog/personal-website-examples/).
 
+Once the direction is clear, the next question is usually naming. These [personal website name ideas](/blog/personal-website-name-ideas/) help match the site concept to something you can actually publish under.
+
 ## Idea 1: The writer archive
 
 This works for:
@@ -300,6 +302,7 @@ If it cannot do that, it is probably not a useful idea yet.
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [Personal website name ideas that are clear enough to grow with you](/blog/personal-website-name-ideas/)
 - [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [Evergreen content strategy for small websites](/blog/evergreen-content-strategy-for-small-websites/)

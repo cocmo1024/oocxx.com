@@ -52,6 +52,8 @@ That flexibility matters because search traffic usually grows from useful pages,
 
 If you want the site to become a publishing asset over time, the personal website model is stronger.
 
+That is also why an own-name domain often fits the personal-website route better than a narrowly descriptive project title. If you are deciding that part too, read [should you use your own name as a domain](/blog/should-you-use-your-own-name-as-a-domain/).
+
 ## When to choose a portfolio-first site
 
 Choose a portfolio-first structure if:
@@ -132,6 +134,7 @@ Most people who want long-term search traffic should choose the second path.
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [Should you use your own name as a domain?](/blog/should-you-use-your-own-name-as-a-domain/)
 - [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [How to write an about page](/blog/how-to-write-an-about-page/)
