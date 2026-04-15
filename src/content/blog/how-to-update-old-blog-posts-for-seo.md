@@ -113,6 +113,8 @@ Usually the better order is:
 
 Longer is useful only when it makes the answer better.
 
+If you are still thinking in word-count targets, read [how long should a blog post be for SEO](/blog/how-long-should-a-blog-post-be-for-seo/) before stretching a page.
+
 ## Keep a refresh list inside your content plan
 
 Refreshing old posts should not be a random cleanup project.
@@ -162,4 +164,5 @@ That is why updates matter. A small blog does not win by publishing endlessly. I
 
 - [Personal website SEO checklist](/blog/personal-website-seo-checklist/)
 - [Evergreen content strategy for small websites](/blog/evergreen-content-strategy-for-small-websites/)
+- [How long should a blog post be for SEO?](/blog/how-long-should-a-blog-post-be-for-seo/)
 - [Editorial calendar for a small blog](/blog/editorial-calendar-for-small-blog/)

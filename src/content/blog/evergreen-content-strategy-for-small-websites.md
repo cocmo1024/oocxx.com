@@ -46,6 +46,8 @@ Good examples:
 - blog categories vs tags
 - homepage headline examples for personal websites
 - website footer examples for personal websites
+- how often should you blog for SEO
+- how long should a blog post be for SEO
 
 These are durable because the underlying problem repeats.
 
@@ -135,6 +137,7 @@ That is usually the right model for an independent site.
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [Personal website ideas: 12 directions that actually lead to useful sites](/blog/personal-website-ideas/)
+- [Blog post ideas for beginners that can still grow traffic](/blog/blog-post-ideas-for-beginners/)
 - [Blog categories vs tags](/blog/blog-categories-vs-tags/)
 - [How to build an editorial calendar for a small blog](/blog/editorial-calendar-for-small-blog/)
 - [Internal linking for bloggers](/blog/internal-linking-for-bloggers/)

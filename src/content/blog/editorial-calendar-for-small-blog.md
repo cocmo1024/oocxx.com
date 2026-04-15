@@ -111,6 +111,8 @@ Consistency matters, but coherence matters more.
 
 Choose a pace you can sustain while still making each article worth keeping.
 
+If you want the direct publishing-frequency version of this question, read [how often should you blog for SEO on a small website](/blog/how-often-should-you-blog-for-seo/).
+
 ## Keep an idea bank, but filter it hard
 
 You should absolutely keep a running list of ideas.
@@ -123,6 +125,8 @@ But each idea should pass a quick filter:
 - Would this still be worth reading in six months?
 
 If the answer is no, the idea should wait.
+
+If you need starter formats that are easy to publish without turning into filler, use these [blog post ideas for beginners](/blog/blog-post-ideas-for-beginners/).
 
 ## A simple monthly calendar example
 
@@ -159,5 +163,7 @@ That is what turns a small blog from a pile of posts into a system.
 ## Related reading
 
 - [Evergreen content strategy for small websites](/blog/evergreen-content-strategy-for-small-websites/)
+- [How often should you blog for SEO on a small website?](/blog/how-often-should-you-blog-for-seo/)
+- [Blog post ideas for beginners that can still grow traffic](/blog/blog-post-ideas-for-beginners/)
 - [How to update old blog posts for SEO](/blog/how-to-update-old-blog-posts-for-seo/)
 - [Internal linking for bloggers](/blog/internal-linking-for-bloggers/)

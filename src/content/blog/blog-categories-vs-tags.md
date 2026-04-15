@@ -31,6 +31,8 @@ They are the high-level structure of the site.
 
 Most independent blogs need only a few. Four to eight strong categories is usually enough.
 
+If you want the category-count question directly, use [how many categories should a blog have](/blog/how-many-categories-should-a-blog-have/).
+
 Good categories are:
 
 - broad
@@ -126,6 +128,7 @@ That is what makes the structure worth doing.
 
 ## Related reading
 
+- [How many categories should a blog have?](/blog/how-many-categories-should-a-blog-have/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)
 - [Evergreen content strategy for small websites](/blog/evergreen-content-strategy-for-small-websites/)
 - [Internal linking for bloggers](/blog/internal-linking-for-bloggers/)
