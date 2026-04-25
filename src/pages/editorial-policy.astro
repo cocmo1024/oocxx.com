@@ -1,0 +1,103 @@
+---
+import SidebarCard from '../components/SidebarCard.astro';
+import ClassicShell from '../layouts/ClassicShell.astro';
+import { SITE_TITLE } from '../consts';
+
+const reviewChecks = [
+	'The page has a clear reader problem and a useful answer.',
+	'The title, description, headings, internal links, and structured data describe the same subject.',
+	'The page adds practical judgment, examples, or decision criteria instead of repeating obvious advice.',
+	'The page can be updated when the underlying website, publishing, or search guidance changes.',
+];
+---
+
+<ClassicShell
+	title={`Editorial Policy | ${SITE_TITLE}`}
+	description="How OOCXX chooses, writes, reviews, and updates personal website and independent blogging guides."
+	pageTitle="Editorial policy"
+	pageIntro="OOCXX is written as a focused reference library for people building personal websites, independent blogs, and small editorial sites."
+	introLabel="Policy"
+	schemaType="WebPage"
+	breadcrumbItems={[
+		{ name: 'Home', item: '/' },
+		{ name: 'Editorial Policy' },
+	]}
+>
+	<Fragment slot="sidebar-top">
+		<SidebarCard title="Primary Audience" eyebrow="Who">
+			<p>
+				Independent site owners, solo publishers, writers, makers, developers, and small teams that need
+				a useful website before they need a large marketing operation.
+			</p>
+		</SidebarCard>
+	</Fragment>
+
+	<section class="section-block">
+		<div class="section-head">
+			<div>
+				<p class="eyebrow">Purpose</p>
+				<h3>Why these pages exist</h3>
+			</div>
+		</div>
+		<p>
+			The site exists to help readers make practical decisions about personal websites: what pages to
+			publish, how to structure navigation, when to blog, how to name a site, and how to build durable
+			organic discovery without turning the website into a pile of low-value pages.
+		</p>
+		<p>
+			New pages should be created because they answer a real reader decision, not because a phrase looks
+			available. If a topic cannot support a complete and useful answer, it should be merged into a
+			stronger guide or left unpublished.
+		</p>
+	</section>
+
+	<section class="section-block">
+		<div class="section-head">
+			<div>
+				<p class="eyebrow">Method</p>
+				<h3>How content is written</h3>
+			</div>
+		</div>
+		<p>
+			Most OOCXX guides use a decision-first structure: a direct answer, the conditions that change the
+			answer, the mistakes that create weak websites, and the next internal pages a reader should use.
+			This keeps pages useful even when a reader comes directly from search or another site.
+		</p>
+		<p>
+			The writing favors small-site reality over generic marketing advice. A personal website usually
+			needs clarity, trust, readable structure, useful writing, and good internal paths before it needs
+			advanced optimization.
+		</p>
+	</section>
+
+	<section class="section-block">
+		<div class="section-head">
+			<div>
+				<p class="eyebrow">Quality Floor</p>
+				<h3>What a page must pass before publishing</h3>
+			</div>
+		</div>
+		<ul>
+			{reviewChecks.map((check) => <li>{check}</li>)}
+		</ul>
+		<p>
+			Pages that become thin, stale, duplicative, or search-engine-first should be updated, merged,
+			redirected, or removed from prominent navigation. The standard is whether the page helps a real
+			reader make a better website decision.
+		</p>
+	</section>
+
+	<section class="section-block">
+		<div class="section-head">
+			<div>
+				<p class="eyebrow">Updates</p>
+				<h3>How pages are maintained</h3>
+			</div>
+		</div>
+		<p>
+			Pages should be reviewed when site structure guidance changes, search guidance changes, examples
+			become dated, or internal links no longer represent the best reading path. Older pages may receive
+			new dates only when the content has materially changed.
+		</p>
+	</section>
+</ClassicShell>

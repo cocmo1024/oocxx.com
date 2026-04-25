@@ -26,6 +26,8 @@ If you want to see the broader site shapes that strong homepages support, start 
 
 If you need help with the actual wording at the top of the page, use these [homepage headline examples for personal websites](/blog/homepage-headline-examples-for-personal-websites/) and [website tagline examples for personal websites](/blog/website-tagline-examples-for-personal-websites/).
 
+If the question is more direct than a checklist, use [what should a personal website homepage say](/blog/what-should-a-personal-website-homepage-say/) to write the first screen and supporting copy.
+
 ## What a homepage needs to do
 
 At minimum, a personal website homepage should:
@@ -151,6 +153,7 @@ If the answer is no, the homepage needs work.
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [What should a personal website homepage say?](/blog/what-should-a-personal-website-homepage-say/)
 - [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
 - [Homepage headline examples for personal websites](/blog/homepage-headline-examples-for-personal-websites/)
 - [Website tagline examples for personal websites](/blog/website-tagline-examples-for-personal-websites/)

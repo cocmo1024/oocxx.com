@@ -403,6 +403,7 @@ body.drawer-open .mobile-drawer {
 .page-intro,
 .sidebar-card,
 .section-block,
+.answer-box,
 .post-card,
 .hero-banner,
 .micro-card,
@@ -427,6 +428,7 @@ body.drawer-open .mobile-drawer {
 .page-intro,
 .hero-banner,
 .section-block,
+.answer-box,
 .sidebar-card,
 .post-card,
 .article-shell,
@@ -438,6 +440,7 @@ body.drawer-open .mobile-drawer {
 
 .page-intro p:last-child,
 .sidebar-card p:last-child,
+.answer-box p:last-child,
 .section-block > *:last-child,
 .post-card p:last-child,
 .micro-card p:last-child,
@@ -652,6 +655,20 @@ body.drawer-open .mobile-drawer {
 	font-size: 1.02rem;
 }
 
+.answer-box {
+	margin-bottom: 1rem;
+	border-left: 4px solid var(--accent-strong);
+	background:
+		repeating-linear-gradient(
+			90deg,
+			rgba(11, 115, 112, 0.03) 0,
+			rgba(11, 115, 112, 0.03) 10px,
+			transparent 10px,
+			transparent 20px
+		),
+		rgba(238, 244, 234, 0.92);
+}
+
 .article-hero {
 	margin-bottom: 1rem;
 	border: 1px solid rgba(31, 38, 37, 0.24);
@@ -835,6 +852,7 @@ body.drawer-open .mobile-drawer {
 	.page-intro,
 	.hero-banner,
 	.section-block,
+	.answer-box,
 	.sidebar-card,
 	.post-card,
 	.article-shell,

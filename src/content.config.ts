@@ -13,6 +13,8 @@ const blog = defineCollection({
 		topic: z.enum(TOPIC_ORDER),
 		tags: z.array(z.string()).default([]),
 		featured: z.boolean().default(false),
+		readerGoal: z.string().optional(),
+		quickAnswer: z.string().optional(),
 	}),
 });
 

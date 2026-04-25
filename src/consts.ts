@@ -1,8 +1,8 @@
 export const SITE_TITLE = "OOCXX";
 export const SITE_DESCRIPTION =
-	"Actionable guides for personal websites, blogging systems, homepage copy, site structure, and search-friendly growth for small independent sites.";
+	"Practical decision guides for personal websites, independent blogs, homepage copy, site structure, and sustainable organic growth for small sites.";
 export const SITE_TAGLINE =
-	"Personal website strategy, publishing systems, and organic growth for the independent web.";
+	"Personal website strategy, publishing systems, and readable organic growth for the independent web.";
 export const SITE_URL = "https://oocxx.com";
 export const SITE_AUTHOR = "OOCXX Editorial";
 export const SITE_LANGUAGE = "en-US";

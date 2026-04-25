@@ -24,14 +24,14 @@ export const TOPICS = {
 		slug: 'seo-and-audience-growth',
 		name: 'SEO & Audience Growth',
 		description:
-			'Search basics, internal linking, evergreen content, and sustainable traffic systems for independent blogs and personal websites.',
-		shortDescription: 'Get traffic with durable site structure instead of constant platform chasing.',
+			'Search basics, internal linking, evergreen content, and sustainable discovery systems for independent blogs and personal websites.',
+		shortDescription: 'Grow discovery with durable site structure instead of constant platform chasing.',
 	},
 } as const;
 
 export type TopicKey = keyof typeof TOPICS;
 
-export const TOPIC_ORDER = Object.keys(TOPICS) as TopicKey[];
+export const TOPIC_ORDER = ['foundations', 'pages', 'publishing', 'growth'] as const;
 
 export function getTopic(key: TopicKey) {
 	return TOPICS[key];

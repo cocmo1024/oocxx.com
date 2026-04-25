@@ -24,6 +24,7 @@
 	},
 	"private": true,
 	"scripts": {
+		"audit:content": "node ./scripts/content-quality-audit.mjs",
 		"astro": "astro",
 		"build": "astro build",
 		"cf-typegen": "wrangler types",

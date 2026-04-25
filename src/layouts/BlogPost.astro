@@ -21,8 +21,19 @@ type Props = CollectionEntry<'blog'>['data'] & {
 	wordCount?: number;
 };
 
-const { title, description, pubDate, updatedDate, heroImage, topic, tags, postId, headings = [] } =
-	Astro.props;
+const {
+	title,
+	description,
+	pubDate,
+	updatedDate,
+	heroImage,
+	topic,
+	tags,
+	postId,
+	headings = [],
+	readerGoal,
+	quickAnswer,
+} = Astro.props;
 const { wordCount } = Astro.props;
 
 const pageURL = new URL(Astro.url.pathname, Astro.site ?? SITE_URL).toString();
@@ -92,6 +103,7 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 			<p><strong>Topic:</strong> <a href={`/topics/${topicData.slug}/`}>{topicData.name}</a></p>
 			<p><strong>Published:</strong> <FormattedDate date={pubDate} /></p>
 			{updatedDate && <p><strong>Updated:</strong> <FormattedDate date={updatedDate} /></p>}
+			{readerGoal && <p><strong>Reader goal:</strong> {readerGoal}</p>}
 			{tags.length > 0 && (
 				<ul>
 					{tags.map((tag) => (
@@ -160,6 +172,13 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 				</ul>
 			)}
 		</header>
+
+		{quickAnswer && (
+			<section class="answer-box" aria-label="Quick answer">
+				<p class="section-kicker">Quick Answer</p>
+				<p>{quickAnswer}</p>
+			</section>
+		)}
 
 		{heroImage && (
 			<div class="article-hero">

@@ -48,6 +48,8 @@ That is enough to make the site legible.
 
 If you need help deciding the actual page set, use [what pages should a personal website have](/blog/what-pages-should-a-personal-website-have/). If your homepage is vague, use the [personal website homepage checklist](/blog/personal-website-homepage-checklist/). If your about page is weak, use [this guide to writing an about page](/blog/how-to-write-an-about-page/).
 
+If you are unsure whether the first version needs a blog at all, read [should a personal website have a blog](/blog/should-a-personal-website-have-a-blog/) before creating an empty archive.
+
 ## Pick a structure that can scale
 
 A website that begins with only a homepage often stays thin forever. A website that begins with a structure can grow.
@@ -148,5 +150,7 @@ The goal is not to make a perfect website. The goal is to publish a site that is
 - [Personal website vs portfolio](/blog/personal-website-vs-portfolio/)
 - [Personal website ideas: 12 directions that actually lead to useful sites](/blog/personal-website-ideas/)
 - [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)
+- [Should a personal website have a blog?](/blog/should-a-personal-website-have-a-blog/)
+- [Personal website audit checklist](/blog/personal-website-audit-checklist/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [Personal website SEO checklist](/blog/personal-website-seo-checklist/)

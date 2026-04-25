@@ -128,6 +128,8 @@ Search traffic often improves when you:
 
 Treat your best pages like assets, not artifacts. A direct workflow for that is [how to update old blog posts for SEO](/blog/how-to-update-old-blog-posts-for-seo/).
 
+If the whole site feels unclear rather than one article, run the broader [personal website audit checklist](/blog/personal-website-audit-checklist/) before publishing more pages.
+
 ## The goal of personal website SEO
 
 The goal is not to make a tiny site sound like an enterprise brand.
@@ -144,6 +146,8 @@ That is usually enough to outperform many larger but less coherent websites.
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [Personal website audit checklist](/blog/personal-website-audit-checklist/)
+- [Should a personal website have a blog?](/blog/should-a-personal-website-have-a-blog/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)
 - [Homepage headline examples for personal websites](/blog/homepage-headline-examples-for-personal-websites/)
 - [How often should you blog for SEO on a small website?](/blog/how-often-should-you-blog-for-seo/)
