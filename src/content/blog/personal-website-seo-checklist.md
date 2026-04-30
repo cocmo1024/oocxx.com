@@ -9,6 +9,8 @@ tags:
   - Search Traffic
   - Site Structure
 featured: false
+readerGoal: Check the search basics of a personal website without chasing advanced tactics before the structure is clear.
+quickAnswer: Personal website SEO starts with clear page intent, descriptive titles, useful internal links, readable mobile pages, and a coherent topic structure. Fix those fundamentals before worrying about advanced optimization.
 ---
 
 Personal website SEO does not need to be complicated, but it does need to be intentional.
@@ -130,6 +132,8 @@ Treat your best pages like assets, not artifacts. A direct workflow for that is 
 
 If the whole site feels unclear rather than one article, run the broader [personal website audit checklist](/blog/personal-website-audit-checklist/) before publishing more pages.
 
+If the site is not live yet, use the [personal website launch checklist](/blog/personal-website-launch-checklist/) before submitting or promoting it.
+
 ## The goal of personal website SEO
 
 The goal is not to make a tiny site sound like an enterprise brand.
@@ -147,6 +151,7 @@ That is usually enough to outperform many larger but less coherent websites.
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [Personal website audit checklist](/blog/personal-website-audit-checklist/)
+- [Personal website launch checklist](/blog/personal-website-launch-checklist/)
 - [Should a personal website have a blog?](/blog/should-a-personal-website-have-a-blog/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)
 - [Homepage headline examples for personal websites](/blog/homepage-headline-examples-for-personal-websites/)

@@ -10,6 +10,8 @@ tags:
   - About Page
   - Contact Page
 featured: false
+readerGoal: Decide which pages a personal website actually needs before adding unnecessary sections.
+quickAnswer: Most personal websites need a homepage, about page, contact path, and one main section for work, writing, projects, or guides. Add topic, tag, and archive pages only when the site publishes enough useful material to justify them.
 ---
 
 One of the easiest ways to stall a personal website is to overthink the page structure.
@@ -161,6 +163,8 @@ If you want a simple publishing order, do this:
 
 That gives the site enough structure to feel complete without becoming heavy.
 
+After the page set is defined, use the [personal website launch checklist](/blog/personal-website-launch-checklist/) to check metadata, navigation, links, and mobile readability before publishing.
+
 ## The page system should make the site easier to grow
 
 The goal is not to create the maximum number of pages.
@@ -172,6 +176,7 @@ If each page has a clear purpose, the site will feel better to readers and easie
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [Personal website launch checklist](/blog/personal-website-launch-checklist/)
 - [How to choose a domain name for a personal website](/blog/how-to-choose-a-domain-name-for-a-personal-website/)
 - [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)

@@ -9,6 +9,8 @@ tags:
   - Evergreen Content
   - Small Websites
 featured: false
+readerGoal: Choose beginner blog post ideas that are useful enough to become part of a durable site archive.
+quickAnswer: The best beginner blog post ideas are checklists, examples, comparisons, mistake guides, frameworks, FAQs, and process breakdowns tied to one clear topic cluster. Avoid random updates until the site has a visible direction.
 ---
 
 Beginner bloggers often get stuck because the obvious ideas feel weak.
@@ -146,6 +148,8 @@ Once you have one useful post, ask:
 
 That is how one idea becomes a cluster.
 
+If you need the site-level version of that decision, read [personal website content strategy](/blog/personal-website-content-strategy/) before adding another set of unrelated post ideas.
+
 ## What beginners should avoid
 
 Avoid relying too heavily on:
@@ -175,6 +179,8 @@ Once the site has more depth, your own angles become easier to develop.
 ## Related reading
 
 - [Evergreen content strategy for small websites](/blog/evergreen-content-strategy-for-small-websites/)
+- [Personal website content strategy](/blog/personal-website-content-strategy/)
+- [Personal website mistakes](/blog/personal-website-mistakes/)
 - [How to build an editorial calendar for a small blog](/blog/editorial-calendar-for-small-blog/)
 - [Personal website ideas: 12 directions that actually lead to useful sites](/blog/personal-website-ideas/)
 - [How often should you blog for SEO on a small website?](/blog/how-often-should-you-blog-for-seo/)

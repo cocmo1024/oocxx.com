@@ -9,6 +9,8 @@ tags:
   - Navigation
   - Personal Branding
 featured: false
+readerGoal: Review a personal website homepage so visitors understand the site quickly and know where to go next.
+quickAnswer: A strong personal website homepage explains what the site is about, gives a short credibility signal, points to the most important next pages, and avoids making the visitor decode vague branding or oversized visuals.
 ---
 
 A homepage fails when it makes the visitor work too hard.
@@ -127,6 +129,8 @@ The most common mistakes are:
 
 Most of these problems are structural, not visual.
 
+If the homepage is only one part of a larger pattern, use [personal website mistakes](/blog/personal-website-mistakes/) to audit the whole site.
+
 ## A simple homepage template
 
 If you want a clean default structure, use this:
@@ -154,6 +158,7 @@ If the answer is no, the homepage needs work.
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [What should a personal website homepage say?](/blog/what-should-a-personal-website-homepage-say/)
+- [Personal website mistakes](/blog/personal-website-mistakes/)
 - [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
 - [Homepage headline examples for personal websites](/blog/homepage-headline-examples-for-personal-websites/)
 - [Website tagline examples for personal websites](/blog/website-tagline-examples-for-personal-websites/)

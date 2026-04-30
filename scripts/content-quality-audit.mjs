@@ -39,7 +39,7 @@ function readFrontmatter(text) {
 }
 
 function countWords(text) {
-	return (text.match(/[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*/g) ?? []).length;
+	return (text.match(/[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*/g) ?? []).length;
 }
 
 const files = walk(blogDir);

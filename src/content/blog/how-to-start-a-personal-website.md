@@ -10,6 +10,8 @@ tags:
   - Blogging
   - SEO
 featured: true
+readerGoal: Launch a personal website with the minimum useful structure instead of overbuilding or delaying publication.
+quickAnswer: Start a personal website by defining its purpose, publishing a homepage, about page, contact path, and one or two useful pages, then adding internal links and a simple publishing structure. Tools matter less than clear pages and a site shape that can grow.
 ---
 
 Starting a personal website is easier than it used to be, but it is also easier to make avoidable mistakes. Many people spend too long choosing tools, over-design the homepage, publish nothing, and then wonder why the site never turns into a real asset.
@@ -31,6 +33,8 @@ If you are still looking for the right angle, use these [personal website ideas]
 If you are still unsure about the shape of the site, start by reading [personal website vs portfolio](/blog/personal-website-vs-portfolio/). That decision affects your homepage, your navigation, and the kind of content you publish next.
 
 Before you touch tools, it also helps to settle the naming layer. A clear [domain name for a personal website](/blog/how-to-choose-a-domain-name-for-a-personal-website/) makes the project easier to carry forward.
+
+If you already have a draft site and need a release sequence, use the [personal website launch checklist](/blog/personal-website-launch-checklist/) after this guide.
 
 ## Publish the minimum set of pages first
 
@@ -149,6 +153,7 @@ The goal is not to make a perfect website. The goal is to publish a site that is
 - [Should you use your own name as a domain?](/blog/should-you-use-your-own-name-as-a-domain/)
 - [Personal website vs portfolio](/blog/personal-website-vs-portfolio/)
 - [Personal website ideas: 12 directions that actually lead to useful sites](/blog/personal-website-ideas/)
+- [Personal website launch checklist](/blog/personal-website-launch-checklist/)
 - [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)
 - [Should a personal website have a blog?](/blog/should-a-personal-website-have-a-blog/)
 - [Personal website audit checklist](/blog/personal-website-audit-checklist/)

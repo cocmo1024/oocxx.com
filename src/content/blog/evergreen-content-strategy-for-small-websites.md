@@ -9,6 +9,8 @@ tags:
   - Blogging
   - SEO
 featured: false
+readerGoal: Build a small-site content plan around durable questions instead of random posts.
+quickAnswer: Evergreen content works when each page solves a recurring problem, belongs to a cluster, and can be updated over time. A small website should publish fewer, stronger pages that connect through clear internal links.
 ---
 
 Small websites usually do not win by publishing fast. They win by publishing pages that stay useful.
@@ -108,6 +110,8 @@ This creates a site that deepens strategically rather than sprawling randomly.
 
 If you need a planning layer behind that rhythm, use [how to build an editorial calendar for a small blog](/blog/editorial-calendar-for-small-blog/).
 
+For the personal-site version of this system, use [personal website content strategy](/blog/personal-website-content-strategy/) to decide which pages belong in the first clusters.
+
 ## Evergreen content needs good structure to work
 
 An evergreen article does not do much on its own if the site structure is weak.
@@ -137,6 +141,7 @@ That is usually the right model for an independent site.
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [Personal website ideas: 12 directions that actually lead to useful sites](/blog/personal-website-ideas/)
+- [Personal website content strategy](/blog/personal-website-content-strategy/)
 - [Blog post ideas for beginners that can still grow traffic](/blog/blog-post-ideas-for-beginners/)
 - [Blog categories vs tags](/blog/blog-categories-vs-tags/)
 - [How to build an editorial calendar for a small blog](/blog/editorial-calendar-for-small-blog/)

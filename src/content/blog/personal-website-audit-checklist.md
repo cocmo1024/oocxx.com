@@ -166,6 +166,8 @@ Weak signs:
 
 If you are unsure whether the blog belongs at all, read [should a personal website have a blog](/blog/should-a-personal-website-have-a-blog/).
 
+If the same issue appears across several sections, compare it against [personal website mistakes](/blog/personal-website-mistakes/) before treating it as a small copy edit.
+
 ## 10. Decide what to fix first
 
 Use this order:
@@ -191,6 +193,8 @@ That is the standard worth auditing against.
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [Personal website mistakes](/blog/personal-website-mistakes/)
+- [Personal website launch checklist](/blog/personal-website-launch-checklist/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)
