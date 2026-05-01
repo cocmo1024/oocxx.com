@@ -216,6 +216,8 @@ After launch, check the live site:
 
 Then wait before redesigning. The first job after launch is learning how the site feels when it is real.
 
+If the site is ready for discovery, use [how to get a personal website on Google](/blog/how-to-get-a-personal-website-on-google/) for the sitemap, Search Console, and URL inspection layer.
+
 ## The launch standard
 
 Launch when the site is clear enough to help a stranger.
@@ -231,4 +233,6 @@ The best first version is small, coherent, readable, and easy to improve.
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [What should a personal website homepage say?](/blog/what-should-a-personal-website-homepage-say/)
 - [Personal website audit checklist](/blog/personal-website-audit-checklist/)
+- [How to get a personal website on Google](/blog/how-to-get-a-personal-website-on-google/)
+- [Google Search Console for personal websites](/blog/google-search-console-for-personal-websites/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)

@@ -195,6 +195,7 @@ That is the standard worth auditing against.
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [Personal website mistakes](/blog/personal-website-mistakes/)
 - [Personal website launch checklist](/blog/personal-website-launch-checklist/)
+- [How to get a personal website on Google](/blog/how-to-get-a-personal-website-on-google/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)

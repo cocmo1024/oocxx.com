@@ -134,6 +134,8 @@ If the whole site feels unclear rather than one article, run the broader [person
 
 If the site is not live yet, use the [personal website launch checklist](/blog/personal-website-launch-checklist/) before submitting or promoting it.
 
+If the site is live but not appearing in Google yet, use [how to get a personal website on Google](/blog/how-to-get-a-personal-website-on-google/) and then set up [Google Search Console for personal websites](/blog/google-search-console-for-personal-websites/).
+
 ## The goal of personal website SEO
 
 The goal is not to make a tiny site sound like an enterprise brand.
@@ -152,6 +154,8 @@ That is usually enough to outperform many larger but less coherent websites.
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
 - [Personal website audit checklist](/blog/personal-website-audit-checklist/)
 - [Personal website launch checklist](/blog/personal-website-launch-checklist/)
+- [How to get a personal website on Google](/blog/how-to-get-a-personal-website-on-google/)
+- [Google Search Console for personal websites](/blog/google-search-console-for-personal-websites/)
 - [Should a personal website have a blog?](/blog/should-a-personal-website-have-a-blog/)
 - [Website navigation best practices](/blog/website-navigation-best-practices/)
 - [Homepage headline examples for personal websites](/blog/homepage-headline-examples-for-personal-websites/)

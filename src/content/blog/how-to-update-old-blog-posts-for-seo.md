@@ -160,9 +160,12 @@ A growing site gets stronger when old pages stay useful and well connected.
 
 That is why updates matter. A small blog does not win by publishing endlessly. It wins by keeping its best pages alive, useful, and part of a coherent system.
 
+After updating an important page, use [Google Search Console for personal websites](/blog/google-search-console-for-personal-websites/) to monitor whether the stronger version earns better impressions, clicks, and query alignment over time.
+
 ## Related reading
 
 - [Personal website SEO checklist](/blog/personal-website-seo-checklist/)
+- [Google Search Console for personal websites](/blog/google-search-console-for-personal-websites/)
 - [Evergreen content strategy for small websites](/blog/evergreen-content-strategy-for-small-websites/)
 - [How long should a blog post be for SEO?](/blog/how-long-should-a-blog-post-be-for-seo/)
 - [Editorial calendar for a small blog](/blog/editorial-calendar-for-small-blog/)
