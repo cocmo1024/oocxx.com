@@ -2,6 +2,7 @@
 title: "Personal Website Examples: 7 Structures That Actually Work"
 description: Seven practical personal website structures you can adapt, plus what each one gets right and who it works best for.
 pubDate: 2026-04-13T16:00:00Z
+updatedDate: 2026-05-02T12:00:00Z
 topic: foundations
 tags:
   - Personal Website
@@ -220,6 +221,8 @@ Choose based on:
 
 If you want organic traffic, choose a structure that gives useful articles a real home.
 
+If the site also needs to support hiring, recruiter review, or client evaluation, use [personal website for job search](/blog/personal-website-for-job-search/) before copying a visual pattern. A career-focused site needs proof, context, and contact routes to work together instead of acting like separate decorative pages.
+
 ## The biggest mistake when copying examples
 
 People often copy the surface without copying the logic.
@@ -254,4 +257,6 @@ That will lead you to a better website than visual inspiration alone.
 - [Personal website ideas: 12 directions that actually lead to useful sites](/blog/personal-website-ideas/)
 - [What pages should a personal website have?](/blog/what-pages-should-a-personal-website-have/)
 - [Personal website vs portfolio](/blog/personal-website-vs-portfolio/)
+- [Personal website for job search](/blog/personal-website-for-job-search/)
+- [Resume website vs portfolio](/blog/resume-website-vs-portfolio/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)

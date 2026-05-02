@@ -2,6 +2,7 @@
 title: How to Write an About Page for a Personal Website
 description: A simple framework for writing an about page that feels credible, human, and useful instead of vague or self-important.
 pubDate: 2026-04-09
+updatedDate: 2026-05-02T12:00:00Z
 topic: pages
 tags:
   - About Page
@@ -9,6 +10,8 @@ tags:
   - Trust
   - Personal Branding
 featured: false
+readerGoal: Write an about page that gives first-time visitors enough context, credibility, and next steps.
+quickAnswer: A good about page explains who is behind the site, what the site covers, why the person is credible, and what the reader should do next. It should be more useful than a short bio and more focused than a full resume.
 ---
 
 The about page is one of the most visited pages on a personal website, and one of the easiest to get wrong.
@@ -125,6 +128,8 @@ For most people, that means:
 
 If you need more than that, consider linking to a separate resume, CV, or timeline.
 
+If the about page is part of a job-search site, keep the resume or CV link available but do not make the entire about page read like a work-history dump. Use [personal website for job search](/blog/personal-website-for-job-search/) for the broader structure.
+
 ## Write it for a first-time visitor
 
 The best way to improve your about page is to imagine the reader has never heard of you.
@@ -143,4 +148,6 @@ Answer those well, and the page works.
 - [About page examples for personal websites](/blog/about-page-examples-for-personal-websites/)
 - [What to put on a contact page](/blog/what-to-put-on-a-contact-page/)
 - [Personal website vs portfolio](/blog/personal-website-vs-portfolio/)
+- [Personal website for job search](/blog/personal-website-for-job-search/)
+- [Resume website vs portfolio](/blog/resume-website-vs-portfolio/)
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)

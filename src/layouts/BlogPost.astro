@@ -3,7 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import FormattedDate from '../components/FormattedDate.astro';
 import SidebarCard from '../components/SidebarCard.astro';
 import ClassicShell from './ClassicShell.astro';
-import { SITE_AUTHOR, SITE_TITLE, SITE_URL } from '../consts';
+import { SITE_AUTHOR, SITE_LANGUAGE, SITE_TITLE, SITE_URL } from '../consts';
 import { getPostNeighbors, getPostsByTopic, getRelatedPosts, sortPosts } from '../lib/content';
 import { ORGANIZATION_SCHEMA_ID, WEBSITE_SCHEMA_ID, absoluteUrl } from '../lib/seo';
 import { getTopic, type TopicKey } from '../data/taxonomy';
@@ -33,6 +33,7 @@ const {
 	headings = [],
 	readerGoal,
 	quickAnswer,
+	faqs = [],
 } = Astro.props;
 const { wordCount } = Astro.props;
 
@@ -75,6 +76,24 @@ const articleSchema = {
 	})),
 	wordCount: wordCount && wordCount > 0 ? wordCount : undefined,
 };
+const faqSchema = faqs.length > 0
+	? {
+			'@type': 'FAQPage',
+			'@id': `${pageURL}#faq`,
+			url: pageURL,
+			inLanguage: SITE_LANGUAGE,
+			isPartOf: { '@id': WEBSITE_SCHEMA_ID },
+			mainEntity: faqs.map((item) => ({
+				'@type': 'Question',
+				name: item.question,
+				acceptedAnswer: {
+					'@type': 'Answer',
+					text: item.answer,
+				},
+			})),
+		}
+	: undefined;
+const structuredData = faqSchema ? [articleSchema, faqSchema] : articleSchema;
 
 const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
 ---
@@ -96,7 +115,7 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 		{ name: title },
 	]}
 	mainEntityId={`${pageURL}#article`}
-	schema={articleSchema}
+	schema={structuredData}
 >
 	<Fragment slot="sidebar-top">
 		<SidebarCard title="Guide Summary" eyebrow="Reference">
@@ -207,6 +226,25 @@ const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.dept
 		<div class="article-prose prose">
 			<slot />
 		</div>
+
+		{faqs.length > 0 && (
+			<section class="section-block faq-block" id="faq">
+				<div class="section-head">
+					<div>
+						<p class="eyebrow">FAQ</p>
+						<h3>Common questions</h3>
+					</div>
+				</div>
+				<div class="faq-list">
+					{faqs.map((item) => (
+						<article class="faq-item">
+							<h4>{item.question}</h4>
+							<p>{item.answer}</p>
+						</article>
+					))}
+				</div>
+			</section>
+		)}
 
 		<section class="section-block">
 			<div class="section-head">

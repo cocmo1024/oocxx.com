@@ -2,6 +2,7 @@
 title: What to Put on a Contact Page for a Personal Website
 description: A practical contact page structure for personal websites, including what to include, what to avoid, and how to make the page feel trustworthy.
 pubDate: 2026-04-13T11:00:00Z
+updatedDate: 2026-05-02T12:00:00Z
 topic: pages
 tags:
   - Contact Page
@@ -104,6 +105,8 @@ But a little context helps:
 
 If the site already has a strong [about page](/blog/how-to-write-an-about-page/), keep the contact page short and link back to that page when needed.
 
+For a job-search site, this context matters even more. The contact page should make it easy for recruiters, hiring managers, collaborators, or clients to understand what kind of opportunity fits. The broader site structure is covered in [personal website for job search](/blog/personal-website-for-job-search/).
+
 ## Common contact page mistakes
 
 The most common mistakes are:
@@ -159,3 +162,4 @@ A contact page is a small page, but it has an outsized effect on trust.
 - [Contact page examples for personal websites](/blog/contact-page-examples-for-personal-websites/)
 - [Website footer examples for personal websites](/blog/website-footer-examples-for-personal-websites/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
+- [Personal website for job search](/blog/personal-website-for-job-search/)

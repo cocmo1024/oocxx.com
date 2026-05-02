@@ -2,6 +2,7 @@
 title: What Pages Should a Personal Website Have?
 description: The core pages most personal websites actually need, what each page should do, and how to launch a clean structure without overbuilding.
 pubDate: 2026-04-13T12:00:00Z
+updatedDate: 2026-05-02T12:00:00Z
 topic: foundations
 tags:
   - Personal Website
@@ -99,10 +100,13 @@ That body might be:
 - a portfolio or selected projects page
 - a writing page
 - a resource library
+- a resume or CV page when the site supports job search
 
 This is the section that gives the site depth.
 
 If you are building a hybrid site, read [personal website vs portfolio](/blog/personal-website-vs-portfolio/) before deciding how to name and structure this section.
+
+If the site is for hiring, also read [personal website for job search](/blog/personal-website-for-job-search/) so the resume, work, about, and contact paths do different jobs.
 
 ## Optional pages should be added for a reason
 
@@ -182,3 +186,5 @@ If each page has a clear purpose, the site will feel better to readers and easie
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
 - [How to write an about page](/blog/how-to-write-an-about-page/)
 - [What to put on a contact page](/blog/what-to-put-on-a-contact-page/)
+- [Personal website for job search](/blog/personal-website-for-job-search/)
+- [Resume website vs portfolio](/blog/resume-website-vs-portfolio/)

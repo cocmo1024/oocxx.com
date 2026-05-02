@@ -502,7 +502,8 @@ body.drawer-open .mobile-drawer {
 
 .topic-grid,
 .link-grid,
-.note-grid {
+.note-grid,
+.faq-list {
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 0.8rem;
@@ -510,12 +511,19 @@ body.drawer-open .mobile-drawer {
 
 .topic-card,
 .micro-card,
-.note-card {
+.note-card,
+.faq-item {
 	display: flex;
 	flex-direction: column;
 	gap: 0.55rem;
 	color: inherit;
 	text-decoration: none;
+}
+
+.faq-item {
+	padding: 0.85rem;
+	border: 1px dashed rgba(31, 38, 37, 0.32);
+	background: rgba(255, 255, 255, 0.36);
 }
 
 .topic-card:hover,

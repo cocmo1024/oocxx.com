@@ -2,6 +2,7 @@
 title: "Personal Website vs Portfolio: Which One Should You Build?"
 description: The difference between a personal website and a portfolio site, and how to choose the right structure for your goals.
 pubDate: 2026-04-11
+updatedDate: 2026-05-02T12:00:00Z
 topic: foundations
 tags:
   - Personal Website
@@ -9,6 +10,8 @@ tags:
   - Positioning
   - Homepage
 featured: false
+readerGoal: Decide whether your site should be a portfolio, a broader personal website, or a hybrid of both.
+quickAnswer: A portfolio is best when selected work is the main proof. A personal website is better when you also want writing, search visibility, projects, and a long-term home base. Most job seekers and independent professionals benefit from a personal website with a strong portfolio section.
 ---
 
 People often use personal website and portfolio as if they mean the same thing. They do not.
@@ -35,6 +38,8 @@ The typical portfolio structure is:
 - contact page
 
 If your main goal is to get clients, job interviews, or collaborations, a portfolio-first structure may be enough.
+
+If the site is specifically supporting applications or recruiter review, use [personal website for job search](/blog/personal-website-for-job-search/) after this comparison.
 
 ## What a personal website is good at
 
@@ -98,6 +103,8 @@ In practice, that might look like:
 - blog or guides
 - contact
 
+If you also need to decide where a resume fits, read [resume website vs portfolio](/blog/resume-website-vs-portfolio/).
+
 ## Do not let the homepage become confused
 
 The real risk with the hybrid model is clutter. A homepage that tries to introduce the person, sell the service, display the project list, summarize the writing, and collect newsletter subscribers all at once usually ends up weak.
@@ -134,6 +141,9 @@ Most people who want long-term search traffic should choose the second path.
 ## Related reading
 
 - [How to start a personal website](/blog/how-to-start-a-personal-website/)
+- [Personal website for job search](/blog/personal-website-for-job-search/)
+- [Resume website vs portfolio](/blog/resume-website-vs-portfolio/)
+- [LinkedIn vs personal website](/blog/linkedin-vs-personal-website/)
 - [Should you use your own name as a domain?](/blog/should-you-use-your-own-name-as-a-domain/)
 - [Personal website examples: 7 structures that actually work](/blog/personal-website-examples/)
 - [Personal website homepage checklist](/blog/personal-website-homepage-checklist/)
