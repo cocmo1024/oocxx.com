@@ -8,6 +8,8 @@ staticDir:
   - "public"
 enableRobotsTXT: true
 enableEmoji: true
+disableKinds:
+  - RSS
 
 pagination:
   pagerSize: 10
@@ -15,7 +17,6 @@ pagination:
 outputs:
   home:
     - HTML
-    - RSS
     - JSON
 
 taxonomies:
@@ -61,8 +62,7 @@ params:
   ShowCodeCopyButtons: true
   ShowToc: true
   TocOpen: false
-  ShowRssButtonInSectionTermList: true
-  ShowFullTextinRSS: true
+  ShowRssButtonInSectionTermList: false
   ShowWordCount: true
   ShowLastMod: false
   UseHugoToc: true
@@ -81,9 +81,6 @@ params:
   homeInfoParams:
     Title: "把复杂写清楚"
     Content: "一个简单、安静、克制的个人博客。记录写作、生活、工具和长期思考，不追热点，只留下值得反复读的文字。"
-  socialIcons:
-    - name: rss
-      url: "/index.xml"
   editPost:
     disabled: true
   fuseOpts:

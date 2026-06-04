@@ -16,7 +16,7 @@
 	"private": true,
 	"scripts": {
 		"audit:content": "node ./scripts/content-quality-audit.mjs",
-		"build": "hugo --gc --minify --destination dist",
+		"build": "hugo --gc --minify --cleanDestinationDir --destination dist",
 		"check": "npm run audit:content && npm run build && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
 		"dev": "hugo server -D --bind 127.0.0.1 --port 1313 --baseURL http://127.0.0.1:1313/",
