@@ -1,7 +1,7 @@
 {
   "name": "OOCXX",
   "short_name": "OOCXX",
-  "description": "一个简单、安静、克制的个人博客。",
+  "description": "A quiet personal blog.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#f7f5f0",

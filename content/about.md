@@ -1,24 +1,22 @@
 ---
-title: "关于"
-description: "关于 OOCXX 这个简单个人博客。"
+title: "About"
+description: "About OOCXX, a quiet personal blog."
 url: "/about/"
-summary: "一个简单、安静、克制的个人博客。"
+summary: "A quiet personal blog."
 ---
 
-这是一个尽量简单的个人博客。
+OOCXX is a quiet personal blog.
 
-它不急着证明什么，只负责把值得保存的想法放在一个稳定、安静、可阅读的地方。
+It is not trying to perform, sell, or shout. It is simply a stable place for thoughts that are worth keeping.
 
-## 写什么
+## What Belongs Here
 
-写生活里的观察，写工具带来的秩序，也写那些需要慢慢想、慢慢改、慢慢验证的判断。
+Notes about writing, work, tools, attention, and the small decisions that shape a life over time.
 
-## 不写什么
+## What Does Not
 
-不追逐热点，不堆砌标签，不把页面做成信息噪音。文章可以短，但要诚实、清楚、有余味。
+Trend-chasing, filler, and category noise. A post can be short, but it should be clear, honest, and worth revisiting.
 
-## 为什么这样设计
+## Why It Is Simple
 
-因为个人网站最珍贵的部分不是装饰，而是文字、节奏和长期可访问性。
-
-少一点，通常更耐看。
+Because the most valuable part of a personal site is not decoration. It is the writing, the rhythm, and the fact that the page remains readable years later.

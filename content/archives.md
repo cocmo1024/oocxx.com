@@ -1,6 +1,6 @@
 ---
-title: "归档"
+title: "Archive"
 layout: "archives"
 url: "/archives/"
-summary: "所有文章按时间归档。"
+summary: "All posts in chronological order."
 ---
