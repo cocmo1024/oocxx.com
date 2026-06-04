@@ -1,29 +1,18 @@
 ---
-import { getCollection } from 'astro:content';
-import PostPreviewCard from '../components/PostPreviewCard.astro';
-import SidebarCard from '../components/SidebarCard.astro';
-import ClassicShell from '../layouts/ClassicShell.astro';
-import { SITE_TITLE, SITE_URL } from '../consts';
-import { TOPIC_ORDER, getTopic } from '../data/taxonomy';
-import { getFeaturedPost, getTagCounts, sortPosts } from '../lib/content';
-import { getItemListSchema } from '../lib/seo';
+import { getCollection } from "astro:content";
+import PostPreviewCard from "../components/PostPreviewCard.astro";
+import ClassicShell from "../layouts/ClassicShell.astro";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "../consts";
+import { getFeaturedPost, sortPosts } from "../lib/content";
+import { getItemListSchema } from "../lib/seo";
 
-const posts = sortPosts(await getCollection('blog'));
+const posts = sortPosts(await getCollection("blog"));
 const featuredPost = getFeaturedPost(posts);
-const latestPosts = posts.filter((post) => post.id !== featuredPost?.id).slice(0, 4);
-const topicCards = TOPIC_ORDER.map((key) => ({
-	...getTopic(key),
-	entries: posts.filter((post) => post.data.topic === key).slice(0, 2),
-}));
-const popularTags = getTagCounts(posts).slice(0, 12);
-const featuredEntries = [featuredPost, ...latestPosts].filter(
-	(post, index, list): post is NonNullable<typeof post> =>
-		Boolean(post) && list.findIndex((entry) => entry?.id === post?.id) === index,
-);
-const featuredItemListId = `${SITE_URL}/#featured-guides`;
+const latestPosts = posts.filter((post) => post.id !== featuredPost?.id).slice(0, 3);
+const homeListId = `${SITE_URL}/#latest`;
 const homeSchema = getItemListSchema(
-	featuredItemListId,
-	featuredEntries.map((post) => ({
+	homeListId,
+	posts.slice(0, 6).map((post) => ({
 		name: post.data.title,
 		url: `/blog/${post.id}/`,
 	})),
@@ -31,188 +20,56 @@ const homeSchema = getItemListSchema(
 ---
 
 <ClassicShell
-	title={`${SITE_TITLE} | Personal Website Playbook`}
-	description="Practical guides for planning, writing, structuring, and growing a personal website or independent blog."
-	pageTitle="Build a personal website people can actually find and read"
-	pageIntro="OOCXX is an editorial site about personal websites, blogging systems, homepage copy, information architecture, and sustainable organic growth for small independent sites."
-	introLabel="Start Here"
-	schemaType="CollectionPage"
-	mainEntityId={featuredItemListId}
+	title={SITE_TITLE}
+	description={SITE_DESCRIPTION}
+	image="/images/writing-desk.webp"
+	schemaType="Blog"
+	mainEntityId={homeListId}
 	schema={homeSchema}
 >
-	<Fragment slot="sidebar-top">
-		<SidebarCard title="Read First" eyebrow="Core Guides">
-			<ul>
-				<li><a href="/blog/how-to-start-a-personal-website/">How to start a personal website</a></li>
-				<li><a href="/blog/personal-website-launch-checklist/">Personal website launch checklist</a></li>
-				<li><a href="/blog/how-to-get-a-personal-website-on-google/">How to get a personal website on Google</a></li>
-				<li><a href="/blog/what-pages-should-a-personal-website-have/">What pages should a personal website have?</a></li>
-				<li><a href="/blog/personal-website-seo-checklist/">Personal website SEO checklist</a></li>
-			</ul>
-		</SidebarCard>
-	</Fragment>
-
-	<Fragment slot="sidebar-bottom">
-		<SidebarCard title="Naming & Domains" eyebrow="Decision Guides">
-			<ul>
-				<li><a href="/blog/how-to-choose-a-domain-name-for-a-personal-website/">How to choose a domain name</a></li>
-				<li><a href="/blog/should-you-use-your-own-name-as-a-domain/">Should you use your own name as a domain?</a></li>
-				<li><a href="/blog/personal-website-name-ideas/">Personal website name ideas</a></li>
-				<li><a href="/blog/blog-name-ideas-for-beginners-and-personal-sites/">Blog name ideas for beginners</a></li>
-			</ul>
-		</SidebarCard>
-	</Fragment>
-
-	<section class="hero-banner">
-		<div>
-			<p class="eyebrow">Personal Websites / Blogging / Small Sites</p>
-			<h2>Build a small website with clear pages, useful writing, and durable discovery.</h2>
+	<section class="home-hero">
+		<div class="home-hero-copy">
+			<p class="eyebrow">Personal Blog</p>
+			<h1>把复杂写清楚。</h1>
 			<p>
-				Most advice for websites is either too broad, too corporate, or too obsessed with short-term
-				platform tricks. This site is about building a personal website that is readable, searchable,
-				and structured to compound.
+				这里是 OOCXX 的个人博客。没有复杂栏目，没有增长焦虑，只保存一些经过筛选的观察、工具、生活片段和长期思考。
 			</p>
-		</div>
-		<div class="hero-banner-side">
-			<div class="marquee-bar" aria-label="Topic strip">
-				<span>Domains / Naming / Homepages / Headlines / Taglines / About Pages / Contact Pages / Footers / Navigation / Categories / Tags / SEO</span>
+			<div class="hero-actions">
+				<a href="/blog">阅读文章</a>
+				<a href="/about">关于这里</a>
 			</div>
 		</div>
+		<figure class="hero-visual">
+			<img
+				src="/images/writing-desk.webp"
+				alt="一张安静的写字桌，上面有笔记本、笔和纸张"
+				width={1400}
+				height={875}
+				loading="eager"
+				decoding="async"
+			/>
+		</figure>
 	</section>
 
 	{featuredPost && (
-		<section class="section-block">
-			<div class="section-head">
-				<div>
-					<p class="eyebrow">Featured Guide</p>
-					<h3>Start with the guide that defines the site</h3>
-				</div>
+		<section class="featured-section">
+			<div class="section-title">
+				<p class="eyebrow">置顶</p>
+				<h2>最近想反复提醒自己的事</h2>
 			</div>
 			<PostPreviewCard post={featuredPost} featured={true} />
 		</section>
 	)}
 
-	<section class="section-block">
-		<div class="section-head">
-			<div>
-				<p class="eyebrow">High-Utility Path</p>
-				<h3>Plan, launch, audit, then expand</h3>
-			</div>
+	<section class="post-section" id="latest">
+		<div class="section-title">
+			<p class="eyebrow">Latest</p>
+			<h2>最新文章</h2>
 		</div>
-		<div class="link-grid">
-			<a class="micro-card" href="/blog/personal-website-launch-checklist/">
-				<p class="section-kicker">Launch</p>
-				<h4>Personal website launch checklist</h4>
-				<p>Check the first version before publishing: pages, navigation, metadata, links, and mobile readability.</p>
-			</a>
-			<a class="micro-card" href="/blog/personal-website-audit-checklist/">
-				<p class="section-kicker">Audit</p>
-				<h4>Personal website audit checklist</h4>
-				<p>Review an existing site before adding more pages or chasing advanced optimization.</p>
-			</a>
-			<a class="micro-card" href="/blog/personal-website-content-strategy/">
-				<p class="section-kicker">Strategy</p>
-				<h4>Personal website content strategy</h4>
-				<p>Turn the site into a coherent body of work instead of a random archive.</p>
-			</a>
-			<a class="micro-card" href="/blog/how-to-get-a-personal-website-on-google/">
-				<p class="section-kicker">Discovery</p>
-				<h4>How to get a personal website on Google</h4>
-				<p>Use crawlable pages, Search Console, sitemaps, and internal links without relying on submission myths.</p>
-			</a>
-			<a class="micro-card" href="/blog/personal-website-mistakes/">
-				<p class="section-kicker">Fixes</p>
-				<h4>Personal website mistakes</h4>
-				<p>Find the structural problems that make a personal site harder to understand and trust.</p>
-			</a>
-		</div>
-	</section>
-
-	<section class="section-block">
-		<div class="section-head">
-			<div>
-				<p class="eyebrow">Career Intent</p>
-				<h3>Use the site to create professional trust</h3>
-			</div>
-		</div>
-		<div class="link-grid">
-			<a class="micro-card" href="/blog/personal-website-for-job-search/">
-				<p class="section-kicker">Job Search</p>
-				<h4>Personal website for job search</h4>
-				<p>Build a site that helps recruiters, hiring managers, and referrals understand your fit quickly.</p>
-			</a>
-			<a class="micro-card" href="/blog/resume-website-vs-portfolio/">
-				<p class="section-kicker">Proof</p>
-				<h4>Resume website vs portfolio</h4>
-				<p>Decide whether you need credentials, selected work, or a personal website that combines both.</p>
-			</a>
-			<a class="micro-card" href="/blog/linkedin-vs-personal-website/">
-				<p class="section-kicker">Ownership</p>
-				<h4>LinkedIn vs personal website</h4>
-				<p>Use LinkedIn for network context and a personal website for depth, proof, and control.</p>
-			</a>
-			<a class="micro-card" href="/blog/personal-website-vs-portfolio/">
-				<p class="section-kicker">Structure</p>
-				<h4>Personal website vs portfolio</h4>
-				<p>Choose the right structure when the site needs to prove capability and still grow over time.</p>
-			</a>
-		</div>
-	</section>
-
-	<section class="section-block">
-		<div class="section-head">
-			<div>
-				<p class="eyebrow">Browse by Topic</p>
-				<h3>Four systems behind a strong personal website</h3>
-			</div>
-		</div>
-
-		<div class="topic-grid">
-			{topicCards.map((topic) => (
-				<a class="topic-card" href={`/topics/${topic.slug}/`}>
-					<p class="section-kicker">Topic</p>
-					<h4>{topic.name}</h4>
-					<p>{topic.shortDescription}</p>
-					{topic.entries.length > 0 && (
-						<ul>
-							{topic.entries.map((entry) => (
-								<li>{entry.data.title}</li>
-							))}
-						</ul>
-					)}
-				</a>
+		<div class="post-list">
+			{latestPosts.map((post) => (
+				<PostPreviewCard post={post} />
 			))}
 		</div>
 	</section>
-
-	<section class="section-block">
-		<div class="section-head">
-			<div>
-				<p class="eyebrow">Latest Guides</p>
-				<h3>Recently published and updated</h3>
-			</div>
-		</div>
-
-		<div class="post-stream">
-			{latestPosts.map((post) => <PostPreviewCard post={post} />)}
-		</div>
-	</section>
-
-	{popularTags.length > 0 && (
-		<section class="section-block">
-			<div class="section-head">
-				<div>
-					<p class="eyebrow">Tag Index</p>
-					<h3>Popular topics across the site</h3>
-				</div>
-			</div>
-			<ul class="tag-cloud" aria-label="Popular tags">
-				{popularTags.map((tag) => (
-					<li>
-						<a href={`/tags/${tag.slug}/`}>{tag.tag}</a>
-					</li>
-				))}
-			</ul>
-		</section>
-	)}
 </ClassicShell>

@@ -1,11 +1,11 @@
 {
   "name": "OOCXX",
   "short_name": "OOCXX",
-  "description": "Actionable guides for personal websites, blogging systems, site structure, and search-friendly growth.",
+  "description": "一个简单、安静、克制的个人博客。",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#efe7d2",
-  "theme_color": "#d7d3c7",
+  "background_color": "#f7f5f0",
+  "theme_color": "#f7f5f0",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

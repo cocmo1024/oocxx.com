@@ -1,329 +1,105 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
-import FormattedDate from '../components/FormattedDate.astro';
-import SidebarCard from '../components/SidebarCard.astro';
-import ClassicShell from './ClassicShell.astro';
-import { SITE_AUTHOR, SITE_LANGUAGE, SITE_TITLE, SITE_URL } from '../consts';
-import { getPostNeighbors, getPostsByTopic, getRelatedPosts, sortPosts } from '../lib/content';
-import { ORGANIZATION_SCHEMA_ID, WEBSITE_SCHEMA_ID, absoluteUrl } from '../lib/seo';
-import { getTopic, type TopicKey } from '../data/taxonomy';
-import { slugifyTag } from '../data/taxonomy';
+import { getCollection, type CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import ClassicShell from "./ClassicShell.astro";
+import { SITE_AUTHOR, SITE_TITLE, SITE_URL } from "../consts";
+import { getPostNeighbors, getReadingMinutes, sortPosts } from "../lib/content";
+import { PERSON_SCHEMA_ID, WEBSITE_SCHEMA_ID, absoluteUrl } from "../lib/seo";
 
-type Heading = {
-	depth: number;
-	slug: string;
-	text: string;
-};
-
-type Props = CollectionEntry<'blog'>['data'] & {
+type Props = CollectionEntry<"blog">["data"] & {
 	postId: string;
-	headings?: Heading[];
 	wordCount?: number;
 };
 
-const {
-	title,
-	description,
-	pubDate,
-	updatedDate,
-	heroImage,
-	topic,
-	tags,
-	postId,
-	headings = [],
-	readerGoal,
-	quickAnswer,
-	faqs = [],
-} = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, tags, postId } = Astro.props;
 const { wordCount } = Astro.props;
-
 const pageURL = new URL(Astro.url.pathname, Astro.site ?? SITE_URL).toString();
-const allPosts = sortPosts(await getCollection('blog'));
-const currentPost = allPosts.find((post) => post.id === postId)!;
-const relatedPosts = getRelatedPosts(allPosts, currentPost, 3);
-const topicPosts = getPostsByTopic(allPosts, topic).filter((entry) => entry.id !== postId).slice(0, 3);
-const neighbors = getPostNeighbors(allPosts, postId);
-const topicData = getTopic(topic as TopicKey);
+const posts = sortPosts(await getCollection("blog"));
+const neighbors = getPostNeighbors(posts, postId);
+const minutes = getReadingMinutes(wordCount);
+
 const articleSchema = {
-	'@type': 'BlogPosting',
-	'@id': `${pageURL}#article`,
+	"@type": "BlogPosting",
+	"@id": `${pageURL}#article`,
 	url: pageURL,
 	headline: title,
 	description,
-	inLanguage: 'en-US',
+	inLanguage: "zh-CN",
 	datePublished: pubDate.toISOString(),
 	dateModified: (updatedDate ?? pubDate).toISOString(),
 	image: heroImage ? [absoluteUrl(heroImage)] : undefined,
 	author: {
-		'@type': 'Organization',
-		'@id': ORGANIZATION_SCHEMA_ID,
-		name: SITE_AUTHOR,
-		url: absoluteUrl('/about/'),
+		"@id": PERSON_SCHEMA_ID,
 	},
 	publisher: {
-		'@type': 'Organization',
-		'@id': ORGANIZATION_SCHEMA_ID,
-		name: SITE_TITLE,
-		url: SITE_URL,
+		"@id": PERSON_SCHEMA_ID,
 	},
-	mainEntityOfPage: { '@id': `${pageURL}#webpage` },
-	isPartOf: { '@id': WEBSITE_SCHEMA_ID },
-	keywords: tags.join(', '),
-	articleSection: topicData.name,
-	about: tags.map((tag) => ({
-		'@type': 'Thing',
-		name: tag,
-	})),
+	mainEntityOfPage: { "@id": `${pageURL}#webpage` },
+	isPartOf: { "@id": WEBSITE_SCHEMA_ID },
+	keywords: tags.join(", "),
 	wordCount: wordCount && wordCount > 0 ? wordCount : undefined,
 };
-const faqSchema = faqs.length > 0
-	? {
-			'@type': 'FAQPage',
-			'@id': `${pageURL}#faq`,
-			url: pageURL,
-			inLanguage: SITE_LANGUAGE,
-			isPartOf: { '@id': WEBSITE_SCHEMA_ID },
-			mainEntity: faqs.map((item) => ({
-				'@type': 'Question',
-				name: item.question,
-				acceptedAnswer: {
-					'@type': 'Answer',
-					text: item.answer,
-				},
-			})),
-		}
-	: undefined;
-const structuredData = faqSchema ? [articleSchema, faqSchema] : articleSchema;
-
-const tocItems = headings.filter((heading) => heading.depth >= 2 && heading.depth <= 3);
 ---
 
 <ClassicShell
 	title={`${title} | ${SITE_TITLE}`}
 	description={description}
 	image={heroImage}
-	showPageIntro={false}
 	ogType="article"
 	publishedTime={pubDate.toISOString()}
 	modifiedTime={(updatedDate ?? pubDate).toISOString()}
-	articleSection={topicData.name}
+	author={SITE_AUTHOR}
 	articleTags={tags}
 	breadcrumbItems={[
-		{ name: 'Home', item: '/' },
-		{ name: 'Guides', item: '/blog/' },
-		{ name: topicData.name, item: `/topics/${topicData.slug}/` },
+		{ name: "首页", item: "/" },
+		{ name: "文章", item: "/blog/" },
 		{ name: title },
 	]}
 	mainEntityId={`${pageURL}#article`}
-	schema={structuredData}
+	schema={articleSchema}
 >
-	<Fragment slot="sidebar-top">
-		<SidebarCard title="Guide Summary" eyebrow="Reference">
-			<p><strong>Topic:</strong> <a href={`/topics/${topicData.slug}/`}>{topicData.name}</a></p>
-			<p><strong>Published:</strong> <FormattedDate date={pubDate} /></p>
-			{updatedDate && <p><strong>Updated:</strong> <FormattedDate date={updatedDate} /></p>}
-			{readerGoal && <p><strong>Reader goal:</strong> {readerGoal}</p>}
-			{tags.length > 0 && (
-				<ul>
-					{tags.map((tag) => (
-						<li><a href={`/tags/${slugifyTag(tag)}/`}>{tag}</a></li>
-					))}
-				</ul>
-			)}
-		</SidebarCard>
-
-		{tocItems.length > 0 && (
-			<SidebarCard title="On This Page" eyebrow="Contents">
-				<ul>
-					{tocItems.map((heading) => (
-						<li class:list={{ 'toc-subitem': heading.depth === 3 }}>
-							<a href={`#${heading.slug}`}>{heading.text}</a>
-						</li>
-					))}
-				</ul>
-			</SidebarCard>
-		)}
-	</Fragment>
-
-	<Fragment slot="sidebar-bottom">
-		{relatedPosts.length > 0 && (
-			<SidebarCard title="Related Reading" eyebrow="Continue">
-				<ul>
-					{relatedPosts.map((entry) => (
-						<li>
-							<a href={`/blog/${entry.id}/`}>{entry.data.title}</a>
-						</li>
-					))}
-				</ul>
-			</SidebarCard>
-		)}
-	</Fragment>
-
-	<article class="article-shell">
-		<nav class="breadcrumb" aria-label="Breadcrumb">
-			<a href="/">Home</a>
-			<span aria-hidden="true">/</span>
-			<a href="/blog">Guides</a>
-			<span aria-hidden="true">/</span>
-			<a href={`/topics/${topicData.slug}/`}>{topicData.name}</a>
-		</nav>
+	<article class="article">
+		<a class="back-link" href="/blog">← 文章</a>
 
 		<header class="article-header">
-			<p class="eyebrow">{topicData.name}</p>
-			<h1>{title}</h1>
-			<p class="article-description">{description}</p>
-			<div class="meta-row">
+			<p class="article-meta">
 				<FormattedDate date={pubDate} />
-				{updatedDate && (
-					<>
-						<span aria-hidden="true">/</span>
-						<span>Updated <FormattedDate date={updatedDate} /></span>
-					</>
-				)}
-			</div>
+				{minutes && <span>{minutes} 分钟读完</span>}
+			</p>
+			<h1>{title}</h1>
+			<p>{description}</p>
 			{tags.length > 0 && (
-				<ul class="tag-row" aria-label="Article topics">
+				<ul class="article-tags" aria-label="标签">
 					{tags.map((tag) => (
-						<li>
-							<a href={`/tags/${slugifyTag(tag)}/`}>{tag}</a>
-						</li>
+						<li>{tag}</li>
 					))}
 				</ul>
 			)}
 		</header>
 
-		{quickAnswer && (
-			<section class="answer-box" aria-label="Quick answer">
-				<p class="section-kicker">Quick Answer</p>
-				<p>{quickAnswer}</p>
-			</section>
-		)}
-
 		{heroImage && (
-			<div class="article-hero">
-				<img src={heroImage} alt="" width={1280} height={720} />
-			</div>
+			<figure class="article-image">
+				<img src={heroImage} alt="" width={1400} height={875} loading="eager" decoding="async" />
+			</figure>
 		)}
 
-		{tocItems.length > 0 && (
-			<section class="section-block mobile-only">
-				<div class="section-head">
-					<div>
-						<p class="eyebrow">On This Page</p>
-						<h3>Section guide</h3>
-					</div>
-				</div>
-				<ul class="inline-toc">
-					{tocItems.map((heading) => (
-						<li class:list={{ 'toc-subitem': heading.depth === 3 }}>
-							<a href={`#${heading.slug}`}>{heading.text}</a>
-						</li>
-					))}
-				</ul>
-			</section>
-		)}
-
-		<div class="article-prose prose">
+		<div class="prose">
 			<slot />
 		</div>
 
-		{faqs.length > 0 && (
-			<section class="section-block faq-block" id="faq">
-				<div class="section-head">
-					<div>
-						<p class="eyebrow">FAQ</p>
-						<h3>Common questions</h3>
-					</div>
-				</div>
-				<div class="faq-list">
-					{faqs.map((item) => (
-						<article class="faq-item">
-							<h4>{item.question}</h4>
-							<p>{item.answer}</p>
-						</article>
-					))}
-				</div>
-			</section>
-		)}
-
-		<section class="section-block">
-			<div class="section-head">
-				<div>
-					<p class="eyebrow">More In This Topic</p>
-					<h3>{topicData.name}</h3>
-				</div>
-			</div>
-			<div class="link-grid">
-				{topicPosts.length > 0 ? (
-					topicPosts.map((entry) => (
-						<a class="micro-card" href={`/blog/${entry.id}/`}>
-							<p class="section-kicker">{getTopic(entry.data.topic).name}</p>
-							<h4>{entry.data.title}</h4>
-							<p>{entry.data.description}</p>
-						</a>
-					))
-				) : (
-					<div class="note-card">
-						<p class="section-kicker">Topic Note</p>
-						<p>This is currently the only guide filed under this topic.</p>
-					</div>
-				)}
-			</div>
-		</section>
-
-		{relatedPosts.length > 0 && (
-			<section class="section-block">
-				<div class="section-head">
-					<div>
-						<p class="eyebrow">Related Guides</p>
-						<h3>Continue reading</h3>
-					</div>
-				</div>
-				<div class="link-grid">
-					{relatedPosts.map((entry) => (
-						<a class="micro-card" href={`/blog/${entry.id}/`}>
-							<p class="section-kicker">{getTopic(entry.data.topic).name}</p>
-							<h4>{entry.data.title}</h4>
-							<p>{entry.data.description}</p>
-						</a>
-					))}
-				</div>
-			</section>
-		)}
-
-		<section class="section-block">
-			<div class="section-head">
-				<div>
-					<p class="eyebrow">Guide Navigation</p>
-					<h3>Previous and next</h3>
-				</div>
-			</div>
-			<div class="link-grid">
-				{neighbors.newer ? (
-					<a class="micro-card" href={`/blog/${neighbors.newer.id}/`}>
-						<p class="section-kicker">Newer</p>
-						<h4>{neighbors.newer.data.title}</h4>
-						<p>{neighbors.newer.data.description}</p>
-					</a>
-				) : (
-					<div class="note-card">
-						<p class="section-kicker">Newer</p>
-						<p>This is the latest guide on the site.</p>
-					</div>
-				)}
-				{neighbors.older ? (
-					<a class="micro-card" href={`/blog/${neighbors.older.id}/`}>
-						<p class="section-kicker">Older</p>
-						<h4>{neighbors.older.data.title}</h4>
-						<p>{neighbors.older.data.description}</p>
-					</a>
-				) : (
-					<div class="note-card">
-						<p class="section-kicker">Older</p>
-						<p>This is currently the oldest published guide.</p>
-					</div>
-				)}
-			</div>
-		</section>
+		<nav class="post-nav" aria-label="文章导航">
+			{neighbors.older && (
+				<a href={`/blog/${neighbors.older.id}/`}>
+					<span>上一篇</span>
+					<strong>{neighbors.older.data.title}</strong>
+				</a>
+			)}
+			{neighbors.newer && (
+				<a href={`/blog/${neighbors.newer.id}/`}>
+					<span>下一篇</span>
+					<strong>{neighbors.newer.data.title}</strong>
+				</a>
+			)}
+		</nav>
 	</article>
 </ClassicShell>

@@ -1,8 +1,14 @@
 ---
-const today = new Date();
+import { SITE_TITLE } from "../consts";
+
+const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-	<p>&copy; {today.getFullYear()} OOCXX.</p>
-	<p><a href="/rss.xml">RSS</a> / <a href="/about">About</a> / <a href="/editorial-policy">Editorial Policy</a> / <a href="/blog">Guides</a> / <a href="/topics">Topics</a> / <a href="/tags">Tags</a></p>
+	<p>&copy; {year} {SITE_TITLE}</p>
+	<nav aria-label="页脚导航">
+		<a href="/blog">文章</a>
+		<a href="/about">关于</a>
+		<a href="/rss.xml">RSS</a>
+	</nav>
 </footer>

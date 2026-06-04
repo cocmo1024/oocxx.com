@@ -1,114 +1,34 @@
 ---
-import SidebarCard from '../components/SidebarCard.astro';
-import ClassicShell from '../layouts/ClassicShell.astro';
-import { SITE_TITLE } from '../consts';
-import { ORGANIZATION_SCHEMA_ID } from '../lib/seo';
-
-const principles = [
-	{
-		title: 'Narrow focus beats generic advice',
-		text: 'The site focuses on personal websites, independent blogging, and small-site growth so each article can go deeper than broad marketing content.',
-	},
-	{
-		title: 'Practical before performative',
-		text: 'The goal is not to sound smart about publishing. The goal is to help a reader build a better website, page, or discovery system today.',
-	},
-	{
-		title: 'Strong structure compounds',
-		text: 'Topics, tags, internal links, and article clusters are treated as product decisions because they determine whether a site grows.',
-	},
-];
+import ClassicShell from "../layouts/ClassicShell.astro";
+import { SITE_TITLE } from "../consts";
 ---
 
 <ClassicShell
-	title={`${SITE_TITLE} | About`}
-	description="About OOCXX: what it covers, how it is organized, and why personal websites deserve better advice."
-	pageTitle="About OOCXX"
-	pageIntro="OOCXX is an independent editorial site about personal websites, blogging systems, homepage copy, information architecture, and sustainable organic growth."
-	introLabel="About"
-	schemaType="AboutPage"
+	title={`关于 | ${SITE_TITLE}`}
+	description="关于 OOCXX 这个简单个人博客。"
 	breadcrumbItems={[
-		{ name: 'Home', item: '/' },
-		{ name: 'About' },
+		{ name: "首页", item: "/" },
+		{ name: "关于" },
 	]}
-	about={{ '@id': ORGANIZATION_SCHEMA_ID }}
 >
-	<Fragment slot="sidebar-top">
-		<SidebarCard title="Coverage" eyebrow="What This Site Covers">
-			<ul>
-				<li>Starting and structuring a personal website</li>
-				<li>Homepage, about page, and navigation decisions</li>
-				<li>Blogging systems, categories, tags, and archives</li>
-				<li>Internal linking, evergreen content, and SEO fundamentals</li>
-			</ul>
-		</SidebarCard>
-	</Fragment>
-
-	<section class="section-block">
-		<div class="section-head">
-			<div>
-				<p class="eyebrow">Why This Exists</p>
-				<h3>Personal websites deserve better advice</h3>
-			</div>
-		</div>
-		<p>
-			Most content about websites is aimed at startups, agencies, or social-first creators. That leaves
-			a gap for people building quieter, smaller, independent sites: personal websites, solo blogs,
-			portfolio sites with writing, and compact editorial projects.
-		</p>
-		<p>
-			OOCXX exists to close that gap. It treats the personal website as a serious publishing object and
-			covers the page systems, writing decisions, and discovery mechanics that make a small site useful
-			and discoverable.
-		</p>
+	<section class="page-heading">
+		<p class="eyebrow">About</p>
+		<h1>关于这里</h1>
+		<p>这是一个尽量简单的个人博客。它不急着证明什么，只负责把值得保存的想法放在一个稳定、安静、可阅读的地方。</p>
 	</section>
 
-	<section class="section-block">
-		<div class="section-head">
-			<div>
-				<p class="eyebrow">Editorial Principles</p>
-				<h3>How the site is written</h3>
-			</div>
+	<section class="about-grid">
+		<div>
+			<h2>写什么</h2>
+			<p>写生活里的观察，写工具带来的秩序，也写那些需要慢慢想、慢慢改、慢慢验证的判断。</p>
 		</div>
-		<div class="note-grid">
-			{principles.map((item) => (
-				<div class="note-card">
-					<p class="section-kicker">Principle</p>
-					<h4>{item.title}</h4>
-					<p>{item.text}</p>
-				</div>
-			))}
+		<div>
+			<h2>不写什么</h2>
+			<p>不追逐热点，不堆砌标签，不把页面做成信息噪音。文章可以短，但要诚实、清楚、有余味。</p>
 		</div>
-	</section>
-
-	<section class="section-block">
-		<div class="section-head">
-			<div>
-				<p class="eyebrow">Reading Path</p>
-				<h3>Three good places to start</h3>
-			</div>
+		<div>
+			<h2>为什么这样设计</h2>
+			<p>因为个人网站最珍贵的部分不是装饰，而是文字、节奏和长期可访问性。少一点，通常更耐看。</p>
 		</div>
-		<ul>
-			<li><a href="/blog/how-to-start-a-personal-website/">How to start a personal website</a> if you are building from zero.</li>
-			<li><a href="/blog/personal-website-launch-checklist/">Launch checklist</a> if the site is almost ready to publish.</li>
-			<li><a href="/blog/personal-website-homepage-checklist/">Homepage checklist</a> if your front page is weak.</li>
-			<li><a href="/blog/how-to-get-a-personal-website-on-google/">Google discovery guide</a> if the site is live but hard to find.</li>
-			<li><a href="/blog/personal-website-for-job-search/">Job-search website guide</a> if the site needs to support hiring or professional review.</li>
-			<li><a href="/blog/personal-website-seo-checklist/">SEO checklist</a> if the site exists but organic discovery is flat.</li>
-		</ul>
-	</section>
-
-	<section class="section-block">
-		<div class="section-head">
-			<div>
-				<p class="eyebrow">Editorial Standard</p>
-				<h3>How new pages are judged</h3>
-			</div>
-		</div>
-		<p>
-			Every new guide should answer a real reader decision, align its title and description with the
-			visible page, and connect naturally to the site structure. The full standard is documented in the
-			<a href="/editorial-policy/">editorial policy</a>.
-		</p>
 	</section>
 </ClassicShell>

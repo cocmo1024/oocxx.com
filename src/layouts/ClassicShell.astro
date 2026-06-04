@@ -1,41 +1,31 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import SidebarCard from '../components/SidebarCard.astro';
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from '../consts';
-import { getTagCounts, sortPosts } from '../lib/content';
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_LANGUAGE, SITE_TITLE, SITE_URL } from "../consts";
 import {
-	absoluteUrl,
 	buildSchemaGraph,
+	absoluteUrl,
 	getBreadcrumbSchema,
-	getOrganizationSchema,
 	getPageSchema,
+	getPersonSchema,
 	getWebsiteSchema,
 	type BreadcrumbItem,
 	type SchemaObject,
-} from '../lib/seo';
-import { TOPIC_ORDER, getTopic } from '../data/taxonomy';
+} from "../lib/seo";
 
 interface Props {
 	title?: string;
 	description?: string;
 	image?: string;
-	pageTitle?: string;
-	pageIntro?: string;
-	introLabel?: string;
-	showPageIntro?: boolean;
 	schema?: SchemaObject | SchemaObject[];
 	schemaType?: string;
 	breadcrumbItems?: BreadcrumbItem[];
 	mainEntityId?: string;
-	about?: unknown;
-	ogType?: 'website' | 'article';
+	ogType?: "website" | "article";
 	publishedTime?: string;
 	modifiedTime?: string;
 	author?: string;
-	articleSection?: string;
 	articleTags?: string[];
 }
 
@@ -43,20 +33,14 @@ const {
 	title = SITE_TITLE,
 	description = SITE_DESCRIPTION,
 	image,
-	pageTitle = SITE_TITLE,
-	pageIntro = SITE_DESCRIPTION,
-	introLabel = 'Overview',
-	showPageIntro = true,
 	schema,
-	schemaType = 'WebPage',
+	schemaType = "WebPage",
 	breadcrumbItems = [],
 	mainEntityId,
-	about,
-	ogType = 'website',
+	ogType = "website",
 	publishedTime,
 	modifiedTime,
 	author,
-	articleSection,
 	articleTags = [],
 } = Astro.props;
 
@@ -68,26 +52,21 @@ const pageSchema = getPageSchema({
 	url: pageURL,
 	name: title,
 	description,
-	breadcrumbId: breadcrumbSchema?.['@id'] as string | undefined,
+	breadcrumbId: breadcrumbSchema?.["@id"] as string | undefined,
 	mainEntityId,
-	about,
 	image: image ? absoluteUrl(image) : undefined,
 });
 const schemaPayload = buildSchemaGraph(
-	getOrganizationSchema(),
+	getPersonSchema(),
 	getWebsiteSchema(),
 	pageSchema,
 	breadcrumbSchema,
 	schema,
 );
-
-const posts = sortPosts(await getCollection('blog'));
-const latestPosts = posts.slice(0, 4);
-const popularTags = getTagCounts(posts).slice(0, 10);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={SITE_LANGUAGE}>
 	<head>
 		<BaseHead
 			title={title}
@@ -97,98 +76,16 @@ const popularTags = getTagCounts(posts).slice(0, 10);
 			publishedTime={publishedTime}
 			modifiedTime={modifiedTime}
 			author={author}
-			articleSection={articleSection}
 			articleTags={articleTags}
 			schema={schemaPayload}
 		/>
 	</head>
 	<body>
-		<div class="site-frame">
-			<div class="site-field" aria-hidden="true">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-			<div class="rift-map" aria-hidden="true">
-				<span></span>
-				<span></span>
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-			<div class="dislocation-field" aria-hidden="true">
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-				<i></i>
-			</div>
+		<div class="site-shell">
 			<Header />
-
-			<div class="layout-shell">
-				<main class="content-column">
-					<div class="content-stack">
-						{
-							showPageIntro && (
-								<section class="page-intro">
-									<p class="eyebrow">{introLabel}</p>
-									<h2>{pageTitle}</h2>
-									<p>{pageIntro}</p>
-								</section>
-							)
-						}
-
-						<slot />
-					</div>
-				</main>
-
-				<aside class="sidebar-column">
-					<div class="sidebar-stack">
-						<slot name="sidebar-top" />
-
-						<SidebarCard title="Browse by Topic" eyebrow="Shelf Index">
-							<ul>
-								{TOPIC_ORDER.map((topicKey) => {
-									const topic = getTopic(topicKey);
-									return (
-										<li>
-											<a href={`/topics/${topic.slug}/`}>{topic.name}</a>
-										</li>
-									);
-								})}
-							</ul>
-						</SidebarCard>
-
-						{popularTags.length > 0 && (
-							<SidebarCard title="Popular Tags" eyebrow="Keywords">
-								<ul>
-									{popularTags.slice(0, 6).map((tag) => (
-										<li>
-											<a href={`/tags/${tag.slug}/`}>{tag.tag}</a>
-										</li>
-									))}
-								</ul>
-							</SidebarCard>
-						)}
-
-						<SidebarCard title="Latest Guides" eyebrow="Recent">
-							<ul>
-								{latestPosts.map((post) => (
-									<li>
-										<a href={`/blog/${post.id}/`}>{post.data.title}</a>
-									</li>
-								))}
-							</ul>
-						</SidebarCard>
-
-						<slot name="sidebar-bottom" />
-					</div>
-				</aside>
-			</div>
-
+			<main>
+				<slot />
+			</main>
 			<Footer />
 		</div>
 	</body>

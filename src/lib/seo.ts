@@ -4,7 +4,7 @@ import {
 	SITE_LANGUAGE,
 	SITE_TITLE,
 	SITE_URL,
-} from '../consts';
+} from "../consts";
 
 export type SchemaObject = Record<string, unknown>;
 
@@ -18,7 +18,7 @@ export type ItemListEntry = {
 	url: string;
 };
 
-export const ORGANIZATION_SCHEMA_ID = `${SITE_URL}/#organization`;
+export const PERSON_SCHEMA_ID = `${SITE_URL}/#person`;
 export const WEBSITE_SCHEMA_ID = `${SITE_URL}/#website`;
 
 function compactSchema<T extends SchemaObject>(schema: T): T {
@@ -35,41 +35,36 @@ export function absoluteUrl(path: string) {
 	}
 }
 
-export function getOrganizationSchema() {
+export function getPersonSchema() {
 	return compactSchema({
-		'@type': 'Organization',
-		'@id': ORGANIZATION_SCHEMA_ID,
+		"@type": "Person",
+		"@id": PERSON_SCHEMA_ID,
 		name: SITE_AUTHOR,
-		alternateName: SITE_TITLE,
 		url: SITE_URL,
 		description: SITE_DESCRIPTION,
-		logo: {
-			'@type': 'ImageObject',
-			url: absoluteUrl('/favicon.svg'),
-		},
 	});
 }
 
 export function getWebsiteSchema() {
 	return compactSchema({
-		'@type': 'WebSite',
-		'@id': WEBSITE_SCHEMA_ID,
+		"@type": "WebSite",
+		"@id": WEBSITE_SCHEMA_ID,
 		url: SITE_URL,
 		name: SITE_TITLE,
 		description: SITE_DESCRIPTION,
 		inLanguage: SITE_LANGUAGE,
-		publisher: { '@id': ORGANIZATION_SCHEMA_ID },
+		author: { "@id": PERSON_SCHEMA_ID },
+		publisher: { "@id": PERSON_SCHEMA_ID },
 	});
 }
 
 export function getPageSchema({
-	type = 'WebPage',
+	type = "WebPage",
 	url,
 	name,
 	description,
 	breadcrumbId,
 	mainEntityId,
-	about,
 	image,
 }: {
 	type?: string;
@@ -78,23 +73,21 @@ export function getPageSchema({
 	description: string;
 	breadcrumbId?: string;
 	mainEntityId?: string;
-	about?: unknown;
 	image?: string;
 }) {
 	return compactSchema({
-		'@type': type,
-		'@id': `${url}#webpage`,
+		"@type": type,
+		"@id": `${url}#webpage`,
 		url,
 		name,
 		description,
 		inLanguage: SITE_LANGUAGE,
-		isPartOf: { '@id': WEBSITE_SCHEMA_ID },
-		breadcrumb: breadcrumbId ? { '@id': breadcrumbId } : undefined,
-		mainEntity: mainEntityId ? { '@id': mainEntityId } : undefined,
-		about,
+		isPartOf: { "@id": WEBSITE_SCHEMA_ID },
+		breadcrumb: breadcrumbId ? { "@id": breadcrumbId } : undefined,
+		mainEntity: mainEntityId ? { "@id": mainEntityId } : undefined,
 		primaryImageOfPage: image
 			? {
-					'@type': 'ImageObject',
+					"@type": "ImageObject",
 					url: image,
 				}
 			: undefined,
@@ -103,11 +96,11 @@ export function getPageSchema({
 
 export function getBreadcrumbSchema(pageUrl: string, items: BreadcrumbItem[]) {
 	return {
-		'@type': 'BreadcrumbList',
-		'@id': `${pageUrl}#breadcrumb`,
+		"@type": "BreadcrumbList",
+		"@id": `${pageUrl}#breadcrumb`,
 		itemListElement: items.map((entry, index) =>
 			compactSchema({
-				'@type': 'ListItem',
+				"@type": "ListItem",
 				position: index + 1,
 				name: entry.name,
 				item: entry.item ? absoluteUrl(entry.item) : undefined,
@@ -118,12 +111,12 @@ export function getBreadcrumbSchema(pageUrl: string, items: BreadcrumbItem[]) {
 
 export function getItemListSchema(id: string, items: ItemListEntry[]) {
 	return {
-		'@type': 'ItemList',
-		'@id': id,
-		itemListOrder: 'https://schema.org/ItemListUnordered',
+		"@type": "ItemList",
+		"@id": id,
+		itemListOrder: "https://schema.org/ItemListUnordered",
 		numberOfItems: items.length,
 		itemListElement: items.map((entry, index) => ({
-			'@type': 'ListItem',
+			"@type": "ListItem",
 			position: index + 1,
 			url: absoluteUrl(entry.url),
 			name: entry.name,

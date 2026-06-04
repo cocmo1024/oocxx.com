@@ -1,27 +1,20 @@
-# oocxx.com
+# OOCXX
 
-Local source repository for the `oocxx.com` website, bootstrapped from the Astro blog starter template.
+OOCXX is a minimal Astro personal blog deployed on Cloudflare Workers.
 
-## Quick Start
+## Scripts
 
-```bash
-npm install
-npm run dev
-```
+- `npm run dev` starts local development.
+- `npm run build` builds the site.
+- `npm run check` runs the production build, TypeScript, and a Wrangler dry run.
+- `npm run audit:content` checks basic frontmatter and article structure.
 
-The local dev server runs at `http://localhost:4321`.
+## Content
 
-## Available Scripts
+Blog posts live in `src/content/blog`. The site intentionally keeps a small surface area:
 
-```bash
-npm run dev
-npm run build
-npm run preview
-npm run deploy
-```
-
-## Notes
-
-- The Astro `site` URL is set to `https://oocxx.com`.
-- The original starter repository is kept as the `template` remote.
-- Add your own Git remote as `origin` before pushing this project.
+- `/`
+- `/blog/`
+- `/about/`
+- `/rss.xml`
+- `/blog/[slug]/`

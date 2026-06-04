@@ -4,10 +4,12 @@ interface Props {
 }
 
 const { date } = Astro.props;
-const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const formattedDate = `${monthNames[date.getUTCMonth()]} ${date.getUTCDate()}, ${date.getUTCFullYear()}`;
+const formattedDate = new Intl.DateTimeFormat("zh-CN", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+	timeZone: "UTC",
+}).format(date);
 ---
 
-<time datetime={date.toISOString()}>
-	{formattedDate}
-</time>
+<time datetime={date.toISOString()}>{formattedDate}</time>

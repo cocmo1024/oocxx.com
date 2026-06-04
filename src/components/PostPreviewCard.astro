@@ -1,42 +1,30 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import FormattedDate from './FormattedDate.astro';
-import { getTopic } from '../data/taxonomy';
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
 
 interface Props {
-	post: CollectionEntry<'blog'>;
+	post: CollectionEntry<"blog">;
 	featured?: boolean;
 }
 
 const { post, featured = false } = Astro.props;
 const tags = post.data.tags.slice(0, 3);
-const topic = getTopic(post.data.topic);
-const hasMedia = Boolean(post.data.heroImage);
 ---
 
-<article class:list={['post-card', { featured, 'has-media': hasMedia }]}>
-	<a class="post-card-link" href={`/blog/${post.id}/`}>
-		{post.data.heroImage && (
-			<div class="post-card-media">
-				<img src={post.data.heroImage} alt="" width={720} height={420} />
-			</div>
-		)}
-
-		<div class="post-card-body">
-			<div class="meta-row">
-				<span class="meta-pill">{topic.name}</span>
-				<FormattedDate date={post.data.pubDate} />
-			</div>
-			<h2 class="post-card-title">{post.data.title}</h2>
-			<p>{post.data.description}</p>
-			{tags.length > 0 && (
-				<ul class="tag-row" aria-label="Article topics">
-					{tags.map((tag) => (
-						<li>{tag}</li>
-					))}
-				</ul>
-			)}
-			<p class="section-kicker">Read the full guide</p>
+<article class:list={["post-preview", { featured }]}>
+	<a href={`/blog/${post.id}/`} class="post-preview-link">
+		<div class="post-preview-meta">
+			<FormattedDate date={post.data.pubDate} />
+			{featured && <span>置顶</span>}
 		</div>
+		<h2>{post.data.title}</h2>
+		<p>{post.data.description}</p>
+		{tags.length > 0 && (
+			<ul aria-label="标签">
+				{tags.map((tag) => (
+					<li>{tag}</li>
+				))}
+			</ul>
+		)}
 	</a>
 </article>

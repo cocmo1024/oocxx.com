@@ -1,9 +1,8 @@
 export const SITE_TITLE = "OOCXX";
 export const SITE_DESCRIPTION =
-	"Practical decision guides for personal websites, independent blogs, homepage copy, site structure, and sustainable organic growth for small sites.";
-export const SITE_TAGLINE =
-	"Personal website strategy, publishing systems, and readable organic growth for the independent web.";
+	"一个简单、安静、克制的个人博客，记录写作、生活、工具和长期思考。";
+export const SITE_TAGLINE = "少一点噪声，多一点真正留下来的文字。";
 export const SITE_URL = "https://oocxx.com";
-export const SITE_AUTHOR = "OOCXX Editorial";
-export const SITE_LANGUAGE = "en-US";
-export const SITE_LOCALE = "en_US";
+export const SITE_AUTHOR = "OOCXX";
+export const SITE_LANGUAGE = "zh-CN";
+export const SITE_LOCALE = "zh_CN";

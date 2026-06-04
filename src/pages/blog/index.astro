@@ -1,19 +1,15 @@
 ---
-import { getCollection } from 'astro:content';
-import PostPreviewCard from '../../components/PostPreviewCard.astro';
-import SidebarCard from '../../components/SidebarCard.astro';
-import ClassicShell from '../../layouts/ClassicShell.astro';
-import { SITE_TITLE, SITE_URL } from '../../consts';
-import { TOPIC_ORDER, getTopic } from '../../data/taxonomy';
-import { getFeaturedPost, getTagCounts, sortPosts } from '../../lib/content';
-import { getItemListSchema } from '../../lib/seo';
+import { getCollection } from "astro:content";
+import PostPreviewCard from "../../components/PostPreviewCard.astro";
+import ClassicShell from "../../layouts/ClassicShell.astro";
+import { SITE_TITLE, SITE_URL } from "../../consts";
+import { sortPosts } from "../../lib/content";
+import { getItemListSchema } from "../../lib/seo";
 
-const posts = sortPosts(await getCollection('blog'));
-const featuredPost = getFeaturedPost(posts);
-const tagCounts = getTagCounts(posts).slice(0, 10);
-const guideItemListId = `${SITE_URL}/blog/#guide-list`;
-const guideItemList = getItemListSchema(
-	guideItemListId,
+const posts = sortPosts(await getCollection("blog"));
+const archiveId = `${SITE_URL}/blog/#archive`;
+const archiveSchema = getItemListSchema(
+	archiveId,
 	posts.map((post) => ({
 		name: post.data.title,
 		url: `/blog/${post.id}/`,
@@ -22,70 +18,24 @@ const guideItemList = getItemListSchema(
 ---
 
 <ClassicShell
-	title={`${SITE_TITLE} | Guides`}
-	description="All OOCXX guides on personal websites, blogging systems, site structure, and search-friendly growth."
-	pageTitle="All guides"
-	pageIntro="Every guide is filed under a core topic and linked to related tags so the site works both as a reading path and as a practical reference library."
-	introLabel="Guides"
+	title={`文章 | ${SITE_TITLE}`}
+	description="OOCXX 的个人博客归档。"
 	schemaType="CollectionPage"
 	breadcrumbItems={[
-		{ name: 'Home', item: '/' },
-		{ name: 'Guides' },
+		{ name: "首页", item: "/" },
+		{ name: "文章" },
 	]}
-	mainEntityId={guideItemListId}
-	schema={guideItemList}
+	mainEntityId={archiveId}
+	schema={archiveSchema}
 >
-	<Fragment slot="sidebar-top">
-		<SidebarCard title="Guide Map" eyebrow="Topics">
-			<ul>
-				{TOPIC_ORDER.map((topicKey) => {
-					const topic = getTopic(topicKey);
-					const count = posts.filter((post) => post.data.topic === topicKey).length;
-					return (
-						<li>
-							<a href={`/topics/${topic.slug}/`}>{topic.name}</a> ({count})
-						</li>
-					);
-				})}
-			</ul>
-		</SidebarCard>
-	</Fragment>
+	<section class="page-heading">
+		<p class="eyebrow">Archive</p>
+		<h1>文章</h1>
+		<p>所有文字按发布时间倒序排列。数量不重要，留下来的质量更重要。</p>
+	</section>
 
-	<Fragment slot="sidebar-bottom">
-		{tagCounts.length > 0 && (
-			<SidebarCard title="Tag Directory" eyebrow="Browse">
-				<ul>
-					{tagCounts.map((tag) => (
-						<li>
-							<a href={`/tags/${tag.slug}/`}>{tag.tag}</a>
-						</li>
-					))}
-				</ul>
-			</SidebarCard>
-		)}
-	</Fragment>
-
-	{featuredPost && (
-		<section class="section-block">
-			<div class="section-head">
-				<div>
-					<p class="eyebrow">Editor's Pick</p>
-					<h3>The lead guide from the site</h3>
-				</div>
-			</div>
-			<PostPreviewCard post={featuredPost} featured={true} />
-		</section>
-	)}
-
-	<section class="section-block">
-		<div class="section-head">
-			<div>
-				<p class="eyebrow">All Guides</p>
-				<h3>Published in reverse chronological order</h3>
-			</div>
-		</div>
-
-		<div class="post-stream">
+	<section class="post-section" id="archive">
+		<div class="post-list">
 			{posts.map((post) => (
 				<PostPreviewCard post={post} />
 			))}
