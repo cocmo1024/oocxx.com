@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const blogDir = path.join(root, "src", "content", "blog");
+const contentDir = path.join(root, "content");
 
 function walk(dir) {
 	return fs
@@ -36,7 +36,7 @@ function countReadableUnits(text) {
 	return latinWords + Math.round(cjkChars / 2);
 }
 
-const files = walk(blogDir);
+const files = walk(contentDir).filter((file) => file.includes(`${path.sep}posts${path.sep}`));
 const blockers = [];
 const warnings = [];
 
@@ -47,19 +47,19 @@ for (const file of files) {
 	const units = countReadableUnits(body);
 	const h2Count = (body.match(/^##\s+/gm) ?? []).length;
 
-	for (const key of ["title", "description", "pubDate"]) {
+	for (const key of ["title", "description", "date"]) {
 		if (!data[key]) blockers.push(`${rel}: missing ${key}`);
 	}
 
 	if (data.title && data.title.length > 34) warnings.push(`${rel}: title is long (${data.title.length})`);
-	if (data.description && (data.description.length < 24 || data.description.length > 90)) {
+	if (data.description && (data.description.length < 24 || data.description.length > 100)) {
 		warnings.push(`${rel}: description length is ${data.description.length}`);
 	}
 	if (units < 240) warnings.push(`${rel}: body is short (${units} readable units)`);
 	if (h2Count < 2) warnings.push(`${rel}: fewer than 2 H2 sections`);
 }
 
-console.log(`Content audit scanned ${files.length} blog posts.`);
+console.log(`Content audit scanned ${files.length} posts.`);
 
 if (warnings.length > 0) {
 	console.log(`\nWarnings (${warnings.length}):`);

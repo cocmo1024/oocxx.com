@@ -1,20 +1,16 @@
 # OOCXX
 
-OOCXX is a minimal Astro personal blog deployed on Cloudflare Workers.
+OOCXX is a minimal personal blog built with Hugo and the vendored PaperMod theme.
 
 ## Scripts
 
-- `npm run dev` starts local development.
-- `npm run build` builds the site.
-- `npm run check` runs the production build, TypeScript, and a Wrangler dry run.
-- `npm run audit:content` checks basic frontmatter and article structure.
+- `npm run dev` starts a local Hugo server.
+- `npm run build` builds the static site into `dist`.
+- `npm run check` runs the content audit, Hugo production build, and Wrangler dry run.
+- `npm run deploy` deploys the built site to Cloudflare Workers.
 
 ## Content
 
-Blog posts live in `src/content/blog`. The site intentionally keeps a small surface area:
+Posts live in `content/posts`.
 
-- `/`
-- `/blog/`
-- `/about/`
-- `/rss.xml`
-- `/blog/[slug]/`
+The theme is vendored under `themes/PaperMod` so deployment does not depend on Git submodule initialization.

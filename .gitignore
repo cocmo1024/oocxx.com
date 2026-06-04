@@ -200,3 +200,6 @@ dist
 
 ### Astro ###
 .astro/
+
+### Hugo ###
+.hugo_build.lock

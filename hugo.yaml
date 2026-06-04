@@ -1,0 +1,110 @@
+baseURL: "https://oocxx.com/"
+locale: "zh-CN"
+defaultContentLanguage: "zh"
+title: "OOCXX"
+theme: "PaperMod"
+publishDir: "dist"
+staticDir:
+  - "public"
+enableRobotsTXT: true
+enableEmoji: true
+
+pagination:
+  pagerSize: 10
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+taxonomies:
+  tag: tags
+  category: categories
+
+menu:
+  main:
+    - identifier: archives
+      name: 归档
+      url: /archives/
+      weight: 10
+    - identifier: search
+      name: 搜索
+      url: /search/
+      weight: 20
+    - identifier: tags
+      name: 标签
+      url: /tags/
+      weight: 30
+    - identifier: about
+      name: 关于
+      url: /about/
+      weight: 40
+
+params:
+  env: production
+  title: "OOCXX"
+  description: "一个简单、安静、克制的个人博客，记录写作、生活、工具和长期思考。"
+  keywords:
+    - 个人博客
+    - 写作
+    - 工具
+    - 生活
+  author: "OOCXX"
+  DateFormat: "2006-01-02"
+  defaultTheme: auto
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
+  ShowRssButtonInSectionTermList: true
+  ShowFullTextinRSS: true
+  ShowWordCount: true
+  ShowLastMod: false
+  UseHugoToc: true
+  disableScrollToTop: false
+  comments: false
+  assets:
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/favicon.svg"
+  label:
+    text: "OOCXX"
+    icon: "/favicon-32x32.png"
+    iconHeight: 24
+  homeInfoParams:
+    Title: "把复杂写清楚"
+    Content: "一个简单、安静、克制的个人博客。记录写作、生活、工具和长期思考，不追热点，只留下值得反复读的文字。"
+  socialIcons:
+    - name: rss
+      url: "/index.xml"
+  editPost:
+    disabled: true
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 2
+    keys:
+      - title
+      - permalink
+      - summary
+      - content
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
