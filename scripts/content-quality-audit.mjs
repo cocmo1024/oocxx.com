@@ -5,6 +5,8 @@ const root = process.cwd();
 const contentDir = path.join(root, "content");
 
 function walk(dir) {
+	if (!fs.existsSync(dir)) return [];
+
 	return fs
 		.readdirSync(dir, { withFileTypes: true })
 		.flatMap((entry) => {
