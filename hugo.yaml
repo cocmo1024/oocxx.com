@@ -6,16 +6,12 @@ theme: "PaperMod"
 publishDir: "dist"
 staticDir:
   - "public"
-enableRobotsTXT: false
+enableRobotsTXT: true
 enableEmoji: true
 disableKinds:
   - RSS
   - taxonomy
   - term
-  - section
-  - sitemap
-  - robotsTXT
-  - 404
 
 pagination:
   pagerSize: 10
@@ -23,14 +19,75 @@ pagination:
 outputs:
   home:
     - HTML
+    - JSON
+
+menu:
+  main:
+    - identifier: archives
+      name: Archive
+      url: /archives/
+      weight: 10
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 20
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 30
 
 params:
   env: production
   title: "OOCXX"
-  description: "OOCXX"
+  description: "A quiet personal blog about writing, work, tools, and long-term thinking."
+  keywords:
+    - personal blog
+    - writing
+    - tools
+    - essays
   author: "OOCXX"
+  DateFormat: "2006-01-02"
+  defaultTheme: auto
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
+  TocOpen: false
   ShowRssButtonInSectionTermList: false
+  ShowWordCount: true
+  ShowLastMod: false
+  UseHugoToc: true
+  disableScrollToTop: false
+  hideFooter: true
   comments: false
+  assets:
+    favicon: "/favicon.ico"
+    favicon16x16: "/favicon-16x16.png"
+    favicon32x32: "/favicon-32x32.png"
+    apple_touch_icon: "/apple-touch-icon.png"
+    safari_pinned_tab: "/favicon.svg"
+  label:
+    text: "OOCXX"
+  homeInfoParams:
+    Title: "Write the complicated things clearly"
+    Content: "A quiet personal blog about writing, work, tools, and long-term thinking. No feeds to chase, no urgency to perform, just notes worth returning to."
+  editPost:
+    disabled: true
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 2
+    keys:
+      - title
+      - permalink
+      - summary
+      - content
 
 markup:
   goldmark:
