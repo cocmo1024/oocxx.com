@@ -1,5 +1,5 @@
 {
-	"name": "oocxx-com",
+	"name": "oocxx",
 	"compatibility_date": "2025-10-08",
 	"main": "./worker.js",
 	"assets": {
