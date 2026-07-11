@@ -8,13 +8,14 @@ staticDir:
   - "public"
 enableRobotsTXT: true
 enableEmoji: true
+summaryLength: 28
 disableKinds:
   - RSS
   - taxonomy
   - term
 
 pagination:
-  pagerSize: 10
+  pagerSize: 12
 
 outputs:
   home:
@@ -23,45 +24,54 @@ outputs:
 
 menu:
   main:
+    - identifier: writing
+      name: Writing
+      url: /posts/
+      weight: 10
     - identifier: archives
       name: Archive
       url: /archives/
-      weight: 10
+      weight: 20
     - identifier: search
       name: Search
       url: /search/
-      weight: 20
+      weight: 30
     - identifier: about
       name: About
       url: /about/
-      weight: 30
+      weight: 40
 
 params:
   env: production
   title: "OOCXX"
   description: "A quiet personal blog about writing, work, tools, and long-term thinking."
+  mainSections:
+    - posts
   keywords:
     - personal blog
     - writing
     - tools
     - essays
   author: "OOCXX"
-  DateFormat: "2006-01-02"
+  DateFormat: "January 2, 2006"
   defaultTheme: auto
   disableThemeToggle: false
+  disableSpecial1stPost: true
   ShowReadingTime: true
   ShowShareButtons: false
   ShowPostNavLinks: true
-  ShowBreadCrumbs: true
+  ShowBreadCrumbs: false
   ShowCodeCopyButtons: true
   ShowToc: true
   TocOpen: false
   ShowRssButtonInSectionTermList: false
-  ShowWordCount: true
+  ShowWordCount: false
   ShowLastMod: false
+  ShowPageNums: true
   UseHugoToc: true
   disableScrollToTop: false
   hideFooter: true
+  hideAuthor: true
   comments: false
   assets:
     favicon: "/favicon.ico"
@@ -72,8 +82,8 @@ params:
   label:
     text: "OOCXX"
   homeInfoParams:
-    Title: "Write the complicated things clearly"
-    Content: "A quiet personal blog about writing, work, tools, and long-term thinking. No feeds to chase, no urgency to perform, just notes worth returning to."
+    Title: "Notes worth keeping."
+    Content: "Writing about work, tools, attention, and ideas that improve with time."
   editPost:
     disabled: true
   fuseOpts:

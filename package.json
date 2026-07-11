@@ -20,6 +20,7 @@
 		"check": "npm run audit:content && npm run build && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
 		"dev": "hugo server -D --bind 127.0.0.1 --port 1313 --baseURL http://127.0.0.1:1313/",
+		"new:post": "hugo new content",
 		"preview": "npm run build && wrangler dev"
 	},
 	"type": "module"

@@ -2,5 +2,6 @@
 title: "Archive"
 layout: "archives"
 url: "/archives/"
-summary: "All posts in chronological order."
+description: "Every entry, grouped by year and month."
+summary: "Every entry, grouped by year and month."
 ---

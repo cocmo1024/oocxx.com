@@ -38,7 +38,11 @@ function countReadableUnits(text) {
 	return latinWords + Math.round(cjkChars / 2);
 }
 
-const files = walk(contentDir).filter((file) => file.includes(`${path.sep}posts${path.sep}`));
+const files = walk(contentDir).filter(
+	(file) =>
+		file.includes(`${path.sep}posts${path.sep}`) &&
+		!["index.md", "_index.md"].includes(path.basename(file).toLowerCase()),
+);
 const blockers = [];
 const warnings = [];
 

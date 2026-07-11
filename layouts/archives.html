@@ -1,0 +1,63 @@
+{{- define "main" -}}
+
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- $count := len $pages -}}
+
+<header class="page-header archive-page-header">
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}
+  <p class="post-description">{{ . }}</p>
+  {{- end }}
+  <p class="archive-total">
+    {{ $count }} {{ if eq $count 1 }}entry{{ else }}entries{{ end }}
+  </p>
+</header>
+
+{{- if gt $count 0 }}
+<nav class="archive-jump" aria-label="Archive years">
+  {{- range $pages.GroupByPublishDate "2006" }}
+  {{- if ne .Key "0001" }}
+  <a href="#year-{{ .Key }}">{{ .Key }}</a>
+  {{- end }}
+  {{- end }}
+</nav>
+
+<div class="archive-timeline">
+  {{- range $pages.GroupByPublishDate "2006" }}
+  {{- if ne .Key "0001" }}
+  {{- $year := .Key }}
+  <section class="archive-year" id="year-{{ $year }}">
+    <header class="archive-year-heading">
+      <h2><a href="#year-{{ $year }}">{{ $year }}</a></h2>
+      <span>{{ len .Pages }} {{ if eq (len .Pages) 1 }}entry{{ else }}entries{{ end }}</span>
+    </header>
+
+    {{- range .Pages.GroupByDate "January" }}
+    <section class="archive-month" id="{{ $year }}-{{ .Key | urlize }}">
+      <h3 class="archive-month-header">
+        <span>{{ .Key }}</span>
+        <span>{{ len .Pages }}</span>
+      </h3>
+      <ol class="archive-posts">
+        {{- range .Pages }}
+        <li class="archive-entry">
+          <time class="archive-day" datetime="{{ .Date.Format "2006-01-02" }}" title="{{ .Date.Format "January 2, 2006" }}">
+            {{ .Date.Format "02" }}
+          </time>
+          <a class="archive-entry-title" href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
+        </li>
+        {{- end }}
+      </ol>
+    </section>
+    {{- end }}
+  </section>
+  {{- end }}
+  {{- end }}
+</div>
+{{- else }}
+<div class="archive-empty">
+  <p>No entries yet.</p>
+</div>
+{{- end }}
+
+{{- end -}}

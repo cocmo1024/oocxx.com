@@ -1,0 +1,20 @@
+{{- $meta := slice -}}
+
+{{- if not .Date.IsZero -}}
+  {{- $date := printf "<time datetime='%s'>%s</time>" (.Date.Format "2006-01-02") (.Date | time.Format (default ":date_long" site.Params.DateFormat)) -}}
+  {{- $meta = $meta | append $date -}}
+{{- end -}}
+
+{{- if (.Param "ShowReadingTime") -}}
+  {{- $readingTime := i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime) -}}
+  {{- $meta = $meta | append (printf "<span>%s</span>" $readingTime) -}}
+{{- end -}}
+
+{{- if (.Param "ShowWordCount") -}}
+  {{- $wordCount := i18n "words" .WordCount | default (printf "%d words" .WordCount) -}}
+  {{- $meta = $meta | append (printf "<span>%s</span>" $wordCount) -}}
+{{- end -}}
+
+{{- with $meta -}}
+  {{- delimit . "<span class='meta-separator' aria-hidden='true'>&middot;</span>" | safeHTML -}}
+{{- end -}}
