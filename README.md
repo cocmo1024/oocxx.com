@@ -21,4 +21,10 @@ npm run new:post -- posts/my-first-note.md
 
 Add a short description, write the post, then set `draft: false` when it is ready. The home page and Writing page show posts newest first; Archive groups them by year and month.
 
+Use `categories` for broad sections, `tags` for specific subjects, and `series` for posts that should be read together. Related writing prioritizes series, then categories and tags.
+
+## Advertising
+
+Advertising slots are configured under `params.ads` in `hugo.yaml`. The site includes separate placements for the home feed, section feeds, taxonomy pages, Archive, and the top and bottom of posts. Add an AdSense client and slot IDs to serve live ads; placeholders keep every placement visible until then.
+
 The theme is vendored under `themes/PaperMod` so deployment does not depend on Git submodule initialization.

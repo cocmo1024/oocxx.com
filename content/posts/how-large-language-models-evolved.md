@@ -3,6 +3,14 @@ title: "How Large Language Models Evolved"
 description: "How next-token prediction became a general interface for knowledge, reasoning, and action."
 date: 2026-07-11T09:30:00+08:00
 draft: false
+categories:
+  - Artificial Intelligence
+tags:
+  - AI History
+  - Large Language Models
+  - Transformers
+series:
+  - AI Foundations
 ---
 
 A large language model is easy to describe and surprisingly difficult to explain. At its core, it predicts the next token. Yet the systems built around that objective can write software, interpret images, search documents, call tools, and spend time working through a proof.

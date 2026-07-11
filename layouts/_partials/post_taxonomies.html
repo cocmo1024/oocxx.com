@@ -1,0 +1,22 @@
+{{- $categories := .GetTerms "categories" -}}
+{{- $series := .GetTerms "series" -}}
+{{- if or (gt (len $categories) 0) (gt (len $series) 0) }}
+<div class="post-taxonomies">
+  {{- with $series }}
+  <div class="taxonomy-group">
+    <span class="taxonomy-label">Series</span>
+    {{- range . }}
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{- end }}
+  </div>
+  {{- end }}
+  {{- with $categories }}
+  <div class="taxonomy-group">
+    <span class="taxonomy-label">Category</span>
+    {{- range . }}
+    <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    {{- end }}
+  </div>
+  {{- end }}
+</div>
+{{- end }}

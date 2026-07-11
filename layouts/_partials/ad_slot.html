@@ -1,0 +1,31 @@
+{{- $ads := site.Params.ads -}}
+{{- $slot := .slot -}}
+{{- $format := .format | default "leaderboard" -}}
+{{- $client := $ads.adsense_client | default "" -}}
+{{- $showPlaceholders := $ads.show_placeholders | default false -}}
+{{- $slotID := "" -}}
+{{- with $ads.slots -}}
+  {{- with index . $slot -}}
+    {{- $slotID = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if and $ads.enabled (or $showPlaceholders (and $client $slotID)) }}
+<aside class="ad-slot ad-slot--{{ $format }}" data-placement="{{ $slot }}" aria-label="Advertisement">
+  <span class="ad-label">Advertisement</span>
+  {{- if and $client $slotID }}
+  <ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="{{ $client }}"
+    data-ad-slot="{{ $slotID }}"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  {{- else }}
+  <div class="ad-placeholder">
+    <span class="ad-placeholder-site">oocxx.com</span>
+    <span>Reserved placement</span>
+  </div>
+  {{- end }}
+</aside>
+{{- end }}

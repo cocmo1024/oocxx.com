@@ -15,6 +15,17 @@
   {{- $meta = $meta | append (printf "<span>%s</span>" $wordCount) -}}
 {{- end -}}
 
+{{- if and (.Param "ShowLastMod") (.Lastmod.After .Date) -}}
+  {{- $updated := printf "Updated %s" (.Lastmod | time.Format (default ":date_long" site.Params.DateFormat)) -}}
+  {{- $meta = $meta | append (printf "<span>%s</span>" $updated) -}}
+{{- end -}}
+
+{{- if not (.Param "hideAuthor") -}}
+  {{- with (partial "author.html" .) -}}
+    {{- $meta = $meta | append (printf "<span>%s</span>" .) -}}
+  {{- end -}}
+{{- end -}}
+
 {{- with $meta -}}
   {{- delimit . "<span class='meta-separator' aria-hidden='true'>&middot;</span>" | safeHTML -}}
 {{- end -}}

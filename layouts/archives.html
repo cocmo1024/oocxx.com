@@ -13,6 +13,8 @@
   </p>
 </header>
 
+{{- partial "ad_slot.html" (dict "page" . "slot" "archive_top" "format" "leaderboard") }}
+
 {{- if gt $count 0 }}
 <nav class="archive-jump" aria-label="Archive years">
   {{- range $pages.GroupByPublishDate "2006" }}

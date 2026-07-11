@@ -1,0 +1,37 @@
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Description }}
+  <div class="post-description">{{ . }}</div>
+  {{- end }}
+</header>
+{{- end }}
+
+<nav class="taxonomy-switcher" aria-label="Browse writing">
+  <a href="{{ "tags/" | relURL }}"{{ if eq .Type "tags" }} class="active"{{ end }}>Topics</a>
+  <a href="{{ "categories/" | relURL }}"{{ if eq .Type "categories" }} class="active"{{ end }}>Categories</a>
+  <a href="{{ "series/" | relURL }}"{{ if eq .Type "series" }} class="active"{{ end }}>Series</a>
+</nav>
+
+{{- partial "ad_slot.html" (dict "page" . "slot" "taxonomy_top" "format" "leaderboard") }}
+
+<ul class="terms-tags">
+  {{- $type := .Type }}
+  {{- range .Data.Terms.Alphabetical }}
+    {{- $name := .Name }}
+    {{- $count := .Count }}
+    {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+    <li>
+      <a href="{{ .RelPermalink }}">
+        <span>{{ .LinkTitle }}</span>
+        <span class="term-count">{{ $count }}</span>
+      </a>
+    </li>
+    {{- end }}
+  {{- end }}
+</ul>
+
+{{- end }}

@@ -1,0 +1,78 @@
+{{- define "main" }}
+
+<article class="post-single">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <h1 class="post-title entry-hint-parent">
+      {{ .Title }}
+      {{- if .Draft }}
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true">
+          <path d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm60-60h38l121-122-37-37-122 121v38Z" />
+        </svg>
+      </span>
+      {{- end }}
+    </h1>
+    {{- with .Description }}
+    <div class="post-description">{{ . }}</div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+      {{- partial "translation_list.html" . -}}
+      {{- partial "edit_post.html" . -}}
+      {{- partial "post_canonical.html" . -}}
+    </div>
+    {{- end }}
+    {{- partial "post_taxonomies.html" . }}
+  </header>
+
+  {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
+  {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
+  {{- if (.Param "ShowToc") }}
+  {{- partial "toc.html" . }}
+  {{- end }}
+
+  {{- partial "ad_slot.html" (dict "page" . "slot" "post_top" "format" "leaderboard") }}
+
+  {{- with .Content }}
+  <div class="post-content md-content">
+    {{- if not ($.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" . -}}
+    {{- else }}{{ . }}{{ end }}
+  </div>
+  {{- end }}
+
+  {{- partial "extend_post_content.html" . }}
+  {{- partial "ad_slot.html" (dict "page" . "slot" "post_end" "format" "billboard") }}
+  {{- partial "related_posts.html" . }}
+
+  <footer class="post-footer">
+    {{- $tags := .GetTerms "tags" }}
+    {{- if gt (len $tags) 0 }}
+    <div class="post-tags-wrap">
+      <span class="taxonomy-label">Topics</span>
+      <ul class="post-tags">
+        {{- range $tags }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+    {{- if (.Param "ShowPostNavLinks") }}
+    {{- partial "post_nav_links.html" . }}
+    {{- end }}
+    {{- if and site.Params.ShowShareButtons (ne .Params.disableShare true) }}
+    <div class="post-share">
+      <span class="taxonomy-label">Share</span>
+      {{- partial "share_icons.html" . -}}
+    </div>
+    {{- end }}
+  </footer>
+
+  {{- if (.Param "comments") }}
+  {{- partial "comments.html" . }}
+  {{- end }}
+</article>
+
+{{- end }}

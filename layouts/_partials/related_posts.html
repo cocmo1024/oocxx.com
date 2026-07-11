@@ -1,0 +1,28 @@
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- $related := $pages.Related . -}}
+{{- $fallback := where $pages "RelPermalink" "ne" .RelPermalink -}}
+{{- $items := first 3 (union $related $fallback) -}}
+
+{{- if gt (len $items) 0 }}
+<section class="related-posts" aria-labelledby="related-posts-title">
+  <header class="related-header">
+    <h2 id="related-posts-title">Related writing</h2>
+    <a href="{{ "posts/" | relURL }}">All writing</a>
+  </header>
+  <div class="related-list">
+    {{- range $items }}
+    <article class="related-entry">
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{- with .Description }}
+      <p>{{ . | plainify }}</p>
+      {{- end }}
+      <div class="related-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format (default ":date_long" site.Params.DateFormat) }}</time>
+        <span aria-hidden="true">&middot;</span>
+        <span>{{ .ReadingTime }} min read</span>
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>
+{{- end }}

@@ -11,11 +11,29 @@ enableEmoji: true
 summaryLength: 28
 disableKinds:
   - RSS
-  - taxonomy
-  - term
+
+taxonomies:
+  tag: tags
+  category: categories
+  series: series
 
 pagination:
-  pagerSize: 12
+  pagerSize: 8
+
+related:
+  includeNewer: true
+  threshold: 20
+  toLower: true
+  indices:
+    - name: series
+      weight: 120
+    - name: categories
+      weight: 100
+    - name: tags
+      weight: 80
+    - name: date
+      weight: 10
+      pattern: "2006"
 
 outputs:
   home:
@@ -35,11 +53,15 @@ menu:
     - identifier: search
       name: Search
       url: /search/
+      weight: 40
+    - identifier: topics
+      name: Topics
+      url: /tags/
       weight: 30
     - identifier: about
       name: About
       url: /about/
-      weight: 40
+      weight: 50
 
 params:
   env: production
@@ -58,21 +80,32 @@ params:
   disableThemeToggle: false
   disableSpecial1stPost: true
   ShowReadingTime: true
-  ShowShareButtons: false
+  ShowShareButtons: true
   ShowPostNavLinks: true
-  ShowBreadCrumbs: false
+  ShowBreadCrumbs: true
   ShowCodeCopyButtons: true
   ShowToc: true
   TocOpen: false
   ShowRssButtonInSectionTermList: false
-  ShowWordCount: false
-  ShowLastMod: false
+  ShowWordCount: true
+  ShowLastMod: true
   ShowPageNums: true
   UseHugoToc: true
   disableScrollToTop: false
   hideFooter: true
-  hideAuthor: true
+  hideAuthor: false
   comments: false
+  ads:
+    enabled: true
+    show_placeholders: true
+    adsense_client: ""
+    slots:
+      home_feed: ""
+      section_feed: ""
+      taxonomy_top: ""
+      archive_top: ""
+      post_top: ""
+      post_end: ""
   assets:
     favicon: "/favicon.ico"
     favicon16x16: "/favicon-16x16.png"

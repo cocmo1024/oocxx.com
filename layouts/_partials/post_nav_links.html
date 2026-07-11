@@ -1,0 +1,17 @@
+{{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- if and (gt (len $pages) 1) (in $pages .) }}
+<nav class="paginav" aria-label="Post navigation">
+  {{- with $pages.Next . }}
+  <a class="prev" href="{{ .RelPermalink }}">
+    <span class="title"><span aria-hidden="true">&larr;</span> Previous</span>
+    <span>{{ .Title }}</span>
+  </a>
+  {{- end }}
+  {{- with $pages.Prev . }}
+  <a class="next" href="{{ .RelPermalink }}">
+    <span class="title">Next <span aria-hidden="true">&rarr;</span></span>
+    <span>{{ .Title }}</span>
+  </a>
+  {{- end }}
+</nav>
+{{- end }}
