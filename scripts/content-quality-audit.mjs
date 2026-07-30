@@ -53,7 +53,7 @@ for (const file of files) {
 	const units = countReadableUnits(body);
 	const h2Count = (body.match(/^##\s+/gm) ?? []).length;
 
-	for (const key of ["title", "description", "date"]) {
+	for (const key of ["title", "description", "summary", "date", "content_language"]) {
 		if (!data[key]) blockers.push(`${rel}: missing ${key}`);
 	}
 

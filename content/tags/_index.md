@@ -1,5 +1,5 @@
 ---
 title: "Topics"
-description: "Browse writing by subject."
-summary: "Browse writing by subject."
+description: "Browse anonymized technical postmortems and project lessons by subject."
+summary: "Browse anonymized technical postmortems and project lessons by subject."
 ---

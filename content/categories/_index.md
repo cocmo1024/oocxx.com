@@ -1,5 +1,5 @@
 ---
 title: "Categories"
-description: "Broad areas of writing."
-summary: "Broad areas of writing."
+description: "Browse Project Field Notes by broad areas of technical and project work."
+summary: "Browse Project Field Notes by broad areas of technical and project work."
 ---

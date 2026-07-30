@@ -1,8 +1,17 @@
 ---
-title: "一次 dataLayer 类型错误导致 Google Ads 转化不发送：完整排查与修复实录"
-description: "从 dataLayer 命令入队到 Google Ads 请求出网，完整复盘 Array 与 Arguments 类型差异造成的转化跟踪故障。"
+title: "dataLayer 类型错误导致 Google Ads 转化不发送"
+description: "Google Ads 转化长期为零，却能在 dataLayer 中看到 conversion 命令。本文复盘 Array 与 Arguments 类型差异造成的故障、验证方法与最小修复。"
+summary: "一次看似等价的 JavaScript 改写，让 conversion 命令进入 dataLayer 却没有触发 Google Ads 请求。本文还原证据链、根因与最小修复。"
 date: 2026-07-30T19:12:47+08:00
+lastmod: 2026-07-30T19:47:10+08:00
 draft: false
+content_language: "zh-CN"
+locale: "zh_CN"
+keywords:
+  - Google Ads 转化跟踪
+  - dataLayer
+  - gtag Arguments
+  - Google Tag
 categories:
   - 网站工程
   - 数字营销

@@ -2,6 +2,6 @@
 title: "Archive"
 layout: "archives"
 url: "/archives/"
-description: "Every entry, grouped by year and month."
-summary: "Every entry, grouped by year and month."
+description: "Browse every Project Field Notes entry, organized by year and month."
+summary: "Browse every Project Field Notes entry, organized by year and month."
 ---

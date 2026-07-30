@@ -10,6 +10,10 @@
   <h1>{{ .Title }}</h1>
   {{- with .Description }}
   <div class="post-description">{{ . | markdownify }}</div>
+  {{- else }}
+    {{- if $.Data.Term }}
+  <div class="post-description">Anonymized technical postmortems and project lessons filed under {{ $.Title }}.</div>
+    {{- end }}
   {{- end }}
 </header>
 {{- end }}

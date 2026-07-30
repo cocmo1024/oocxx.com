@@ -1,7 +1,7 @@
 baseURL: "https://oocxx.com/"
 locale: "en-US"
 defaultContentLanguage: "en"
-title: "OOCXX"
+title: "Project Field Notes"
 theme: "PaperMod"
 publishDir: "dist"
 staticDir:
@@ -9,8 +9,6 @@ staticDir:
 enableRobotsTXT: true
 enableEmoji: true
 summaryLength: 28
-disableKinds:
-  - RSS
 
 taxonomies:
   tag: tags
@@ -39,6 +37,7 @@ outputs:
   home:
     - HTML
     - JSON
+    - RSS
 
 menu:
   main:
@@ -65,16 +64,20 @@ menu:
 
 params:
   env: production
-  title: "OOCXX"
-  description: "A quiet personal blog about writing, work, tools, and long-term thinking."
+  title: "Project Field Notes"
+  tagline: "Anonymized Technical Postmortems"
+  description: "An independent notebook of anonymized technical postmortems: what failed, how it was diagnosed, and what finally worked."
   mainSections:
     - posts
   keywords:
-    - personal blog
-    - writing
-    - tools
-    - essays
-  author: "OOCXX"
+    - technical postmortems
+    - debugging case studies
+    - web engineering
+    - digital measurement
+    - project lessons
+  author: "Project Field Notes"
+  images:
+    - "/social-card.png"
   DateFormat: "January 2, 2006"
   defaultTheme: auto
   disableThemeToggle: false
@@ -97,7 +100,7 @@ params:
   comments: false
   ads:
     enabled: true
-    show_placeholders: true
+    show_placeholders: false
     adsense_client: ""
     slots:
       home_feed: ""
@@ -113,10 +116,10 @@ params:
     apple_touch_icon: "/apple-touch-icon.png"
     safari_pinned_tab: "/favicon.svg"
   label:
-    text: "OOCXX"
+    text: "Project Field Notes"
   homeInfoParams:
-    Title: "Notes worth keeping."
-    Content: "Writing about work, tools, attention, and ideas that improve with time."
+    Title: "What broke. What fixed it."
+    Content: "**Project Field Notes** is an independent notebook of anonymized technical postmortems from real client and internal work. Names, credentials, and identifying details are removed; the failure mode, evidence, and reusable fix remain."
   editPost:
     disabled: true
   fuseOpts:

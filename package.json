@@ -1,6 +1,6 @@
 {
-	"name": "oocxx",
-	"description": "The source repository for oocxx.com.",
+	"name": "project-field-notes",
+	"description": "The source repository for Project Field Notes at oocxx.com.",
 	"cloudflare": {
 		"label": "Hugo PaperMod Blog",
 		"products": [
@@ -11,13 +11,18 @@
 	},
 	"devDependencies": {
 		"hugo-extended": "0.162.1",
-		"wrangler": "^4.97.0"
+		"wrangler": "4.115.0"
+	},
+	"overrides": {
+		"adm-zip": "0.6.0",
+		"tar": "7.5.22"
 	},
 	"private": true,
 	"scripts": {
 		"audit:content": "node ./scripts/content-quality-audit.mjs",
+		"audit:seo": "node ./scripts/seo-output-audit.mjs",
 		"build": "hugo --gc --minify --cleanDestinationDir --destination dist",
-		"check": "npm run audit:content && npm run build && wrangler deploy --dry-run",
+		"check": "npm run audit:content && npm run build && npm run audit:seo && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
 		"dev": "hugo server -D --bind 127.0.0.1 --port 1313 --baseURL http://127.0.0.1:1313/",
 		"new:post": "hugo new content",

@@ -1,22 +1,33 @@
 ---
 title: "About"
-description: "About OOCXX, a quiet personal blog."
+description: "How Project Field Notes turns real, anonymized project work into durable technical postmortems."
 url: "/about/"
-summary: "A quiet personal blog."
+summary: "The editorial method and privacy boundary behind Project Field Notes."
 ---
 
-OOCXX is a quiet personal blog.
+Project Field Notes is an independent record of problems encountered in real project work: what failed, what the evidence showed, and what ultimately fixed it.
 
-It is not trying to perform, sell, or shout. It is simply a stable place for thoughts that are worth keeping.
+The site is written from first-hand work. It is not a collection of rewritten documentation, generic advice, or second-hand success stories.
 
-## What Belongs Here
+## What Gets Removed
 
-Notes about writing, work, tools, attention, and the small decisions that shape a life over time.
+Client names, credentials, account identifiers, private correspondence, commercially sensitive figures, and any detail that could expose a person or organization without permission.
 
-## What Does Not
+Anonymization may change non-essential labels, dates, or examples. It does not change the technical sequence, the observed failure mode, or the conclusion.
 
-Trend-chasing, filler, and category noise. A post can be short, but it should be clear, honest, and worth revisiting.
+## What Remains
 
-## Why It Is Simple
+The useful part: symptoms, competing explanations, decisive evidence, the smallest verified fix, and the checks that proved the result.
 
-Because the most valuable part of a personal site is not decoration. It is the writing, the rhythm, and the fact that the page remains readable years later.
+Where a conclusion is an inference rather than a directly observed fact, the distinction is stated. Where verification stops, the article says so.
+
+## Editorial Standard
+
+Each post should answer four questions:
+
+1. What actually failed?
+2. Which evidence separated the root cause from the distractions?
+3. What was the smallest defensible fix?
+4. How was the result verified?
+
+The objective is not to make the work look effortless. It is to preserve the part of experience that can be reused.

@@ -1,12 +1,12 @@
-# OOCXX
+# Project Field Notes
 
-OOCXX is a minimal personal blog built with Hugo and the vendored PaperMod theme.
+Project Field Notes is an independent notebook of anonymized technical postmortems, built with Hugo and the vendored PaperMod theme.
 
 ## Scripts
 
 - `npm run dev` starts a local Hugo server.
 - `npm run build` builds the static site into `dist`.
-- `npm run check` runs the content audit, Hugo production build, and Wrangler dry run.
+- `npm run check` runs the content audit, production build, generated SEO/link audit, and Wrangler dry run.
 - `npm run deploy` deploys the built site to Cloudflare Workers.
 
 ## Content
@@ -25,6 +25,6 @@ Use `categories` for broad sections, `tags` for specific subjects, and `series` 
 
 ## Advertising
 
-Advertising slots are configured under `params.ads` in `hugo.yaml`. The site includes separate placements for the home feed, section feeds, taxonomy pages, Archive, and the top and bottom of posts. Add an AdSense client and slot IDs to serve live ads; placeholders keep every placement visible until then.
+Advertising slots are configured under `params.ads` in `hugo.yaml`. The site includes separate placements for the home feed, section feeds, taxonomy pages, Archive, and the top and bottom of posts. Add an AdSense client and slot IDs to serve live ads; placeholders remain hidden until then.
 
 The theme is vendored under `themes/PaperMod` so deployment does not depend on Git submodule initialization.

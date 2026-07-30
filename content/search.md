@@ -2,6 +2,9 @@
 title: "Search"
 layout: "search"
 url: "/search/"
-summary: "Search OOCXX."
+summary: "Search Project Field Notes."
 placeholder: "Search"
+robotsNoIndex: true
+sitemap:
+  disable: true
 ---
