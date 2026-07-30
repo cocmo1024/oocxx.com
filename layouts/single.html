@@ -45,7 +45,9 @@
 
   {{- partial "extend_post_content.html" . }}
   {{- partial "ad_slot.html" (dict "page" . "slot" "post_end" "format" "billboard") }}
+  {{- if eq .Section "posts" }}
   {{- partial "related_posts.html" . }}
+  {{- end }}
 
   <footer class="post-footer">
     {{- $tags := .GetTerms "tags" }}

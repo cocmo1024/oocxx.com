@@ -3,7 +3,7 @@ title: "dataLayer 类型错误导致 Google Ads 转化不发送"
 description: "Google Ads 转化长期为零，却能在 dataLayer 中看到 conversion 命令。本文复盘 Array 与 Arguments 类型差异造成的故障、验证方法与最小修复。"
 summary: "一次看似等价的 JavaScript 改写，让 conversion 命令进入 dataLayer 却没有触发 Google Ads 请求。本文还原证据链、根因与最小修复。"
 date: 2026-07-30T19:12:47+08:00
-lastmod: 2026-07-30T19:47:10+08:00
+lastmod: 2026-07-30T20:34:05+08:00
 draft: false
 content_language: "zh-CN"
 locale: "zh_CN"
@@ -40,6 +40,8 @@ series:
 更麻烦的是，Tag Assistant 可以看到 `rfq_form_submit_success` 和 `generate_lead` 等事件，`dataLayer` 中也能找到 conversion 命令。这很容易让人误以为网站端已经正确发送，只是 Google Ads 后台更新延迟。
 
 事实并非如此。
+
+本文聚焦 Google tag 命令类型这一根因；关于表单安全、图纸附件、邮件接收和广告归因如何组成完整生产链路，见[工业 B2B 询盘表单、图纸附件与 Google Ads 归因](../industrial-b2b-rfq-form-attachments-google-ads-attribution/)。
 
 ## 故障现象
 
