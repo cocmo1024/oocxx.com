@@ -2,6 +2,16 @@
 	"name": "oocxx-com",
 	"compatibility_date": "2025-10-08",
 	"main": "./worker.js",
+	"routes": [
+		{
+			"pattern": "oocxx.com",
+			"custom_domain": true
+		},
+		{
+			"pattern": "www.oocxx.com",
+			"custom_domain": true
+		}
+	],
 	"assets": {
 		"directory": "./dist",
 		"binding": "ASSETS",
