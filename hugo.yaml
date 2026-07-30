@@ -119,7 +119,10 @@ params:
     text: "Project Field Notes"
   homeInfoParams:
     Title: "What broke. What fixed it."
-    Content: "**Project Field Notes** is an independent notebook of anonymized technical postmortems from real client and internal work. Names, credentials, and identifying details are removed; the failure mode, evidence, and reusable fix remain."
+    Content: |
+      **Project Field Notes** is an independent notebook of anonymized technical postmortems from real client and internal work. Names, credentials, and identifying details are removed; the failure mode, evidence, and reusable fix remain.
+
+      It is also a quiet thank-you to this extraordinary age of AI—an age that lets one person investigate more deeply, build more boldly, and preserve hard-won knowledge with unprecedented clarity. The tools are new; the obligation to think, verify, and take responsibility remains.
   editPost:
     disabled: true
   fuseOpts:
