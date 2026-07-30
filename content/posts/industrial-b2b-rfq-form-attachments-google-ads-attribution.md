@@ -7,8 +7,6 @@ lastmod: 2026-07-30T20:34:05+08:00
 draft: false
 content_language: "zh-CN"
 locale: "zh_CN"
-images: ["/social/industrial-b2b-rfq-form-attachments-google-ads-attribution-v1.png"]
-social_image_alt: "Project Field Notes 分享卡：工业 B2B 询盘表单、图纸附件与 Google Ads 归因"
 keywords:
   - 工业 B2B 询盘系统
   - RFQ 在线表单

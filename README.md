@@ -23,6 +23,16 @@ Add a short description, write the post, then set `draft: false` when it is read
 
 Use `categories` for broad sections, `tags` for specific subjects, and `series` for posts that should be read together. Related writing prioritizes series, then categories and tags.
 
+## Social sharing
+
+Sharing follows one site-wide rule:
+
+- A post with `cover.image` or `images` in its front matter uses that image.
+- A post without an image falls back to the shared image configured in `params.images`.
+- Do not generate article-specific social cards solely for sharing.
+
+Use `social_image_alt` only when an article image needs a more specific accessible description.
+
 ## Advertising
 
 Advertising slots are configured under `params.ads` in `hugo.yaml`. The site includes separate placements for the home feed, section feeds, taxonomy pages, Archive, and the top and bottom of posts. Add an AdSense client and slot IDs to serve live ads; placeholders remain hidden until then.

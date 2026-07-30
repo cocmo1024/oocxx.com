@@ -7,8 +7,6 @@ lastmod: 2026-07-30T20:34:05+08:00
 draft: false
 content_language: "zh-CN"
 locale: "zh_CN"
-images: ["/social/google-ads-datalayer-conversion-not-sent-v1.png"]
-social_image_alt: "Project Field Notes 分享卡：dataLayer 类型错误导致 Google Ads 转化不发送"
 keywords:
   - Google Ads 转化跟踪
   - dataLayer

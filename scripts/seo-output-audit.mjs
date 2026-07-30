@@ -155,7 +155,6 @@ for (const file of htmlFiles) {
 			["og:description", "Open Graph description"],
 			["og:url", "Open Graph URL"],
 			["og:image", "Open Graph image"],
-			["og:image:secure_url", "Open Graph secure image URL"],
 			["og:image:alt", "Open Graph image alt text"],
 		]) {
 			if (!firstMeta(html, "property", property)?.attributes.content) {
@@ -176,23 +175,9 @@ for (const file of htmlFiles) {
 		}
 
 		const ogImage = firstMeta(html, "property", "og:image")?.attributes.content ?? "";
-		const ogImageWidth = firstMeta(html, "property", "og:image:width")?.attributes.content ?? "";
-		const ogImageHeight = firstMeta(html, "property", "og:image:height")?.attributes.content ?? "";
-		const ogImageType = firstMeta(html, "property", "og:image:type")?.attributes.content ?? "";
 
-		if (ogImageWidth !== "1200" || ogImageHeight !== "630") {
-			blockers.push(`${url}: social image dimensions must be declared as 1200x630`);
-		}
-		if (ogImageType !== "image/png") blockers.push(`${url}: social image type must be image/png`);
 		if (ogImage.startsWith(`${siteOrigin}/`) && !fs.existsSync(fileForURL(ogImage))) {
 			blockers.push(`${url}: Open Graph image does not exist (${ogImage})`);
-		}
-		if (
-			url.includes("/posts/") &&
-			url !== `${siteOrigin}/posts/` &&
-			ogImage === `${siteOrigin}/social/project-field-notes-v2.png`
-		) {
-			blockers.push(`${url}: article uses the generic site social image`);
 		}
 
 		if (url === `${siteOrigin}/` && !types.has("WebSite")) {
