@@ -77,7 +77,7 @@ params:
     - project lessons
   author: "Project Field Notes"
   images:
-    - "/social-card.png"
+    - "/social/project-field-notes-v2.png"
   DateFormat: "January 2, 2006"
   defaultTheme: auto
   disableThemeToggle: false
